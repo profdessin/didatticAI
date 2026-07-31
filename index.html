@@ -12,6 +12,7 @@
     --color-primary: #0E3A52;   /* Blu Petrolio Scuro: Navbar, fascia Header, H1 e H2 */
     --color-accent: #19B5E8;    /* Ciano / Blu AI: pulsanti d'azione, link, hover, dettagli d'enfasi */
     --color-secondary: #126A8A; /* Blu Intermedio: sottotitoli, bordi di separazione tra sezioni */
+    --color-header: #BEE6F5;    /* Celeste intermedio: sfondo Navbar e sezione Hero */
     --color-bg: #E9F4FA;        /* Sfondo pagina celeste molto chiaro */
     --color-surface: #F4FAFD;   /* Sfondo dei contenitori/box interni, leggermente più chiaro */
     --color-text: #1E293B;      /* Grigio scuro/blu per testi e paragrafi */
@@ -56,13 +57,13 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--color-primary);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--color-header);
+    border-bottom: 1px solid var(--color-border);
     transition: box-shadow 0.3s ease;
   }
 
   .navbar.scrolled {
-    box-shadow: 0 4px 20px rgba(14, 58, 82, 0.25);
+    box-shadow: 0 4px 20px rgba(14, 58, 82, 0.12);
   }
 
   .nav-inner {
@@ -90,7 +91,7 @@
   .nav-links a {
     font-size: 0.95rem;
     font-weight: 500;
-    color: #E8F3F8;
+    color: var(--color-primary);
     position: relative;
     padding: 4px 0;
     transition: color 0.25s ease;
@@ -123,7 +124,7 @@
   .nav-toggle span {
     width: 26px;
     height: 2.5px;
-    background: #E8F3F8;
+    background: var(--color-primary);
     border-radius: 2px;
     transition: all 0.3s ease;
   }
@@ -135,27 +136,26 @@
   /* ---------- HERO / HEADER ---------- */
   .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 58vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: var(--color-primary);
-    padding: 150px 24px 90px;
+    background: var(--color-header);
+    padding: 130px 24px 60px;
   }
 
-  /* Filigrana del logo come sfondo dell'hero */
+  /* Filigrana del logo, dimensionata in proporzione alla sezione */
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url("images/logo.png");
+    background-image: url("image/logo.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: min(70%, 620px);
-    opacity: 0.16;
-    mix-blend-mode: screen;
+    background-size: 55%;
+    opacity: 0.14;
   }
 
   .hero-content {
@@ -177,7 +177,7 @@
     font-style: italic;
     font-weight: 500;
     font-size: clamp(1.3rem, 3vw, 1.9rem);
-    color: var(--color-accent);
+    color: var(--color-secondary);
     margin-bottom: 40px;
     letter-spacing: 0.2px;
   }
@@ -188,9 +188,9 @@
     gap: 8px;
     padding: 8px 22px;
     border-radius: 50px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(25, 181, 232, 0.4);
-    color: #E8F3F8;
+    background: rgba(14, 58, 82, 0.06);
+    border: 1px solid rgba(18, 106, 138, 0.35);
+    color: var(--color-primary);
     font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: 0.6px;
@@ -207,7 +207,7 @@
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--color-primary);
     line-height: 1.1;
     margin-bottom: 18px;
     letter-spacing: -0.5px;
@@ -220,7 +220,8 @@
 
   .hero p.description {
     font-size: 1.05rem;
-    color: #C9DCE6;
+    color: var(--color-text);
+    opacity: 0.85;
     max-width: 600px;
     margin: 0 auto 42px;
   }
@@ -406,7 +407,7 @@
       width: 70%;
       max-width: 320px;
       height: 100vh;
-      background: var(--color-primary);
+      background: var(--color-header);
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -417,7 +418,7 @@
     .nav-links.active { right: 0; }
     .nav-toggle { display: flex; }
 
-    .hero { padding: 120px 20px 80px; }
+    .hero { padding: 110px 20px 60px; min-height: auto; }
     .section, .lesson-section { padding: 65px 0; }
 
   }
@@ -432,7 +433,7 @@
   <header class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="#top" class="nav-brand">
-        <img src="images/logo.png" alt="DidatticAI">
+        <img src="image/logo.png" alt="DidatticAI">
       </a>
       <nav>
         <ul class="nav-links" id="navLinks">
@@ -451,7 +452,7 @@
 
   <section class="hero" id="home" id="top">
     <div class="hero-content">
-      <img src="images/logo.png" alt="DidatticAI - Il sapere antico diventa futuro" class="hero-logo">
+      <img src="image/logo.png" alt="DidatticAI - Il sapere antico diventa futuro" class="hero-logo">
       <p class="hero-motto">"Il sapere antico diventa futuro"</p>
       <span class="hero-badge"><span class="dot"></span> Umanesimo &amp; Intelligenza Artificiale</span>
       <h1>Didattic<em>AI</em></h1>

@@ -155,7 +155,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.08;
+    opacity: 0.22;
+    filter: invert(1) brightness(1.15);
   }
 
   .hero-content {
@@ -167,8 +168,8 @@
   }
 
   .hero-logo {
-    max-width: 420px;
-    width: 88%;
+    max-width: 580px;
+    width: 96%;
     margin: 0 auto 28px;
   }
 
@@ -180,20 +181,6 @@
     color: var(--color-secondary);
     margin-bottom: 40px;
     letter-spacing: 0.2px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    color: var(--color-primary);
-    line-height: 1.1;
-    margin-bottom: 18px;
-    letter-spacing: -0.5px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--color-accent);
   }
 
   .hero p.description {
@@ -431,8 +418,7 @@
   <section class="hero" id="home" id="top">
     <div class="hero-content">
       <img src="image/logo.png" alt="DidatticAI - Il sapere antico diventa futuro" class="hero-logo">
-      <p class="hero-motto">"Il sapere antico diventa futuro"</p>
-      <h1>Didattic<em>AI</em></h1>
+      <h1 class="hero-motto">"Il sapere antico diventa futuro"</h1>
       <p class="description">
         Un percorso didattico che unisce la sapienza delle discipline umanistiche con
         gli strumenti dell'intelligenza artificiale, per imparare a leggere, scrivere

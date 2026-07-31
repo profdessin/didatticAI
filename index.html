@@ -151,11 +151,11 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url("image/logo.png");
+    background-image: url("image/logo-sfondo.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 55%;
-    opacity: 0.14;
+    background-size: contain;
+    opacity: 0.08;
   }
 
   .hero-content {
@@ -167,8 +167,8 @@
   }
 
   .hero-logo {
-    max-width: 300px;
-    width: 70%;
+    max-width: 420px;
+    width: 88%;
     margin: 0 auto 28px;
   }
 
@@ -180,28 +180,6 @@
     color: var(--color-secondary);
     margin-bottom: 40px;
     letter-spacing: 0.2px;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 22px;
-    border-radius: 50px;
-    background: rgba(14, 58, 82, 0.06);
-    border: 1px solid rgba(18, 106, 138, 0.35);
-    color: var(--color-primary);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.6px;
-    margin-bottom: 26px;
-  }
-
-  .hero-badge .dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-accent);
   }
 
   .hero h1 {
@@ -454,7 +432,6 @@
     <div class="hero-content">
       <img src="image/logo.png" alt="DidatticAI - Il sapere antico diventa futuro" class="hero-logo">
       <p class="hero-motto">"Il sapere antico diventa futuro"</p>
-      <span class="hero-badge"><span class="dot"></span> Umanesimo &amp; Intelligenza Artificiale</span>
       <h1>Didattic<em>AI</em></h1>
       <p class="description">
         Un percorso didattico che unisce la sapienza delle discipline umanistiche con

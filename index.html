@@ -218,118 +218,111 @@
 
   .section-header p { color: var(--color-text); font-size: 1.05rem; opacity: 0.85; }
 
-  /* ---------- LEZIONI: sezioni distinte alternate ---------- */
-  #lezioni-intro { background: var(--color-bg); }
-
-  .lesson-section {
-    padding: 90px 0;
-    position: relative;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .lesson-section.bg-a { background: var(--color-bg); }
-  .lesson-section.bg-b { background: var(--color-surface); }
-  .lesson-section.bg-c { background: var(--color-bg); }
-
-  .lesson-row {
+  /* ---------- LEZIONI: griglia di blocchi espandibili ---------- */
+  .lessons-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    max-width: 780px;
+    margin: 0 auto;
+    align-items: start;
   }
 
-  .lesson-section.reverse .lesson-row {
-    direction: rtl;
-  }
-  .lesson-section.reverse .lesson-row > * {
-    direction: ltr;
-  }
-
-  .lesson-visual {
+  .lesson-tile {
+    display: block;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--radius);
-    background: var(--color-primary);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    padding: 30px 26px;
+    overflow: hidden;
+    max-height: 220px;
+    transition: max-height 0.45s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
-  .lesson-section.bg-a .lesson-visual { background: var(--color-primary); }
-  .lesson-section.bg-b .lesson-visual { background: var(--color-secondary); }
-  .lesson-section.bg-c .lesson-visual { background: var(--color-primary); }
-
-  .lesson-visual .icon-big {
-    font-size: 5rem;
-    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.2));
+  .lesson-tile:hover,
+  .lesson-tile:focus-visible {
+    max-height: 640px;
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-accent);
   }
 
-  .lesson-visual .frame-number {
-    position: absolute;
-    top: 20px;
-    left: 24px;
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--color-accent);
-    letter-spacing: 1px;
+  .tile-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .lesson-text .lesson-number-tag {
-    display: inline-block;
-    font-size: 0.78rem;
+  .tile-icon {
+    font-size: 2.1rem;
+    line-height: 1;
+  }
+
+  .tile-number {
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: 16px;
   }
 
-  .lesson-text h3 {
-    font-size: clamp(1.6rem, 3.5vw, 2.15rem);
+  .lesson-tile h3 {
+    font-size: 1.28rem;
     font-weight: 600;
-    margin-bottom: 18px;
-    line-height: 1.25;
+    line-height: 1.28;
+    margin-top: 2px;
   }
 
-  .lesson-text p {
+  .tile-details {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border);
+    opacity: 0;
+    transition: opacity 0.35s ease 0.05s;
+  }
+
+  .lesson-tile:hover .tile-details,
+  .lesson-tile:focus-visible .tile-details {
+    opacity: 1;
+  }
+
+  .tile-details p {
     color: var(--color-text);
     opacity: 0.9;
-    font-size: 1.02rem;
-    margin-bottom: 24px;
+    font-size: 0.96rem;
+    margin-bottom: 18px;
   }
 
   .lesson-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 26px;
+    gap: 8px;
+    margin-bottom: 20px;
   }
 
   .lesson-tags span {
-    background: var(--color-surface);
+    background: var(--color-bg);
     border: 1px solid var(--color-border);
     color: var(--color-secondary);
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 50px;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 500;
   }
 
   .card-link {
     font-weight: 600;
     color: var(--color-accent);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: gap 0.25s ease;
   }
 
-  .card-link:hover { gap: 12px; color: var(--color-secondary); }
+  .lesson-tile:hover .card-link { gap: 12px; }
 
   /* ---------- FOOTER ---------- */
   footer {
@@ -353,15 +346,10 @@
   }
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 900px) {
-    .lesson-row {
+  @media (max-width: 640px) {
+    .lessons-grid {
       grid-template-columns: 1fr;
-      gap: 36px;
     }
-    .lesson-section.reverse .lesson-row {
-      direction: ltr;
-    }
-    .lesson-visual { aspect-ratio: 16 / 9; }
   }
 
   @media (max-width: 768px) {
@@ -384,7 +372,7 @@
     .nav-toggle { display: flex; }
 
     .hero { padding: 110px 20px 60px; min-height: auto; }
-    .section, .lesson-section { padding: 65px 0; }
+    .section { padding: 65px 0; }
 
   }
 
@@ -403,7 +391,7 @@
       <nav>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home" class="nav-link-item">Home</a></li>
-          <li><a href="#lezioni-intro" class="nav-link-item">Lezioni</a></li>
+          <li><a href="#lezioni" class="nav-link-item">Lezioni</a></li>
           <li><a href="#footer-info" class="nav-link-item">Info</a></li>
         </ul>
       </nav>
@@ -426,97 +414,170 @@
     </div>
   </section>
 
-  <div id="lezioni-intro" class="section" style="padding-bottom: 0;">
+  <div id="lezioni" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Percorso Didattico</span>
         <h2>Le Lezioni</h2>
-        <p>Tre tappe per esplorare il dialogo tra intelligenza umana e artificiale.</p>
+        <p>Sette tappe per esplorare il dialogo tra intelligenza umana e artificiale. Passa il mouse su un blocco per scoprirne il contenuto.</p>
+      </div>
+
+      <div class="lessons-grid">
+
+        <a href="prompting.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">✒️</span>
+            <span class="tile-number">Lezione 01</span>
+            <h3>L'arte del Prompting</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Comunicare con l'intelligenza artificiale è una forma di scrittura a
+              sé: richiede chiarezza, precisione e capacità argomentativa. In questa
+              lezione impari a costruire domande e istruzioni ben strutturate, per
+              ottenere risposte davvero utili e trasformare il dialogo con l'IA in
+              un vero esercizio di pensiero critico.
+            </p>
+            <div class="lesson-tags">
+              <span>Scrittura</span>
+              <span>Comunicazione</span>
+              <span>Pensiero critico</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
+        <a href="chatbot.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">💬</span>
+            <span class="tile-number">Lezione 02</span>
+            <h3>I principali Chatbot</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Un viaggio tra i principali chatbot basati sull'intelligenza
+              artificiale: come funzionano, cosa li distingue e come scegliere lo
+              strumento più adatto alle esigenze didattiche di ogni giorno.
+            </p>
+            <div class="lesson-tags">
+              <span>Strumenti</span>
+              <span>Confronto</span>
+              <span>Didattica</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
+        <a href="immagini.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">🎨</span>
+            <span class="tile-number">Lezione 03</span>
+            <h3>Creazione di Immagini e Mappe Concettuali</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Le idee prendono forma quando diventano immagini. Scopri come generare
+              illustrazioni evocative e mappe concettuali con l'aiuto dell'IA, per
+              trasformare concetti astratti in rappresentazioni visive chiare,
+              memorabili ed efficaci per lo studio quotidiano.
+            </p>
+            <div class="lesson-tags">
+              <span>Visualizzazione</span>
+              <span>Creatività</span>
+              <span>Sintesi</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
+        <a href="napkin.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">📝</span>
+            <span class="tile-number">Lezione 04</span>
+            <h3>Napkin: dal testo al visual</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Napkin trasforma testi e appunti in schemi visivi accattivanti in
+              pochi secondi. Impara a usarlo per rendere più chiare ed efficaci le
+              tue lezioni e i materiali di studio.
+            </p>
+            <div class="lesson-tags">
+              <span>Schemi visivi</span>
+              <span>Sintesi</span>
+              <span>Produttività</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
+        <a href="notebook.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">📚</span>
+            <span class="tile-number">Lezione 05</span>
+            <h3>NotebookLM per lo Studio</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Uno strumento pensato per chi studia sul serio. Con NotebookLM impari
+              ad analizzare testi complessi, organizzare fonti e appunti, e costruire
+              un metodo di studio più profondo, consapevole e su misura per le tue
+              esigenze di apprendimento.
+            </p>
+            <div class="lesson-tags">
+              <span>Analisi testuale</span>
+              <span>Metodo di studio</span>
+              <span>Organizzazione</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
+        <a href="suno.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">🎵</span>
+            <span class="tile-number">Lezione 06</span>
+            <h3>Suno: la musica generata dall'IA</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Suno permette di generare brani musicali originali a partire da un
+              semplice testo. Scopri come utilizzarlo per creare colonne sonore,
+              jingle didattici e contenuti multimediali coinvolgenti.
+            </p>
+            <div class="lesson-tags">
+              <span>Musica</span>
+              <span>Creatività</span>
+              <span>Multimedia</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
+        <a href="siti.html" class="lesson-tile">
+          <div class="tile-head">
+            <span class="tile-icon">🌐</span>
+            <span class="tile-number">Lezione 07</span>
+            <h3>Creazione di Siti Web con l'IA</h3>
+          </div>
+          <div class="tile-details">
+            <p>
+              Dall'idea al sito online: scopri come l'intelligenza artificiale può
+              aiutarti a progettare e realizzare pagine web semplici ed efficaci,
+              anche senza competenze di programmazione.
+            </p>
+            <div class="lesson-tags">
+              <span>Web design</span>
+              <span>Strumenti</span>
+              <span>Autonomia digitale</span>
+            </div>
+            <span class="card-link">Approfondisci →</span>
+          </div>
+        </a>
+
       </div>
     </div>
   </div>
-
-  <section class="lesson-section bg-a" id="lezione-1">
-    <div class="container">
-      <div class="lesson-row">
-        <div class="lesson-visual">
-          <span class="frame-number">01</span>
-          <span class="icon-big">✒️</span>
-        </div>
-        <div class="lesson-text">
-          <span class="lesson-number-tag">Lezione 01</span>
-          <h3>L'arte del Prompting</h3>
-          <p>
-            Comunicare con l'intelligenza artificiale è una forma di scrittura a
-            sé: richiede chiarezza, precisione e capacità argomentativa. In questa
-            lezione impari a costruire domande e istruzioni ben strutturate, per
-            ottenere risposte davvero utili e trasformare il dialogo con l'IA in
-            un vero esercizio di pensiero critico.
-          </p>
-          <div class="lesson-tags">
-            <span>Scrittura</span>
-            <span>Comunicazione</span>
-            <span>Pensiero critico</span>
-          </div>
-          <a href="#" class="card-link">Approfondisci →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="lesson-section bg-b reverse" id="lezione-2">
-    <div class="container">
-      <div class="lesson-row">
-        <div class="lesson-visual">
-          <span class="frame-number">02</span>
-          <span class="icon-big">🎨</span>
-        </div>
-        <div class="lesson-text">
-          <span class="lesson-number-tag">Lezione 02</span>
-          <h3>Creazione di Immagini e Mappe Concettuali</h3>
-          <p>
-            Le idee prendono forma quando diventano immagini. Scopri come generare
-            illustrazioni evocative e mappe concettuali con l'aiuto dell'IA, per
-            trasformare concetti astratti in rappresentazioni visive chiare,
-            memorabili ed efficaci per lo studio quotidiano.
-          </p>
-          <div class="lesson-tags">
-            <span>Visualizzazione</span>
-            <span>Creatività</span>
-            <span>Sintesi</span>
-          </div>
-          <a href="#" class="card-link">Approfondisci →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="lesson-section bg-c" id="lezione-3">
-    <div class="container">
-      <div class="lesson-row">
-        <div class="lesson-visual">
-          <span class="frame-number">03</span>
-          <span class="icon-big">📚</span>
-        </div>
-        <div class="lesson-text">
-          <span class="lesson-number-tag">Lezione 03</span>
-          <h3>NotebookLM per lo Studio</h3>
-          <p>
-            Uno strumento pensato per chi studia sul serio. Con NotebookLM impari
-            ad analizzare testi complessi, organizzare fonti e appunti, e costruire
-            un metodo di studio più profondo, consapevole e su misura per le tue
-            esigenze di apprendimento.
-          </p>
-          <div class="lesson-tags">
-            <span>Analisi testuale</span>
-            <span>Metodo di studio</span>
-            <span>Organizzazione</span>
-          </div>
-          <a href="#" class="card-link">Approfondisci →</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer id="footer-info">
     <p><span class="footer-logo">LitterAI</span> - progetto creato dal prof. Daniele Virgili - 2026</p>

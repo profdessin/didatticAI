@@ -1,1 +1,606 @@
 
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I principali Chatbot — LitterAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #0E3A52;   /* Blu Petrolio Scuro: Navbar, Footer, Intestazioni */
+    --color-accent: #19B5E8;    /* Ciano / Blu AI: Dettagli, Link, Pulsanti */
+    --color-secondary: #126A8A; /* Blu Intermedio: Sottotitoli */
+    --color-header: #BEE6F5;    /* Celeste intermedio */
+    --color-bg: #E9F4FA;        /* Sfondo pagina */
+    --color-surface: #F4FAFD;   /* Sfondo dei contenitori */
+    --color-text: #1E293B;      /* Grigio scuro/blu per testi */
+    --color-border: #E2E8F0;    /* Grigio leggero per linee */
+    --radius: 14px;
+    --shadow-soft: 0 8px 24px rgba(14, 58, 82, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, .logo-text { 
+    font-family: 'Fraunces', serif; 
+    color: var(--color-primary); 
+  }
+  
+  a { text-decoration: none; color: inherit; }
+  ul, ol { margin-bottom: 20px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  .container { 
+    max-width: 960px; 
+    margin: 0 auto; 
+    padding: 0 24px; 
+  }
+
+  /* ---------- NAVBAR (Stesso colore del footer) ---------- */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--color-primary);
+    border-bottom: 1px solid var(--color-secondary);
+    transition: box-shadow 0.3s ease;
+  }
+  .navbar.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+  
+  .nav-inner { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 12px 24px; 
+    max-width: 1150px; 
+    margin: 0 auto; 
+  }
+  
+  .nav-brand img { 
+    height: 40px; 
+    width: auto; 
+    display: block; 
+    filter: brightness(0) invert(1); 
+  }
+  
+  .nav-links { display: flex; gap: 2.2rem; }
+  .nav-links a { 
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    color: #E8F3F8; 
+    position: relative; 
+    padding: 4px 0; 
+    transition: color 0.25s ease; 
+  }
+  .nav-links a::after { 
+    content: ""; 
+    position: absolute; 
+    bottom: -2px; 
+    left: 0; 
+    width: 0; 
+    height: 2px; 
+    background: var(--color-accent); 
+    transition: width 0.3s ease; 
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-links a:hover::after { width: 100%; }
+  
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 1001; }
+  .nav-toggle span { width: 26px; height: 2.5px; background: #E8F3F8; border-radius: 2px; transition: all 0.3s ease; }
+
+  /* ---------- PAGE HEADER ---------- */
+  .page-header { 
+    padding: 140px 24px 60px; 
+    background: var(--color-header); 
+    text-align: center; 
+    border-bottom: 1px solid var(--color-border); 
+  }
+  .page-header h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 12px; }
+  .page-header p { font-size: 1.15rem; color: var(--color-secondary); font-weight: 500; max-width: 700px; margin: 0 auto; }
+  
+  /* ---------- STILI SEZIONI DIDATTICHE ---------- */
+  .main-wrapper { padding: 60px 0; }
+  
+  .section-block {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 45px;
+    margin-bottom: 50px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+  }
+
+  .section-tag-header {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+  }
+
+  .section-tag-header.summary {
+    background: var(--color-secondary);
+  }
+
+  h2.section-title {
+    font-size: 2.1rem;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-bg);
+  }
+
+  .bot-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+  }
+
+  .bot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+  }
+
+  .bot-title {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+  }
+
+  .bot-badge {
+    background: var(--color-bg);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .pro-contra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .pro-box {
+    background: #F0FFF4;
+    border: 1px solid #9AE6B4;
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .pro-box h5 { color: #276749; font-size: 1rem; margin-bottom: 10px; font-weight: 700; }
+  .pro-box ul { margin-bottom: 0; padding-left: 18px; }
+  .pro-box li { font-size: 0.93rem; }
+
+  .contra-box {
+    background: #FFF5F5;
+    border: 1px solid #FEB2B2;
+    border-radius: 10px;
+    padding: 18px;
+  }
+  .contra-box h5 { color: #C53030; font-size: 1rem; margin-bottom: 10px; font-weight: 700; }
+  .contra-box ul { margin-bottom: 0; padding-left: 18px; }
+  .contra-box li { font-size: 0.93rem; }
+
+  /* ---------- TABELLA RIEPILOGATIVA ---------- */
+  .table-responsive {
+    overflow-x: auto;
+    margin-top: 25px;
+  }
+
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.94rem;
+    text-align: left;
+  }
+
+  .summary-table th {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 14px 16px;
+    font-weight: 600;
+  }
+
+  .summary-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .summary-table tr:nth-child(even) {
+    background-color: var(--color-surface);
+  }
+
+  /* ---------- PULSANTI FINALI DI NAVIGAZIONE ---------- */
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+  .btn-secondary:hover {
+    background: var(--color-bg);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: #ffffff;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 14px rgba(14, 58, 82, 0.2);
+  }
+  .btn-primary:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer { 
+    background: var(--color-primary); 
+    color: #E8F3F8; 
+    text-align: center; 
+    padding: 34px 24px; 
+    border-top: 1px solid var(--color-secondary); 
+  }
+  footer p { font-size: 0.92rem; color: #BFE3F0; letter-spacing: 0.3px; }
+  footer .footer-logo { font-family: 'Fraunces', serif; font-weight: 700; color: var(--color-accent); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .nav-links { 
+      position: fixed; top: 0; right: -100%; width: 70%; max-width: 320px; height: 100vh; 
+      background: var(--color-primary); 
+      flex-direction: column; justify-content: center; align-items: center; gap: 2.2rem; 
+      transition: right 0.4s ease; box-shadow: -8px 0 30px rgba(0,0,0,0.25); 
+    }
+    .nav-links.active { right: 0; }
+    .nav-toggle { display: flex; }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    
+    .section-block { padding: 25px; }
+    .pro-contra-grid { grid-template-columns: 1fr; }
+    .navigation-buttons { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="image/logo.png" alt="LitterAI">
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#home" class="nav-link-item">Home</a></li>
+          <li><a href="index.html#lezioni" class="nav-link-item">Lezioni</a></li>
+          <li><a href="#footer-info" class="nav-link-item">Info</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>I principali Chatbot</h1>
+      <p>Un'analisi comparativa dei modelli di intelligenza artificiale per l'insegnamento di Italiano e Latino.</p>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="container">
+
+      <!-- ==================== PARTE 1: ANALISI DEI CHATBOT ==================== -->
+      <section class="section-block">
+        <span class="section-tag-header">Parte 1 — Panoramica e Analisi</span>
+        <h2 class="section-title">I Modelli Generativi per le Materie Umanistiche</h2>
+        <p>Non tutti i chatbot rispondono allo stesso modo quando lavoriamo su un'analisi del testo, su una versione di Latino o sulla ristrutturazione inclusiva di una lezione. Di seguito analizziamo i principali modelli disponibili sul mercato, evidenziandone caratteristiche, punti di forza e limiti nell'uso didattico quotidiano.</p>
+
+        <!-- CHATGPT -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <h3 class="bot-title">ChatGPT (OpenAI)</h3>
+            <span class="bot-badge">Versatile & Bilanciato</span>
+          </div>
+          <p>Lo strumento più diffuso ed eclettico. Eccellente nella generazione strutturata di materiale didattico, griglie di valutazione e rielaborazione di tracce ministeriali. La versione Plus offre l'accesso a GPT-4o e la possibilità di creare GPT personalizzati per la classe.</p>
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Ottimo rispetto delle istruzioni complesse (R-C-I-F).</li>
+                <li>Eccellente nella creazione di rubriche di valutazione e tabelle.</li>
+                <li>Possibilità di creare assistenti personalizzati (Custom GPTs).</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>La versione gratuita presenta limiti di memoria sulle chat lunghe.</li>
+                <li>Qualche incertezza sulla prosodia poetica e sulla metrica latina.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- GEMINI -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <h3 class="bot-title">Gemini (Google)</h3>
+            <span class="bot-badge">Integrazione & Multimodalità</span>
+          </div>
+          <p>Integrazione nativa nell'ecosistema Google (Workspace, Documenti, Drive). Dispone di una finestra di contesto estremamente ampia che permette di analizzare interi libri, dispense di letteratura o lunghe raccolte di testi scolastici in un unico prompt.</p>
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Integrazione immediata con Google Documenti e Drive.</li>
+                <li>Finestra di contesto enorme: analizza testi lunghissimi o libri interi.</li>
+                <li>Risultati molto aggiornati ed eccellente ricerca di fonti in rete.</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>Tende ad essere eccessivamente conciso o riassuntivo se non forzato.</li>
+                <li>Meno rigido nel seguire formattazioni tabellari rigide.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLAUDE -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <h3 class="bot-title">Claude (Anthropic)</h3>
+            <span class="bot-badge">Eccellenza Stilistica & Analisi</span>
+          </div>
+          <p>Considerato da molti il modello più raffinato dal punto di vista della scrittura e dello stile prose. Claude eccelle nell'analisi del testo, nella parafrasi profonda e nella traduzione dal Latino, fornendo risposte eleganti e sfumature critiche naturali.</p>
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Qualità della scrittura in italiano superiore e naturale.</li>
+                <li>Eccezionale nell'analisi critica e nella comprensione del testo.</li>
+                <li>Traduzioni e analisi sintattiche dal Latino più precise e coerenti.</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>Limiti di utilizzo nella versione gratuita piuttosto stringenti.</li>
+                <li>Non ha accesso diretto alla ricerca web in tempo reale nella versione base.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- COPILOT -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <h3 class="bot-title">Copilot (Microsoft)</h3>
+            <span class="bot-badge">Integrazione Office & Web</span>
+          </div>
+          <p>Basato sulla tecnologia OpenAI ma integrato nativamente nell'ambiente Microsoft (Word, PowerPoint). Offre una connessione diretta al motore di ricerca Bing con citazione puntuale delle fonti online, utile per le ricerche bibliografiche veloci.</p>
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Integrato perfettamente nell'ecosistema Microsoft Office.</li>
+                <li>Citazione accurata delle fonti e dei link sul web.</li>
+                <li>Modalità di risposta selezionabili (Creativo, Bilanciato, Preciso).</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>Risposte talvolta frammentate o condizionate dai risultati di ricerca.</li>
+                <li>Interfaccia meno pulita per l'elaborazione di lunghi testi didattici.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROK -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <h3 class="bot-title">Grok (xAI)</h3>
+            <span class="bot-badge">Attualità & Tono Diretto</span>
+          </div>
+          <p>Modello sviluppato per accedere in tempo reale ai dati di X (Twitter). Risulta interessante per l'analisi del dibattito pubblico contemporaneo, della comunicazione politica o per la costruzione di percorsi di educazione civica e analisi del discorso.</p>
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Accesso istantaneo alle tendenze di attualità e dibattito pubblico.</li>
+                <li>Capacità di generare testi con prospettive e stili unconventional.</li>
+                <li>Ottimo per spunti di educazione civica e attualità letteraria.</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>Tono di default meno accademico e bisognoso di forte calibrazione.</li>
+                <li>Meno orientato alla didattica classica e all'analisi filologica.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- KIMI K3 -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <h3 class="bot-title">Kimi k3 (Moonshot AI)</h3>
+            <span class="bot-badge">Ragionamento Lungo & Documenti</span>
+          </div>
+          <p>Modello emergente specializzato nel ragionamento avanzato a catena di pensiero (Chain-of-Thought) e nell'elaborazione di volumi di dati imponenti. Ideale per la lavorazione di archivi di documenti scolastici, saggi critici ed estratti plurilingue.</p>
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Formidabile gestione di PDF e documenti di grandi dimensioni.</li>
+                <li>Capacità di ragionamento passo-passo molto strutturata.</li>
+                <li>Gratuito con ottime prestazioni di elaborazione testuale.</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>Meno ottimizzato sull'italiano stilistico rispetto a Claude o ChatGPT.</li>
+                <li>Interfaccia e piattaforma meno diffuse nell'uso scolastico standard.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PARTE 2: TABELLA RIEPILOGATIVA ==================== -->
+      <section class="section-block">
+        <span class="section-tag-header summary">Parte 2 — Quadro Comparativo</span>
+        <h2 class="section-title">Tabella Riepilogativa per la Didattica</h2>
+        <p>Uno schema di sintesi per guidare il docente nella scelta dello strumento più idoneo in base alla specifica attività da svolgere in classe o durante la preparazione delle lezioni.</p>
+
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Chatbot</th>
+                <th>Punto di Forza Didattico</th>
+                <th>Uso Consigliato in Umanistica</th>
+                <th>Accuratezza Latino</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ChatGPT</strong></td>
+                <td>Strutturazione prompt e flessibilità</td>
+                <td>Verifiche, griglie a rubrica, PDP, tracce esame</td>
+                <td>Buona</td>
+              </tr>
+              <tr>
+                <td><strong>Gemini</strong></td>
+                <td>Finestra di contesto e Google Workspace</td>
+                <td>Analisi di intere opere, programmazioni, ricerca fonti</td>
+                <td>Discreta</td>
+              </tr>
+              <tr>
+                <td><strong>Claude</strong></td>
+                <td>Raffinatezza stilistica ed eleganza prosa</td>
+                <td>Analisi del testo critica, traduzione e analisi logica</td>
+                <td>Ottima</td>
+              </tr>
+              <tr>
+                <td><strong>Copilot</strong></td>
+                <td>Integrazione Word/PowerPoint e web</td>
+                <td>Ricerca fonti verificate, slide lezioni, materiali Office</td>
+                <td>Discreta</td>
+              </tr>
+              <tr>
+                <td><strong>Grok</strong></td>
+                <td>Attualità e tendenze social</td>
+                <td>Educazione Civica, dibattito, analisi del discorso</td>
+                <td>Sufficiente</td>
+              </tr>
+              <tr>
+                <td><strong>Kimi k3</strong></td>
+                <td>Elaborazione maxidocumenti e CoT</td>
+                <td>Sintesi di grandi saggi critici, lavoro su archivi PDF</td>
+                <td>Buona</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==================== BOTTONI DI NAVIGAZIONE ==================== -->
+      <div class="navigation-buttons">
+        <a href="prompting.html" class="btn btn-secondary">← Lezione precedente: L'arte del prompting</a>
+        <a href="immagini.html" class="btn btn-primary">Lezione successiva: Immagini e Mappe →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer id="footer-info">
+    <p><span class="footer-logo">LitterAI</span> - a cura del prof. Daniele Virgili - 2026</p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link-item').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -140,6 +139,10 @@
     background: var(--color-secondary);
   }
 
+  .section-tag-header.lab {
+    background: #0E3A52;
+  }
+
   h2.section-title {
     font-size: 2.1rem;
     margin-bottom: 25px;
@@ -161,7 +164,20 @@
     justify-content: space-between;
     margin-bottom: 15px;
     border-bottom: 1px solid var(--color-border);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+  }
+
+  .bot-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bot-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .bot-title {
@@ -215,7 +231,7 @@
   .summary-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.94rem;
+    font-size: 0.92rem;
     text-align: left;
   }
 
@@ -229,11 +245,54 @@
   .summary-table td {
     padding: 14px 16px;
     border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
   }
 
   .summary-table tr:nth-child(even) {
     background-color: var(--color-surface);
   }
+
+  .table-bot-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .table-bot-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mini-pro { color: #276749; font-weight: 600; display: block; margin-bottom: 4px; }
+  .mini-contra { color: #C53030; font-weight: 600; display: block; }
+
+  /* ---------- LABORATORIO / ESERCIZI ---------- */
+  .exercise-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+  }
+
+  h4.exercise-title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--color-primary);
+  }
+
+  blockquote.prompt-box {
+    background-color: #ffffff;
+    border-left: 4px solid var(--color-accent);
+    padding: 16px 20px;
+    margin: 15px 0 20px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+  blockquote.prompt-box strong { color: var(--color-primary); }
 
   /* ---------- PULSANTI FINALI DI NAVIGAZIONE ---------- */
   .navigation-buttons {
@@ -335,7 +394,7 @@
   <div class="page-header">
     <div class="container">
       <h1>I principali Chatbot</h1>
-      <p>Un'analisi comparativa dei modelli di intelligenza artificiale per l'insegnamento di Italiano e Latino.</p>
+      <p>Un'analisi comparativa delle piattaforme di intelligenza artificiale per i docenti di Italiano e Latino.</p>
     </div>
   </div>
 
@@ -344,31 +403,34 @@
 
       <!-- ==================== PARTE 1: ANALISI DEI CHATBOT ==================== -->
       <section class="section-block">
-        <span class="section-tag-header">Parte 1 — Panoramica e Analisi</span>
-        <h2 class="section-title">I Modelli Generativi per le Materie Umanistiche</h2>
-        <p>Non tutti i chatbot rispondono allo stesso modo quando lavoriamo su un'analisi del testo, su una versione di Latino o sulla ristrutturazione inclusiva di una lezione. Di seguito analizziamo i principali modelli disponibili sul mercato, evidenziandone caratteristiche, punti di forza e limiti nell'uso didattico quotidiano.</p>
+        <span class="section-tag-header">Parte 1 — Panoramica e Gestione dei Modelli</span>
+        <h2 class="section-title">Architetture, Token e Limiti di Utilizzo</h2>
+        <p>Nella pratica docente, scegliere un chatbot non significa solo valutare la qualità delle risposte, ma comprendere come ciascuna piattaforma gestisce i **modelli di intelligenza artificiale**, le **finestre di contesto (token)** e le **quote di utilizzo**. Di seguito esaminiamo le principali piattaforme con i rispettivi loghi e logiche operative.</p>
 
         <!-- CHATGPT -->
         <div class="bot-card">
           <div class="bot-header">
-            <h3 class="bot-title">ChatGPT (OpenAI)</h3>
-            <span class="bot-badge">Versatile & Bilanciato</span>
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9 6.0651 6.0651 0 0 0-4.981-2.01 6.03 6.03 0 0 0-5.7188 4.088A6.01 6.01 0 0 0 1.258 7.3a6.0462 6.0462 0 0 0 .5157 4.9108 6.05 6.05 0 0 0 1.084 1.488 6.0462 6.0462 0 0 0-.5157 4.9108 6.0462 6.0462 0 0 0 6.5098 2.9 6.05 6.05 0 0 0 4.981 2.01 6.03 6.03 0 0 0 5.7188-4.088 6.01 6.01 0 0 0 3.3005-3.212 6.05 6.05 0 0 0-.5703-6.3866zm-8.8315 12.339a4.29 4.29 0 0 1-2.4571-.7671l.1627-.0943 3.6552-2.1109a.88.88 0 0 0 .4412-.7625v-5.1581l1.5432.891a.08.08 0 0 1 .0441.062v4.3013a4.28 4.28 0 0 1-3.3893 3.6386zm-8.816-3.8344a4.2838 4.2838 0 0 1-.5024-2.5222l.1627.0984 3.6552 2.1108a.88.88 0 0 0 .8824 0l4.4682-2.5802v1.782a.08.08 0 0 1-.032.068l-3.7252 2.15a4.29 4.29 0 0 1-4.9089-.1068zm-1.8021-9.3364a4.28 4.28 0 0 1 1.9547-1.7551l-.002.1884v4.2217a.88.88 0 0 0 .4412.7625l4.4682 2.5802-1.5432.891a.08.08 0 0 1-.0761.006l-3.7252-2.15a4.29 4.29 0 0 1-1.5176-4.7447zm13.3862 3.1207l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006l3.7252 2.15a4.28 4.28 0 0 1 .4843 7.2669l-.1627-.0984-3.6552-2.1108a.88.88 0 0 0-.8824 0zm2.2109-3.9213l-.1627-.0943-3.6552-2.1109a.88.88 0 0 0-.4412.7625v5.1581l-1.5432-.891a.08.08 0 0 1-.0441-.062v-4.3013a4.29 4.29 0 0 1 5.8464-1.461zm-10.375-3.61a4.29 4.29 0 0 1 4.9089.1068l-.1627.0943-3.6552 2.1109a.88.88 0 0 0-.8824 0l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006z"/></svg>
+              <h3 class="bot-title">ChatGPT (OpenAI)</h3>
+            </div>
+            <span class="bot-badge">Routing Dinamico dei Modelli</span>
           </div>
-          <p>Lo strumento più diffuso ed eclettico. Eccellente nella generazione strutturata di materiale didattico, griglie di valutazione e rielaborazione di tracce ministeriali. La versione Plus offre l'accesso a GPT-4o e la possibilità di creare GPT personalizzati per la classe.</p>
+          <p>La piattaforma offre l'accesso ai modelli avanzati (serie GPT-4o / modelli di ragionamento o1). Per gli utenti gratuiti, l'interfaccia **inizia la sessione con il modello più performante** e, una volta esaurita la quota di token veloci disponibile, effettua automaticamente lo **switch (declassamento) al modello base**, riducendo la profondità analitica.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Ottimo rispetto delle istruzioni complesse (R-C-I-F).</li>
-                <li>Eccellente nella creazione di rubriche di valutazione e tabelle.</li>
-                <li>Possibilità di creare assistenti personalizzati (Custom GPTs).</li>
+                <li>Avvio di sessione con il modello top di gamma anche nel piano gratuito.</li>
+                <li>Eccellente rispetto delle strutture rigide di prompt (R-C-I-F).</li>
+                <li>Piena personalizzazione tramite Custom GPTs dedicati alla didattica.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>La versione gratuita presenta limiti di memoria sulle chat lunghe.</li>
-                <li>Qualche incertezza sulla prosodia poetica e sulla metrica latina.</li>
+                <li>Switch automatico al modello base al superamento della quota oraria.</li>
+                <li>In fase base, riduce la precisione sulla sintassi latina avanzata e la memoria breve.</li>
               </ul>
             </div>
           </div>
@@ -377,24 +439,27 @@
         <!-- GEMINI -->
         <div class="bot-card">
           <div class="bot-header">
-            <h3 class="bot-title">Gemini (Google)</h3>
-            <span class="bot-badge">Integrazione & Multimodalità</span>
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24Z"/></svg>
+              <h3 class="bot-title">Gemini (Google)</h3>
+            </div>
+            <span class="bot-badge">Finestra di Contesto Estesa</span>
           </div>
-          <p>Integrazione nativa nell'ecosistema Google (Workspace, Documenti, Drive). Dispone di una finestra di contesto estremamente ampia che permette di analizzare interi libri, dispense di letteratura o lunghe raccolte di testi scolastici in un unico prompt.</p>
+          <p>Piattaforma caratterizzata da una **finestra di contesto enorme (fino a 1-2 milioni di token)**. Consente al docente di caricare interi libri di testo, grandi PDF o raccolte di saggi critici. Nel piano standard, l'accesso al modello **Gemini Pro** ha un contingentamento giornaliero di utilizzi prima di passare al modello Flash.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Integrazione immediata con Google Documenti e Drive.</li>
-                <li>Finestra di contesto enorme: analizza testi lunghissimi o libri interi.</li>
-                <li>Risultati molto aggiornati ed eccellente ricerca di fonti in rete.</li>
+                <li>Capacità di elaborare file giganteschi e libri interi in un unico prompt.</li>
+                <li>Integrazione immediata con l'ecosistema Google Workspace (Drive, Docs).</li>
+                <li>Un certo numero di utilizzi del modello Pro garantiti ogni giorno.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Tende ad essere eccessivamente conciso o riassuntivo se non forzato.</li>
-                <li>Meno rigido nel seguire formattazioni tabellari rigide.</li>
+                <li>Esauriti gli utilizzi del modello Pro, passa al modello Flash più sintetico.</li>
+                <li>Tende ad appiattire la formattazione di tabelle complesse se non guidato.</li>
               </ul>
             </div>
           </div>
@@ -403,24 +468,27 @@
         <!-- CLAUDE -->
         <div class="bot-card">
           <div class="bot-header">
-            <h3 class="bot-title">Claude (Anthropic)</h3>
-            <span class="bot-badge">Eccellenza Stilistica & Analisi</span>
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2v-6h2z"/></svg>
+              <h3 class="bot-title">Claude (Anthropic)</h3>
+            </div>
+            <span class="bot-badge">Alta Qualità ma Limiti Stringenti</span>
           </div>
-          <p>Considerato da molti il modello più raffinato dal punto di vista della scrittura e dello stile prose. Claude eccelle nell'analisi del testo, nella parafrasi profonda e nella traduzione dal Latino, fornendo risposte eleganti e sfumature critiche naturali.</p>
+          <p>Riconosciuto come il modello con la **migliore qualità di scrittura stilistica in italiano** e con la traduzione latina più accurata. Tuttavia, la gestione dei token nella versione gratuita è **fortemente limitata**: il numero di messaggi consentiti per finestra temporale (4 ore) è ridotto e cala rapidamente se si incollano testi lunghi.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Qualità della scrittura in italiano superiore e naturale.</li>
-                <li>Eccezionale nell'analisi critica e nella comprensione del testo.</li>
-                <li>Traduzioni e analisi sintattiche dal Latino più precise e coerenti.</li>
+                <li>Qualità di analisi critica, prosa italiana e traduzione latina imbattibile.</li>
+                <li>Modello di ragionamento (Claude Sonnet) estremamente preciso.</li>
+                <li>Eccellente nell'evitare allucinazioni su passi d'autore classici.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Limiti di utilizzo nella versione gratuita piuttosto stringenti.</li>
-                <li>Non ha accesso diretto alla ricerca web in tempo reale nella versione base.</li>
+                <li>Limiti di messaggi e token per sessione gratuiti molto stringenti.</li>
+                <li>Promemoria frequente di blocco temporaneo ("Hai raggiunto il limite di messaggi").</li>
               </ul>
             </div>
           </div>
@@ -429,24 +497,27 @@
         <!-- COPILOT -->
         <div class="bot-card">
           <div class="bot-header">
-            <h3 class="bot-title">Copilot (Microsoft)</h3>
-            <span class="bot-badge">Integrazione Office & Web</span>
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <h3 class="bot-title">Copilot (Microsoft)</h3>
+            </div>
+            <span class="bot-badge">Connessione Web e Limite Turni</span>
           </div>
-          <p>Basato sulla tecnologia OpenAI ma integrato nativamente nell'ambiente Microsoft (Word, PowerPoint). Offre una connessione diretta al motore di ricerca Bing con citazione puntuale delle fonti online, utile per le ricerche bibliografiche veloci.</p>
+          <p>Sfrutta i modelli OpenAI integrati nel motore di ricerca Bing. L'interfaccia gestisce le conversazioni per **"turni di chat" limitati** (es. massimo 30 risposte per singola conversazione), costringendo il docente ad azzerare e riaprire la chat per evitare la saturazione della memoria della scheda.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Integrato perfettamente nell'ecosistema Microsoft Office.</li>
-                <li>Citazione accurata delle fonti e dei link sul web.</li>
-                <li>Modalità di risposta selezionabili (Creativo, Bilanciato, Preciso).</li>
+                <li>Accesso continuo alla ricerca web in tempo reale con citazione delle fonti.</li>
+                <li>Integrazione nativa nell'ambiente Microsoft Office / Word.</li>
+                <li>Selezione della modalità operativa (Preciso, Bilanciato, Creativo).</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Risposte talvolta frammentate o condizionate dai risultati di ricerca.</li>
-                <li>Interfaccia meno pulita per l'elaborazione di lunghi testi didattici.</li>
+                <li>Limite tassativo di turni per singola conversazione prima del reset obbligatorio.</li>
+                <li>Frammentazione delle risposte se il testo da elaborare supera la quota turni.</li>
               </ul>
             </div>
           </div>
@@ -455,24 +526,26 @@
         <!-- GROK -->
         <div class="bot-card">
           <div class="bot-header">
-            <h3 class="bot-title">Grok (xAI)</h3>
-            <span class="bot-badge">Attualità & Tono Diretto</span>
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <h3 class="bot-title">Grok (xAI)</h3>
+            </div>
+            <span class="bot-badge">Dati in Tempo Reale & Tono Diretto</span>
           </div>
-          <p>Modello sviluppato per accedere in tempo reale ai dati di X (Twitter). Risulta interessante per l'analisi del dibattito pubblico contemporaneo, della comunicazione politica o per la costruzione di percorsi di educazione civica e analisi del discorso.</p>
+          <p>Accessibile tramite la piattaforma X, sfrutta un flusso costante di dati social in tempo reale. I suoi limiti di token sono legati al livello di abbonamento dell'account utente, favorendo l'analisi rapida di dibattiti attuali rispetto alla lavorazione di documenti complessi.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Accesso istantaneo alle tendenze di attualità e dibattito pubblico.</li>
-                <li>Capacità di generare testi con prospettive e stili unconventional.</li>
-                <li>Ottimo per spunti di educazione civica e attualità letteraria.</li>
+                <li>Analisi immediata dei trend di attualità, sociolinguistica e dibattiti.</li>
+                <li>Risposte dirette e capacità di sintetizzare opinioni contrastanti.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Tono di default meno accademico e bisognoso di forte calibrazione.</li>
-                <li>Meno orientato alla didattica classica e all'analisi filologica.</li>
+                <li>Richiede abbonamento/profilo verificato per un uso continuativo.</li>
+                <li>Scarsa attitudine alla filologia e all'analisi del testo classico.</li>
               </ul>
             </div>
           </div>
@@ -481,24 +554,26 @@
         <!-- KIMI K3 -->
         <div class="bot-card">
           <div class="bot-header">
-            <h3 class="bot-title">Kimi k3 (Moonshot AI)</h3>
-            <span class="bot-badge">Ragionamento Lungo & Documenti</span>
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.2l8.5 4.8v9.6L12 21.4 3.5 16.6V7L12 2.2z"/></svg>
+              <h3 class="bot-title">Kimi k3 (Moonshot AI)</h3>
+            </div>
+            <span class="bot-badge">Maxi-Contesto & Chain-of-Thought</span>
           </div>
-          <p>Modello emergente specializzato nel ragionamento avanzato a catena di pensiero (Chain-of-Thought) e nell'elaborazione di volumi di dati imponenti. Ideale per la lavorazione di archivi di documenti scolastici, saggi critici ed estratti plurilingue.</p>
+          <p>Modello emergente progettato per il **ragionamento profondo a catena di pensiero (CoT)** e la gestione di contesti fino a **2 milioni di token in modo del tutto gratuito**. Permette di analizzare intere antologie di testi in lingua latina o italiana senza perdita di memoria.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Formidabile gestione di PDF e documenti di grandi dimensioni.</li>
-                <li>Capacità di ragionamento passo-passo molto strutturata.</li>
-                <li>Gratuito con ottime prestazioni di elaborazione testuale.</li>
+                <li>Finestra di token enorme e gratuita per l'upload di grandi file PDF.</li>
+                <li>Modalità di ragionamento passo-passo ideale per la spiegazione grammaticale.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Meno ottimizzato sull'italiano stilistico rispetto a Claude o ChatGPT.</li>
-                <li>Interfaccia e piattaforma meno diffuse nell'uso scolastico standard.</li>
+                <li>I tempi di generazione del testo con ragionamento attivo sono più lunghi.</li>
+                <li>Meno affinato sullo stile espressivo della letteratura italiana d'autore.</li>
               </ul>
             </div>
           </div>
@@ -507,9 +582,9 @@
 
       <!-- ==================== PARTE 2: TABELLA RIEPILOGATIVA ==================== -->
       <section class="section-block">
-        <span class="section-tag-header summary">Parte 2 — Quadro Comparativo</span>
-        <h2 class="section-title">Tabella Riepilogativa per la Didattica</h2>
-        <p>Uno schema di sintesi per guidare il docente nella scelta dello strumento più idoneo in base alla specifica attività da svolgere in classe o durante la preparazione delle lezioni.</p>
+        <span class="section-tag-header summary">Parte 2 — Quadro Comparativo Completo</span>
+        <h2 class="section-title">Tabella Sintetica delle Piattaforme</h2>
+        <p>Uno schema integrato che sintetizza il valore didattico, le dinamiche di modello/token e i pro e contro di ciascun chatbot per i docenti delle discipline umanistiche.</p>
 
         <div class="table-responsive">
           <table class="summary-table">
@@ -517,49 +592,142 @@
               <tr>
                 <th>Chatbot</th>
                 <th>Punto di Forza Didattico</th>
-                <th>Uso Consigliato in Umanistica</th>
-                <th>Accuratezza Latino</th>
+                <th>Gestione Modello e Token</th>
+                <th>Sintesi PRO e CONTRO</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>ChatGPT</strong></td>
-                <td>Strutturazione prompt e flessibilità</td>
-                <td>Verifiche, griglie a rubrica, PDP, tracce esame</td>
-                <td>Buona</td>
+                <td>
+                  <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9 6.0651 6.0651 0 0 0-4.981-2.01 6.03 6.03 0 0 0-5.7188 4.088A6.01 6.01 0 0 0 1.258 7.3a6.0462 6.0462 0 0 0 .5157 4.9108 6.05 6.05 0 0 0 1.084 1.488 6.0462 6.0462 0 0 0-.5157 4.9108 6.0462 6.0462 0 0 0 6.5098 2.9 6.05 6.05 0 0 0 4.981 2.01 6.03 6.03 0 0 0 5.7188-4.088 6.01 6.01 0 0 0 3.3005-3.212 6.05 6.05 0 0 0-.5703-6.3866zm-8.8315 12.339a4.29 4.29 0 0 1-2.4571-.7671l.1627-.0943 3.6552-2.1109a.88.88 0 0 0 .4412-.7625v-5.1581l1.5432.891a.08.08 0 0 1 .0441.062v4.3013a4.28 4.28 0 0 1-3.3893 3.6386zm-8.816-3.8344a4.2838 4.2838 0 0 1-.5024-2.5222l.1627.0984 3.6552 2.1108a.88.88 0 0 0 .8824 0l4.4682-2.5802v1.782a.08.08 0 0 1-.032.068l-3.7252 2.15a4.29 4.29 0 0 1-4.9089-.1068zm-1.8021-9.3364a4.28 4.28 0 0 1 1.9547-1.7551l-.002.1884v4.2217a.88.88 0 0 0 .4412.7625l4.4682 2.5802-1.5432.891a.08.08 0 0 1-.0761.006l-3.7252-2.15a4.29 4.29 0 0 1-1.5176-4.7447zm13.3862 3.1207l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006l3.7252 2.15a4.28 4.28 0 0 1 .4843 7.2669l-.1627-.0984-3.6552-2.1108a.88.88 0 0 0-.8824 0zm2.2109-3.9213l-.1627-.0943-3.6552-2.1109a.88.88 0 0 0-.4412.7625v5.1581l-1.5432-.891a.08.08 0 0 1-.0441-.062v-4.3013a4.29 4.29 0 0 1 5.8464-1.461zm-10.375-3.61a4.29 4.29 0 0 1 4.9089.1068l-.1627.0943-3.6552 2.1109a.88.88 0 0 0-.8824 0l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006z"/></svg>
+                    ChatGPT
+                  </div>
+                </td>
+                <td>Progettazione di verifiche, griglie a rubrica, PDP e Custom GPTs.</td>
+                <td>Inizia col modello top, poi fa switch/declassamento al base.</td>
+                <td>
+                  <span class="mini-pro">PRO: Versatile e completo nelle strutture.</span>
+                  <span class="mini-contra">CONTRO: Switch di modello sotto carico.</span>
+                </td>
               </tr>
               <tr>
-                <td><strong>Gemini</strong></td>
-                <td>Finestra di contesto e Google Workspace</td>
-                <td>Analisi di intere opere, programmazioni, ricerca fonti</td>
-                <td>Discreta</td>
+                <td>
+                  <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24Z"/></svg>
+                    Gemini
+                  </div>
+                </td>
+                <td>Analisi di intere opere o raccolte di saggi (Drive e Docs).</td>
+                <td>Finestra fino a 2M token; quota Pro giornaliera poi passa a Flash.</td>
+                <td>
+                  <span class="mini-pro">PRO: Maxi-contesto integrato in Google.</span>
+                  <span class="mini-contra">CONTRO: Formattazione tabelle talvolta imprecisa.</span>
+                </td>
               </tr>
               <tr>
-                <td><strong>Claude</strong></td>
-                <td>Raffinatezza stilistica ed eleganza prosa</td>
-                <td>Analisi del testo critica, traduzione e analisi logica</td>
-                <td>Ottima</td>
+                <td>
+                  <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2v-6h2z"/></svg>
+                    Claude
+                  </div>
+                </td>
+                <td>Analisi stilistica raffinata, parafrasi e traduzione dal Latino.</td>
+                <td>Alta qualità di risposta, ma limite stringente sul numero di messaggi.</td>
+                <td>
+                  <span class="mini-pro">PRO: Qualità del testo ed eleganza al top.</span>
+                  <span class="mini-contra">CONTRO: Blocchi temporanei per limite token.</span>
+                </td>
               </tr>
               <tr>
-                <td><strong>Copilot</strong></td>
-                <td>Integrazione Word/PowerPoint e web</td>
-                <td>Ricerca fonti verificate, slide lezioni, materiali Office</td>
-                <td>Discreta</td>
+                <td>
+                  <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    Copilot
+                  </div>
+                </td>
+                <td>Ricerche bibliografiche con fonti e integrazione Microsoft Word.</td>
+                <td>Conteggio per "turni di chat" limitati prima del reset necessario.</td>
+                <td>
+                  <span class="mini-pro">PRO: Fonti web citate e uso in Word.</span>
+                  <span class="mini-contra">CONTRO: Turni di conversazione limitati.</span>
+                </td>
               </tr>
               <tr>
-                <td><strong>Grok</strong></td>
-                <td>Attualità e tendenze social</td>
-                <td>Educazione Civica, dibattito, analisi del discorso</td>
-                <td>Sufficiente</td>
+                <td>
+                  <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Grok
+                  </div>
+                </td>
+                <td>Educazione civica, dibattito contemporaneo e sociolinguistica.</td>
+                <td>Integrazione diretta con i token social della piattaforma X.</td>
+                <td>
+                  <span class="mini-pro">PRO: Dati in tempo reale e attualità.</span>
+                  <span class="mini-contra">CONTRO: Registro poco accademico.</span>
+                </td>
               </tr>
               <tr>
-                <td><strong>Kimi k3</strong></td>
-                <td>Elaborazione maxidocumenti e CoT</td>
-                <td>Sintesi di grandi saggi critici, lavoro su archivi PDF</td>
-                <td>Buona</td>
+                <td>
+                  <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.2l8.5 4.8v9.6L12 21.4 3.5 16.6V7L12 2.2z"/></svg>
+                    Kimi k3
+                  </div>
+                </td>
+                <td>Lavorazione di grandi archivi di PDF scolastici e spiegazioni passo-passo.</td>
+                <td>Maxi-contesto gratuito con ragionamento Chain-of-Thought (CoT).</td>
+                <td>
+                  <span class="mini-pro">PRO: Enorme memoria di lavoro gratuita.</span>
+                  <span class="mini-contra">CONTRO: Risposte più lente nel ragionamento.</span>
+                </td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <!-- ==================== PARTE 3: LABORATORIO ED ESERCIZI ==================== -->
+      <section class="section-block">
+        <span class="section-tag-header lab">Parte 3 — Laboratorio Pratico</span>
+        <h2 class="section-title">Esercitazioni per il Confronto Critico</h2>
+        <p>Attività pratiche da svolgere durante i corsi di formazione per sperimentare direttamente sul campo le differenze operative, i limiti dei token e le peculiarità dei diversi chatbot.</p>
+
+        <!-- ESERCIZIO 1 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 1: La Prova della Traduzione Latina (Claude vs ChatGPT vs Gemini)</h4>
+          <p><strong>Obiettivo:</strong> Confrontare la sensibilità sintattica e la precisione filologica delle tre piattaforme principali.</p>
+          <p><strong>Consegna:</strong> Somministra lo stesso identico prompt contenente un passo complesso d'autore latino (es. Seneca, <em>Epistulae ad Lucilium</em>) a Claude, ChatGPT e Gemini. Richiedi l'analisi dei costrutti e la traduzione italiana.</p>
+          <blockquote class="prompt-box">
+            <strong>Prompt di prova:</strong><br>
+            "Analizza dal punto di vista sintattico il seguente passo di Seneca: [incolla il testo]. Identifica le proposizioni subordinate e fornisci una traduzione in italiano che mantenga il tono filosofico senza risultare arcaica. Infine motiva le tue scelte di traduzione."
+          </blockquote>
+          <p><em>Valuta: Quale chatbot ha reso meglio il ritmo del periodo? Chi ha commesso errori nella resa dei casi o dei modi verbali?</em></p>
+        </div>
+
+        <!-- ESERCIZIO 2 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 2: Stress Test dei Limiti e dello Switch di Modello</h4>
+          <p><strong>Obiettivo:</strong> Riconoscere il momento in cui una piattaforma raggiunge il limite di token o declassa il modello.</p>
+          <p><strong>Consegna:</strong> Inserisci in ChatGPT un testo lungo chiedendo una complessa tabella di programmazione didattica per un intero quadrimestre. Continua la sessione chiedendo successive modifiche per osservare la differenza di risposta al momento dello switch dal modello top a quello base.</p>
+          <p><em>Riflessione: In che modo è cambiata la precisione delle tabelle o la profondità dell'analisi dopo lo switch automatico?</em></p>
+        </div>
+
+        <!-- ESERCIZIO 3 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 3: Analisi Critica di un Testo Canto del Paradiso</h4>
+          <p><strong>Obiettivo:</strong> Verificare la capacità di parafrasi e contestualizzazione critica della poesia dantesca.</p>
+          <p><strong>Consegna:</strong> Scegli un canto del Paradiso di Dante (es. Canto XXXIII). Chiedi a due piattaforme diverse di generare una parafrasi riga per riga affiancata da note esegetiche per una classe di liceo.</p>
+          <blockquote class="prompt-box">
+            <strong>Prompt di prova:</strong><br>
+            "Fornisci la parafrasi dei primi 36 versi del Canto XXXIII del Paradiso di Dante ('Vergine Madre, figlia del tuo figlio'). Affianca a ciascuna terzina una nota esegetica incentrata sul lessico teologico. Mantiensi rigoroso nel commento."
+          </blockquote>
+        </div>
+
+        <!-- ESERCIZIO 4 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 4: Gestione dei Maxidocumenti (Gemini vs Kimi k3)</h4>
+          <p><strong>Obiettivo:</strong> Testare la capacità di elaborazione dei grandi contesti su file di programmazione o libri di testo.</p>
+          <p><strong>Consegna:</strong> Carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi k3. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
         </div>
       </section>
 

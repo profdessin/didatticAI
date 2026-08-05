@@ -337,17 +337,66 @@
           </ul>
         </div>
 
-        <h4 class="exercise-title">Confronto "Prima e Dopo" da mostrare a schermo</h4>
-        <div class="comparison-grid">
-          <div class="box-weak">
-            <h5>❌ Prompt Debole (Generico)</h5>
-            <p>"Fammi una verifica su Verga."</p>
-          </div>
-          <div class="box-strong">
-            <h5>✔️ Prompt Efficace (Strutturato R-C-I-F)</h5>
-            <p>"Sei un docente di lettere [R]. Prepara una traccia di analisi del testo sulla novella 'La Lupa' di Verga per una terza liceo [C]. Inserisci il testo, 4 domande di comprensione e 2 di interpretazione complessiva [I]. Formatta il tutto come una scheda pronta da stampare [F]."</p>
-          </div>
+<h4 class="exercise-title">Confronto "Prima e Dopo" da mostrare a schermo</h4>
+<div class="comparison-grid">
+  <!-- BOX DEBOLE -->
+  <div class="box-weak">
+    <h5>❌ Prompt Debole (Generico)</h5>
+    <p>"Fammi una verifica su Verga."</p>
+    
+    <button class="btn-toggle-result btn-weak" onclick="toggleResult(this)">
+      <span>Mostra risultato</span> ▾
+    </button>
+    
+    <div class="result-content">
+      <div class="result-inner">
+        <h6>Risultato generato:</h6>
+        <p><strong>Verifica di Italiano: Giovanni Verga</strong></p>
+        <ol>
+          <li>Chi era Giovanni Verga e a quale corrente letteraria apparteneva?</li>
+          <li>Quali sono le caratteristiche principali del Verismo?</li>
+          <li>Spiega brevemente la trama de <em>I Malavoglia</em>.</li>
+          <li>Che cos'è la "tecnica dell'eclissamento" del narratore?</li>
+        </ol>
+        <p class="result-note"><em>Criticità: Risposta nozionistica e generica, non calibrated su una classe specifica, priva di testo di riferimento e senza una struttura di verifica pronta per la stampa.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOX EFFICACE -->
+  <div class="box-strong">
+    <h5>✔️ Prompt Efficace (Strutturato R-C-I-F)</h5>
+    <p>"Sei un docente di lettere [R]. Prepara una traccia di analisi del testo sulla novella 'La Lupa' di Verga per una terza liceo [C]. Inserisci il testo, 4 domande di comprensione e 2 di interpretazione complessiva [I]. Formatta il tutto come una scheda pronta da stampare [F]."</p>
+    
+    <button class="btn-toggle-result btn-strong" onclick="toggleResult(this)">
+      <span>Mostra risultato</span> ▾
+    </button>
+    
+    <div class="result-content">
+      <div class="result-inner">
+        <h6>Risultato generato:</h6>
+        <div class="print-preview">
+          <p style="text-align:center;"><strong>LICEO SCIENTIFICO — VERIFICA DI ITALIANO</strong><br><small>Classe III | Analisi del Testo: G. Verga, <em>La Lupa</em></small></p>
+          <hr style="margin: 10px 0; border:0; border-top:1px solid #ccc;">
+          <p><strong>Testo:</strong> <em>«Era alta, magra, aveva soltanto un seno fermo e vigoroso da bruna e pure non era più giovane; era pallida come se avesse sempre addosso la febbre, e in quel pallore due occhi grandi così e labbra fresche e rosse, che vi mangiavano...»</em></p>
+          <p><strong>A. Comprensione e analisi (4 punti):</strong></p>
+          <ul>
+            <li>1. Individua i tratti fisici con cui viene presentata la gnà Pina e spiega in che modo la caratterizzazione visiva ne anticipa la natura demScope organica.</li>
+            <li>2. Analizza l'uso della similitudine <em>«pallida come se avesse sempre addosso la febbre»</em>.</li>
+            <li>3. In che modo la comunità del paese reagisce alla figura della Lupa? Rintraccia i termini del registro popolare.</li>
+            <li>4. Spiega il ruolo del paesaggio e della campagna siciliana nelle sequenze descrittive.</li>
+          </ul>
+          <p><strong>B. Interpretazione complessiva (2 punti):</strong></p>
+          <ul>
+            <li>5. Confronta la figura della Lupa con la moralità arcaico-rurale del mondo verghiano.</li>
+            <li>6. In che misura la tecnica dell'impersonalità emerge in questo ritratto iniziale?</li>
+          </ul>
         </div>
+        <p class="result-note"><em>Punti di forza: Contestualizzazione perfetta, domande multilivello (analisi + interpretazione), impaginazione già strutturata per la somministrazione in classe.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!-- FASE 2 -->
         <h3 class="phase-title">Fase 2: Laboratorio Pratico — Italiano (25 min)</h3>

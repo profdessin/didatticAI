@@ -1,1 +1,682 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Come funzionano i chatbot — LitterAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #0E3A52;   /* Blu Petrolio Scuro: Navbar, Footer, Intestazioni */
+    --color-accent: #19B5E8;    /* Ciano / Blu AI: Dettagli, Link, Pulsanti */
+    --color-secondary: #126A8A; /* Blu Intermedio: Sottotitoli */
+    --color-header: #BEE6F5;    /* Celeste intermedio */
+    --color-bg: #E9F4FA;        /* Sfondo pagina */
+    --color-surface: #F4FAFD;   /* Sfondo dei contenitori */
+    --color-text: #1E293B;      /* Grigio scuro/blu per testi */
+    --color-border: #E2E8F0;    /* Grigio leggero per linee */
+    --radius: 14px;
+    --shadow-soft: 0 8px 24px rgba(14, 58, 82, 0.08);
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, .logo-text { 
+    font-family: 'Fraunces', serif; 
+    color: var(--color-primary); 
+  }
+  
+  a { text-decoration: none; color: inherit; }
+  ul, ol { margin-bottom: 20px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  .container { 
+    max-width: 960px; 
+    margin: 0 auto; 
+    padding: 0 24px; 
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--color-primary);
+    border-bottom: 1px solid var(--color-secondary);
+    transition: box-shadow 0.3s ease;
+  }
+  .navbar.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
+  
+  .nav-inner { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 12px 24px; 
+    max-width: 1150px; 
+    margin: 0 auto; 
+  }
+  
+  .nav-brand img { 
+    height: 40px; 
+    width: auto; 
+    display: block; 
+    filter: brightness(0) invert(1); 
+  }
+  
+  .nav-links { display: flex; gap: 2.2rem; }
+  .nav-links a { 
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    color: #E8F3F8; 
+    position: relative; 
+    padding: 4px 0; 
+    transition: color 0.25s ease; 
+  }
+  .nav-links a::after { 
+    content: ""; 
+    position: absolute; 
+    bottom: -2px; 
+    left: 0; 
+    width: 0; 
+    height: 2px; 
+    background: var(--color-accent); 
+    transition: width 0.3s ease; 
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-links a:hover::after { width: 100%; }
+  
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 1001; }
+  .nav-toggle span { width: 26px; height: 2.5px; background: #E8F3F8; border-radius: 2px; transition: all 0.3s ease; }
+
+  /* ---------- PAGE HEADER ---------- */
+  .page-header { 
+    padding: 140px 24px 60px; 
+    background: var(--color-header); 
+    text-align: center; 
+    border-bottom: 1px solid var(--color-border); 
+  }
+  .page-header h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 12px; }
+  .page-header p { font-size: 1.15rem; color: var(--color-secondary); font-weight: 500; max-width: 700px; margin: 0 auto; }
+  
+  /* ---------- STILI SEZIONI DIDATTICHE ---------- */
+  .main-wrapper { padding: 60px 0; }
+  
+  .section-block {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 45px;
+    margin-bottom: 50px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+  }
+
+  .section-tag-header {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+  }
+
+  .section-tag-header.lab {
+    background: var(--color-secondary);
+  }
+
+  h2.section-title {
+    font-size: 2.1rem;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-bg);
+  }
+
+  h3.phase-title {
+    font-size: 1.5rem;
+    margin: 35px 0 15px;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h4.exercise-title {
+    font-size: 1.25rem;
+    margin: 25px 0 10px;
+    color: var(--color-primary);
+  }
+
+  blockquote.prompt-box {
+    background-color: var(--color-surface);
+    border-left: 4px solid var(--color-accent);
+    padding: 18px 22px;
+    margin: 15px 0 25px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 0.98rem;
+    color: var(--color-text);
+  }
+  blockquote.prompt-box strong { color: var(--color-primary); }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .box-weak {
+    background: #FFF5F5;
+    border: 1px solid #FEB2B2;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .box-weak h5 { color: #C53030; font-size: 1rem; margin-bottom: 8px; }
+
+  .box-strong {
+    background: #F0FFF4;
+    border: 1px solid #9AE6B4;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .box-strong h5 { color: #276749; font-size: 1rem; margin-bottom: 8px; }
+
+  .rcif-list {
+    background: var(--color-bg);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin: 15px 0 25px;
+  }
+
+  .exercise-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+  }
+
+  /* ---------- PULSANTI FINALI DI NAVIGAZIONE ---------- */
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btn-secondary {
+    background: #ffffff;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+  .btn-secondary:hover {
+    background: var(--color-bg);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: #ffffff;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 14px rgba(14, 58, 82, 0.2);
+  }
+  .btn-primary:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- STILI RISULTATO TOGGLE ---------- */
+  .btn-toggle-result {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-weak {
+    color: #C53030;
+    border-color: #FEB2B2;
+  }
+  .btn-weak:hover {
+    background: #C53030;
+    color: #ffffff;
+  }
+
+  .btn-strong {
+    color: #276749;
+    border-color: #9AE6B4;
+  }
+  .btn-strong:hover {
+    background: #276749;
+    color: #ffffff;
+  }
+
+  .result-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .result-content.open {
+    max-height: 1200px;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .result-inner {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .result-inner h6 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+  }
+
+  .result-note {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    opacity: 0.85;
+  }
+
+  .print-preview {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+  }
+
+  /* ---------- MATERIALI DOWNLOAD ---------- */
+  .download-section-compact {
+    padding-bottom: 35px;
+  }
+
+  .download-list-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .compact-download-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  .compact-download-item:hover {
+    transform: translateX(4px);
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(14, 58, 82, 0.06);
+  }
+
+  .item-bg-1 { background-color: #F0F7FF; }
+  .item-bg-2 { background-color: #F4F6F8; }
+  .item-bg-3 { background-color: #EBF8FF; }
+  .item-bg-4 { background-color: #F5F3FF; }
+
+  .download-title {
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--color-primary);
+  }
+
+  .file-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    letter-spacing: 0.5px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer { 
+    background: var(--color-primary); 
+    color: #E8F3F8; 
+    text-align: center; 
+    padding: 34px 24px; 
+    border-top: 1px solid var(--color-secondary); 
+  }
+  footer p { font-size: 0.92rem; color: #BFE3F0; letter-spacing: 0.3px; }
+  footer .footer-logo { font-family: 'Fraunces', serif; font-weight: 700; color: var(--color-accent); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .nav-links { 
+      position: fixed; top: 0; right: -100%; width: 70%; max-width: 320px; height: 100vh; 
+      background: var(--color-primary); 
+      flex-direction: column; justify-content: center; align-items: center; gap: 2.2rem; 
+      transition: right 0.4s ease; box-shadow: -8px 0 30px rgba(0,0,0,0.25); 
+    }
+    .nav-links.active { right: 0; }
+    .nav-toggle { display: flex; }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    
+    .section-block { padding: 25px; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .navigation-buttons { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="image/logo.png" alt="LitterAI">
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#home" class="nav-link-item">Home</a></li>
+          <li><a href="index.html#lezioni" class="nav-link-item">Lezioni</a></li>
+          <li><a href="#footer-info" class="nav-link-item">Info</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Come funzionano i chatbot</h1>
+      <p>Smontare l'alone di "magia" dell'IA: comprendere il funzionamento dei modelli, la gestione dei token, la memoria di lavoro e le regole d'uso consapevole a scuola.</p>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="container">
+
+      <!-- ==================== PARTE TEORICA ==================== -->
+      <section class="section-block">
+        <span class="section-tag-header">Parte 1 — Teoria e Architettura</span>
+        <h2 class="section-title">Anatomia e Meccanismo dei Chatbot IA</h2>
+        
+        <p>Per insegnare e utilizzare l'Intelligenza Artificiale Generativa con senso critico, occorre prima di tutto comprendere cosa avviene "sotto la scocca". Un chatbot non possiede una coscienza, non intuisce ed ha una memoria limitata: si tratta di un sofisticato modello statistico che genera testo calcolando la probabilità delle parole successive. Questa lezione fornisce le basi concettuali per comprendere costi, limiti strutturali e potenzialità reali degli strumenti di IA didattici.</p>
+
+        <!-- MODULO 1 -->
+        <h3 class="phase-title">Modulo 1: Cos'è e come "pensa" un Chatbot</h3>
+        <p>Il principio alla base dei modelli di linguaggio (LLM) è concettualmente simile al completamento automatico dello smartphone, sviluppato però su scala globale:</p>
+        
+        <div class="rcif-list">
+          <ul>
+            <li><strong>La Super-Tastiera Predittiva:</strong> L'IA non "sa" un fatto come lo sa una persona; analizza il testo ricevuto e calcola matematicamente quale sequenza di parole ha la maggiore probabilità di seguire al prompt.</li>
+            <li><strong>Completamento Probabilistico:</strong> Se digitiamo <em>«Il rosso e il...»</em>, l'IA propone «nero» non per comprensione critica, ma perché статистически questa sequenza ricorre nei dati di addestramento.</li>
+            <li><strong>Multimodalità:</strong> I chatbot moderni elaborano e collegano testo scritto, immagini (es. foto di schemi alla lavagna o compiti scritti a mano), tabelle dati e input vocali.</li>
+          </ul>
+        </div>
+
+        <!-- MODULO 2 -->
+        <h3 class="phase-title">Modulo 2: Token e Memoria di Lavoro (Finestra di Contesto)</h3>
+        <p>Ogni modello interagisce con il testo attraverso un'unità di misura specifica e una memoria limitata nello spazio e nel tempo:</p>
+        
+        <div class="rcif-list">
+          <ul>
+            <li><strong>Cosa sono i Token:</strong> Sono i "mattoncini" di testo elaborati dal modello. In lingua italiana, 1 token equivale a circa 3/4 di parola (100 parole corrispondono a circa 130-140 token).</li>
+            <li><strong>La Finestra di Contesto:</strong> È il limite massimo di token che il chatbot può tenere a mente contemporaneamente in una chat. Agisce come la memoria di lavoro di un docente o lo spazio di una lavagna. Se la chat si allunga troppo, l'IA cancella le prime informazioni.</li>
+            <li><strong>Consumo differenziato:</strong> Domande brevi consumano pochissimi token; inviare PDF lunghi o generare immagini "satura" rapidamente la memoria di contesto e i crediti del proprio account.</li>
+            <li><strong>Isolamento delle sessioni:</strong> Ogni "Nuova Chat" resetta completamente la memoria. Il chatbot non ricorda nulla di quanto ci si è detti in altre finestre.</li>
+          </ul>
+        </div>
+
+        <!-- === CONFRONTO TECNICO PERCEZIONE VS REALTÀ === -->
+        <h4 class="exercise-title">Confronto: Percezione vs Funzionamento Reale dell'IA</h4>
+        <div class="comparison-grid">
+          <!-- BOX ERRORE PERCEZIONE -->
+          <div class="box-weak">
+            <h5>❌ Mito: L'IA come "Oracolo Consapevole"</h5>
+            <p>«Il chatbot capisce la mia domanda, comprende il significato del testo che gli ho inviato ed estrae le risposte dal suo cervello.»</p>
+            
+            <button class="btn-toggle-result btn-weak" onclick="toggleResult(this)">
+              <span>Mostra dettaglio tecnico</span> ▾
+            </button>
+            
+            <div class="result-content">
+              <div class="result-inner">
+                <h6>Perché è una concezione errata:</h6>
+                <p>Non c'è comprensione semantica né intenzionalità. L'IA associa simboli matematici e vettori; non ha percezione della verità o della falsità di ciò che dichiara.</p>
+                <p class="result-note"><em>Conseguenza: Fidarsi ciecamente porta ad accettare allucinazioni e errori senza effettuare una verifica delle fonti.</em></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOX FUNZIONAMENTO REALE -->
+          <div class="box-strong">
+            <h5>✔️ Realtà: L'IA come "Elaboratore Probabilistico"</h5>
+            <p>«Il chatbot scompone l'input in token, valuta le relazioni statistiche apprese nell'addestramento e genera la risposta più verosimile.»</p>
+            
+            <button class="btn-toggle-result btn-strong" onclick="toggleResult(this)">
+              <span>Mostra dettaglio tecnico</span> ▾
+            </button>
+            
+            <div class="result-content">
+              <div class="result-inner">
+                <h6>Funzionamento effettivo:</h6>
+                <p>L'IA predice un token alla volta. Applica regole matematiche per garantire coerenza sintattica e stilistica basata sul contesto fornito dall'utente.</p>
+                <p class="result-note"><em>Vantaggio: Conoscere questo meccanismo permette di strutturare prompt precisi con vincoli chiari per guidare il calcolo probabilistico.</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULO 3 -->
+        <h3 class="phase-title">Modulo 3: Gestione dei File e il fenomeno del "Lost in the Middle"</h3>
+        <p>Quando si carica un file (PDF, Word) per la preparazione delle lezioni, occorre comprendere come l'IA lo consulta e quali siano i suoi limiti d'attenzione:</p>
+        
+        <h4 class="exercise-title">1. Il principio del "Libro Aperto" (RAG)</h4>
+        <p>Caricando un documento, l'IA non apprende in modo permanente quel testo. Si limita ad appoggiarlo sul "banco di lavoro" virtuale per consultarlo temporaneamente durante quella specifica conversazione.</p>
+
+        <h4 class="exercise-title">2. L'effetto "Lost in the Middle" (Perso nel mezzo)</h4>
+        <blockquote class="prompt-box">
+          <strong>Regola d'oro per i documenti lunghi:</strong><br>
+          Nei file con molte pagine, l'attenzione del chatbot è massima all'<strong>inizio</strong> (titoli, premesse) e alla <strong>fine</strong> (dove si trova la richiesta dell'utente). Le informazioni posizionate al centro del testo rischiano di sfocare o essere omesse. Se cercate una clausola o un dettaglio specifico a metà documento, citate esplicitamente la sezione o le parole chiave nel prompt.
+        </blockquote>
+
+        <!-- MODULO 4 -->
+        <h3 class="phase-title">Modulo 4: Tipi di Modelli, Fonti e Allucinazioni</h3>
+        <p>Esistono diverse categorie di modelli con scopi e livelli di affidabilità differenti:</p>
+
+        <div class="rcif-list">
+          <ul>
+            <li><strong>Modelli Veloci / Leggeri (Flash, Mini):</strong> Rapidi ed economici, ideali per correzioni veloci, formattazione o risposte brevi.</li>
+            <li><strong>Modelli Avanzati / Pesanti (Pro, GPT-4o):</strong> Elevata comprensione di istruzioni complesse, ottimi per programmazioni disciplinari e analisi approfondite.</li>
+            <li><strong>Modelli di Ragionamento (Thinking Models):</strong> Scompongono il problema in passaggi logici interni prima di rispondere. Adatti a problemi di logica, matematica e percorsi strutturati.</li>
+            <li><strong>Addestramento vs Navigazione Web:</strong> L'addestramento base si ferma a una data precisa; la ricerca Web attiva permette invece al chatbot di consultare Google in tempo reale.</li>
+            <li><strong>Le Allucinazioni:</strong> Poiché l'IA cerca di completare il testo in modo verosimile, se non trova un dato reale inventerà citazioni latine, riferimenti normativi o saggi storici con tono sicuro. Il docente deve sempre mantenere il ruolo di supervisore (<em>Human in the loop</em>).</li>
+          </ul>
+        </div>
+
+        <!-- MODULO 5 -->
+        <h3 class="phase-title">Modulo 5: Uso Consapevole nella Scuola</h3>
+        <p>Norme pratiche per garantire la privacy, la sicurezza dei dati e la qualità del lavoro docente:</p>
+
+        <blockquote class="prompt-box">
+          <strong>1. Effetto Snowball (Palla di neve):</strong> Se l'IA commette un errore all'inizio della chat e non viene corretta, considererà quell'errore come parte del contesto valido, ingrandendolo nelle risposte successive. È sempre consigliabile aprire una nuova chat.<br><br>
+          <strong>2. Privacy e GDPR a scuola:</strong> È tassativamente vietato inserire nei chatbot nomi, cognomi, voti, verbali o file contenenti dati sensibili di studenti (PDP/PEI). Rimuovere sempre ogni dato anagrafico prima di generare materiale personalizzato.<br><br>
+          <strong>3. Trasparenza ed Etica:</strong> L'IA va usata come assistente di stesura e mai come sostituto del giudizio pedagogico. Dichiarare l'uso dell'IA serve da modello etico per le classi.
+        </blockquote>
+
+      </section>
+
+      <!-- ==================== PARTE ESERCIZI-LABORATORIO ==================== -->
+      <section class="section-block">
+        <span class="section-tag-header lab">Parte 2 — Esercizi e Laboratorio Pratico</span>
+        <h2 class="section-title">Schede Applicative per Corsisti</h2>
+        <p>Esercizi di analisi e simulazione ideati per guidare i docenti a prendere dimestichezza con la gestione dei token, la finestra di contesto e l'individuazione delle allucinazioni.</p>
+
+        <!-- ESERCIZIO 1 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 1: Calcolo e Ottimizzazione dei Token</h4>
+          <p><strong>Obiettivo:</strong> Comprendere la differenza tra input leggeri e input ad alto consumo di token.</p>
+          <p><strong>Consegna per i corsisti:</strong> Analizza i 3 seguenti scenari di utilizzo didattico dell'IA e ordinali dal più economico (minor consumo di token) a quello più gravoso per la finestra di contesto.</p>
+          <ul>
+            <li><strong>Scenario A:</strong> Richiedere la spiegazione in 3 punti della legge di Snell o di una regola di sintassi latina.</li>
+            <li><strong>Scenario B:</strong> Caricare la scansione in formato immagine di una verifica scritta a mano da uno studente per chiederne la trascrizione completa.</li>
+            <li><strong>Scenario C:</strong> Caricare un PDF del PTOF d'Istituto di 45 pagine per chiedere quali siano le righe dedicate ai progetti di inclusione.</li>
+          </ul>
+          <blockquote class="prompt-box">
+            <strong>Soluzione per la discussione:</strong><br>
+            Il consumo cresce da A (solo testo breve) a B (analisi immagine ad alta intensità) fino a C (il PDF carica l'intero testo nel contesto, rischiando anche l'effetto <em>Lost in the Middle</em>).
+          </blockquote>
+        </div>
+
+        <!-- ESERCIZIO 2 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 2: Caccia all'Allucinazione (Fact-Checking Didattico)</h4>
+          <p><strong>Obiettivo:</strong> Sviluppare lo spirito critico e individuare i passi in cui l'IA inventa riferimenti per completamento probabilistico.</p>
+          <p><strong>Consegna per i corsisti:</strong> Sottoponi a un modello di IA privo di navigazione web un prompt per la ricerca di citazioni o norme (es. <em>«Forniscimi 3 citazioni esatte di Seneca con il testo latino a fronte e la collocazione precisa nei Dialoghi»</em> oppure <em>«Elenca le sentenze della Cassazione del 2024 sul diritto allo studio»</em>). Verifica poi manualmente su un dizionario/normativa l'esattezza dei risultati generati.</p>
+        </div>
+
+        <!-- ESERCIZIO 3 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 3: Gestione dell'Effetto "Lost in the Middle"</h4>
+          <p><strong>Obiettivo:</strong> Sperimentare come l'attenzione dell'IA diminuisce nelle parti centrali dei testi lunghi.</p>
+          <p><strong>Consegna per i corsisti:</strong> Prendi un documento lungo (es. un capitolo di un manuale o un regolamento scolastico). Fai due interrogazioni differenti:</p>
+          <ol>
+            <li>Poni prima una domanda generica su tutto il documento (es. <em>«Riassumi i punti principali del testo»</em>). Verifica se l'informazione contenuta a pagina 15 viene menzionata.</li>
+            <li>Riformula il prompt chiedendo specificamente: <em>«Fai riferimento esclusivamente al paragrafo relativo al tema X (posizionato a metà documento) ed estrai i concetti chiave»</em>. Confronta la precisione delle due risposte.</li>
+          </ol>
+        </div>
+
+        <!-- ESERCIZIO 4 -->
+        <div class="exercise-card">
+          <h4 class="exercise-title">Esercizio 4: Anonimizzazione di Documenti Didattici (Privacy & GDPR)</h4>
+          <p><strong>Obiettivo:</strong> Riconoscere e rimuovere i dati sensibili prima dell'invio dei file ai chatbot.</p>
+          <p><strong>Consegna per i corsisti:</strong> Prendi una griglia di valutazione compilata o una bozza di piano di recupero contenente nomi, cognomi, classe e riferimenti alla diagnosi DSA. Riscrivi il prompt in modo che il testo risulti completamente anonimizzato, conservando solo gli elementi di rilevanza pedagogica.</p>
+        </div>
+      </section>
+
+      <!-- ==================== MATERIALI SCARICABILI ==================== -->
+      <section class="section-block download-section-compact">
+        <span class="section-tag-header">Risorse e Download</span>
+
+        <div class="download-list-compact">
+          <a href="download/funzionamento-chatbot.pdf" class="compact-download-item item-bg-1" download>
+            <span class="download-title">Foglio di riepilogo stampabile sul funzionamento dei chatbot (Sezione 1)</span>
+            <span class="file-badge">PDF</span>
+          </a>
+
+          <a href="download/esercizi-funzionamento-chatbot.pdf" class="compact-download-item item-bg-2" download>
+            <span class="download-title">Foglio di riepilogo stampabile sugli esercizi (Sezione 2)</span>
+            <span class="file-badge">PDF</span>
+          </a>
+
+          <a href="download/presentazione-funzionamento-chatbot.pdf" class="compact-download-item item-bg-3" download>
+            <span class="download-title">Presentazione sul funzionamento dei chatbot (Sezione 1)</span>
+            <span class="file-badge">PDF</span>
+          </a>
+
+          <a href="download/presentazione-esercizi-chatbot.pdf" class="compact-download-item item-bg-4" download>
+            <span class="download-title">Presentazione sugli esercizi (Sezione 2)</span>
+            <span class="file-badge">PDF</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==================== BOTTONI DI NAVIGAZIONE ==================== -->
+      <div class="navigation-buttons">
+        <a href="prompting.html" class="btn btn-secondary">← Lezione precedente: L'arte del prompting</a>
+        <a href="chatbot.html" class="btn btn-primary">Lezione successiva: I principali chatbot →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer id="footer-info">
+    <p><span class="footer-logo">LitterAI</span> - a cura del prof. Daniele Virgili - 2026</p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link-item').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    function toggleResult(button) {
+      const resultContent = button.nextElementSibling;
+      const isOpened = resultContent.classList.toggle('open');
+      
+      if (isOpened) {
+        button.innerHTML = '<span>Nascondi dettaglio tecnico</span> ▴';
+      } else {
+        button.innerHTML = '<span>Mostra dettaglio tecnico</span> ▾';
+      }
+    }
+  </script>
+
+</body>
+</html>

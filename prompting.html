@@ -623,50 +623,85 @@
         </div>
       </section>
 
-      <!-- ==================== MATERIALI SCARICABILI ==================== -->
-      <section class="section-block">
+     <!-- ==================== MATERIALI SCARICABILI (SNELLITO) ==================== -->
+      <section class="section-block download-section-compact">
         <span class="section-tag-header">Risorse e Download</span>
-        <h2 class="section-title">Materiali Didattici Scaricabili</h2>
-        <p>In questa sezione sono raccolti i materiali di supporto, le slide di presentazione e le schede riassuntive da consultare o scaricare per le attività teoriche e di laboratorio.</p>
 
-        <div class="download-grid">
-          <a href="download/prompting.pdf" class="download-card" download>
-            <div class="download-icon">📄</div>
-            <div class="download-info">
-              <h4>Foglio di riepilogo sul prompting</h4>
-              <p>Sintesi teorica (Sezione 1) • PDF</p>
-            </div>
-            <span class="download-btn">Scarica</span>
+        <div class="download-list-compact">
+          <a href="download/prompting.pdf" class="compact-download-item item-bg-1" download>
+            <span class="download-title">Foglio di riepilogo stampabile sul prompting (Sezione 1)</span>
+            <span class="file-badge">PDF</span>
           </a>
 
-          <a href="download/esercizi-prompting.pdf" class="download-card" download>
-            <div class="download-icon">📝</div>
-            <div class="download-info">
-              <h4>Foglio di riepilogo sugli esercizi</h4>
-              <p>Schede applicative (Sezione 2) • PDF</p>
-            </div>
-            <span class="download-btn">Scarica</span>
+          <a href="download/esercizi-prompting.pdf" class="compact-download-item item-bg-2" download>
+            <span class="download-title">Foglio di riepilogo stampabile sugli esercizi (Sezione 2)</span>
+            <span class="file-badge">PDF</span>
           </a>
 
-          <a href="download/presentazione-prompting.pdf" class="download-card" download>
-            <div class="download-icon">📊</div>
-            <div class="download-info">
-              <h4>Presentazione sul prompting</h4>
-              <p>Slide lezione teorica (Sezione 1) • PDF</p>
-            </div>
-            <span class="download-btn">Scarica</span>
+          <a href="download/presentazione-prompting.pdf" class="compact-download-item item-bg-3" download>
+            <span class="download-title">Presentazione sul prompting (Sezione 1)</span>
+            <span class="file-badge">PDF</span>
           </a>
 
-          <a href="download/presentazione-esercizi-prompting.pdf" class="download-card" download>
-            <div class="download-icon">💻</div>
-            <div class="download-info">
-              <h4>Presentazione sugli esercizi</h4>
-              <p>Slide laboratorio pratico (Sezione 2) • PDF</p>
-            </div>
-            <span class="download-btn">Scarica</span>
+          <a href="download/presentazione-esercizi-prompting.pdf" class="compact-download-item item-bg-4" download>
+            <span class="download-title">Presentazione sugli esercizi (Sezione 2)</span>
+            <span class="file-badge">PDF</span>
           </a>
         </div>
       </section>
+
+      <style>
+        .download-section-compact {
+          padding-bottom: 35px;
+        }
+
+        .download-list-compact {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 15px;
+        }
+
+        .compact-download-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 14px 20px;
+          border-radius: 10px;
+          border: 1px solid var(--color-border);
+          transition: all 0.25s ease;
+          text-decoration: none;
+        }
+
+        .compact-download-item:hover {
+          transform: translateX(4px);
+          border-color: var(--color-accent);
+          box-shadow: 0 4px 12px rgba(14, 58, 82, 0.06);
+        }
+
+        /* Differenziazione sfondi leggeri per ciascun elemento */
+        .item-bg-1 { background-color: #F0F7FF; } /* Blu tenue */
+        .item-bg-2 { background-color: #F4F6F8; } /* Grigio perla tenue */
+        .item-bg-3 { background-color: #EBF8FF; } /* Ciano/Azzurro tenue */
+        .item-bg-4 { background-color: #F5F3FF; } /* Indaco/Lilla tenue */
+
+        .download-title {
+          font-weight: 600;
+          font-size: 0.98rem;
+          color: var(--color-primary);
+        }
+
+        .file-badge {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: var(--color-secondary);
+          background: #ffffff;
+          padding: 4px 10px;
+          border-radius: 6px;
+          border: 1px solid var(--color-border);
+          letter-spacing: 0.5px;
+        }
+      </style>
 
       <!-- ==================== BOTTONI DI NAVIGAZIONE ==================== -->
       <div class="navigation-buttons">

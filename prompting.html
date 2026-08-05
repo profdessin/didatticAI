@@ -337,6 +337,7 @@
           </ul>
         </div>
 
+<!-- === INIZIO SEZIONE CONFRONTO === -->
 <h4 class="exercise-title">Confronto "Prima e Dopo" da mostrare a schermo</h4>
 <div class="comparison-grid">
   <!-- BOX DEBOLE -->
@@ -358,7 +359,7 @@
           <li>Spiega brevemente la trama de <em>I Malavoglia</em>.</li>
           <li>Che cos'è la "tecnica dell'eclissamento" del narratore?</li>
         </ol>
-        <p class="result-note"><em>Criticità: Risposta nozionistica e generica, non calibrated su una classe specifica, priva di testo di riferimento e senza una struttura di verifica pronta per la stampa.</em></p>
+        <p class="result-note"><em>Criticità: Risposta nozionistica e generica, non calibrata su una classe specifica, priva di testo di riferimento e senza una struttura di verifica pronta per la stampa.</em></p>
       </div>
     </div>
   </div>
@@ -378,15 +379,15 @@
         <div class="print-preview">
           <p style="text-align:center;"><strong>LICEO SCIENTIFICO — VERIFICA DI ITALIANO</strong><br><small>Classe III | Analisi del Testo: G. Verga, <em>La Lupa</em></small></p>
           <hr style="margin: 10px 0; border:0; border-top:1px solid #ccc;">
-          <p><strong>Testo:</strong> <em>«Era alta, magra, aveva soltanto un seno fermo e vigoroso da bruna e pure non era più giovane; era pallida come se avesse sempre addosso la febbre, e in quel pallore due occhi grandi così e labbra fresche e rosse, che vi mangiavano...»</em></p>
-          <p><strong>A. Comprensione e analisi (4 punti):</strong></p>
+          <p><strong>Testo:</strong> <em>«Era alta, magra, aveva soltanto un seno fermo e vigoroso da bruna e pure non era più giovane; era pallida come se avesse sempre addosso la febbre, e in quel pallore due occhi grandi così e labbra fresche e rosse, che vi mangiavano [...]»</em></p>
+          <p><strong>A. Comprensione e analisi:</strong></p>
           <ul>
-            <li>1. Individua i tratti fisici con cui viene presentata la gnà Pina e spiega in che modo la caratterizzazione visiva ne anticipa la natura demScope organica.</li>
+            <li>1. Individua i tratti fisici con cui viene presentata la gnà Pina e spiega in che modo la caratterizzazione visiva ne anticipa la natura demoniaca.</li>
             <li>2. Analizza l'uso della similitudine <em>«pallida come se avesse sempre addosso la febbre»</em>.</li>
             <li>3. In che modo la comunità del paese reagisce alla figura della Lupa? Rintraccia i termini del registro popolare.</li>
             <li>4. Spiega il ruolo del paesaggio e della campagna siciliana nelle sequenze descrittive.</li>
           </ul>
-          <p><strong>B. Interpretazione complessiva (2 punti):</strong></p>
+          <p><strong>B. Interpretazione complessiva:</strong></p>
           <ul>
             <li>5. Confronta la figura della Lupa con la moralità arcaico-rurale del mondo verghiano.</li>
             <li>6. In che misura la tecnica dell'impersonalità emerge in questo ritratto iniziale?</li>
@@ -397,6 +398,94 @@
     </div>
   </div>
 </div>
+
+<style>
+  .btn-toggle-result {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-weak {
+    color: #C53030;
+    border-color: #FEB2B2;
+  }
+  .btn-weak:hover {
+    background: #C53030;
+    color: #ffffff;
+  }
+
+  .btn-strong {
+    color: #276749;
+    border-color: #9AE6B4;
+  }
+  .btn-strong:hover {
+    background: #276749;
+    color: #ffffff;
+  }
+
+  .result-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .result-content.open {
+    max-height: 1200px;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .result-inner {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .result-inner h6 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: var(--color-primary, #0E3A52);
+  }
+
+  .result-note {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    opacity: 0.85;
+  }
+
+  .print-preview {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #E2E8F0);
+  }
+</style>
+
+<script>
+  function toggleResult(button) {
+    const resultContent = button.nextElementSibling;
+    const isOpened = resultContent.classList.toggle('open');
+    
+    if (isOpened) {
+      button.innerHTML = '<span>Nascondi risultato</span> ▴';
+    } else {
+      button.innerHTML = '<span>Mostra risultato</span> ▾';
+    }
+  }
+</script>
 
         <!-- FASE 2 -->
         <h3 class="phase-title">Fase 2: Laboratorio Pratico — Italiano (25 min)</h3>

@@ -46,7 +46,7 @@
     padding: 0 24px; 
   }
 
-  /* ---------- NAVBAR (Stesso colore del footer) ---------- */
+  /* ---------- NAVBAR ---------- */
   .navbar {
     position: fixed;
     top: 0;
@@ -75,7 +75,7 @@
     filter: brightness(0) invert(1); 
   }
   
-  .nav-links { display: flex; gap: 2.2rem; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
   .nav-links a { 
     font-size: 0.95rem; 
     font-weight: 500; 
@@ -193,6 +193,16 @@
     border-radius: 20px;
     font-size: 0.82rem;
     font-weight: 600;
+  }
+
+  .note-box {
+    background-color: #EBF8FF;
+    border-left: 4px solid var(--color-accent);
+    padding: 12px 16px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    border-radius: 0 8px 8px 0;
   }
 
   .pro-contra-grid {
@@ -416,21 +426,21 @@
             </div>
             <span class="bot-badge">Routing Dinamico dei Modelli</span>
           </div>
-          <p>La piattaforma offre l'accesso ai modelli avanzati (serie GPT-4o / modelli di ragionamento o1). Per gli utenti gratuiti, l'interfaccia **inizia la sessione con il modello più performante** e, una volta esaurita la quota di token veloci disponibile, effettua automaticamente lo **switch (declassamento) al modello base**, riducendo la profondità analitica.</p>
+          <p>La piattaforma offre l'accesso ai modelli avanzati (serie GPT-4o e modelli di ragionamento). Per gli utenti gratuiti, l'interfaccia **inizia la sessione con il modello più performante** e, una volta esaurita la quota temporanea di token veloci o di ragionamento, effettua automaticamente lo **switch al modello base**, riducendo la profondità analitica.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
                 <li>Avvio di sessione con il modello top di gamma anche nel piano gratuito.</li>
-                <li>Eccellente rispetto delle strutture rigide di prompt (R-C-I-F).</li>
+                <li>Eccellente rispetto delle strutture rigide di prompt (es. formato R-C-I-F).</li>
                 <li>Piena personalizzazione tramite Custom GPTs dedicati alla didattica.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Switch automatico al modello base al superamento della quota oraria.</li>
-                <li>In fase base, riduce la precisione sulla sintassi latina avanzata e la memoria breve.</li>
+                <li>Switch automatico al modello base al superamento della quota temporanea.</li>
+                <li>In fase base, riduce la precisione sulla sintassi latina avanzata e la memoria di contesto.</li>
               </ul>
             </div>
           </div>
@@ -445,21 +455,21 @@
             </div>
             <span class="bot-badge">Finestra di Contesto Estesa</span>
           </div>
-          <p>Piattaforma caratterizzata da una **finestra di contesto enorme (fino a 1-2 milioni di token)**. Consente al docente di caricare interi libri di testo, grandi PDF o raccolte di saggi critici. Nel piano standard, l'accesso al modello **Gemini Pro** ha un contingentamento giornaliero di utilizzi prima di passare al modello Flash.</p>
+          <p>Piattaforma caratterizzata da una **finestra di contesto enorme (fino a 1-2 milioni di token)**. Consente al docente di caricare interi libri di testo, grandi PDF o raccolte di saggi critici. Nel piano standard, l'accesso al modello **Gemini Pro** ha un contingentamento temporale primario prima di passare al modello Flash.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
                 <li>Capacità di elaborare file giganteschi e libri interi in un unico prompt.</li>
                 <li>Integrazione immediata con l'ecosistema Google Workspace (Drive, Docs).</li>
-                <li>Un certo numero di utilizzi del modello Pro garantiti ogni giorno.</li>
+                <li>Buona gestione dell'analisi multimodale (testo, immagini, audio).</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
                 <li>Esauriti gli utilizzi del modello Pro, passa al modello Flash più sintetico.</li>
-                <li>Tende ad appiattire la formattazione di tabelle complesse se non guidato.</li>
+                <li>Tende ad appiattire la formattazione di tabelle complesse se non guidato con precisione.</li>
               </ul>
             </div>
           </div>
@@ -479,16 +489,50 @@
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Qualità di analisi critica, prosa italiana e traduzione latina imbattibile.</li>
-                <li>Modello di ragionamento (Claude Sonnet) estremamente preciso.</li>
-                <li>Eccellente nell'evitare allucinazioni su passi d'autore classici.</li>
+                <li>Qualità di analisi critica, prosa italiana e traduzione latina di livello elevato.</li>
+                <li>Modelli di ragionamento (serie Sonnet) estremamente precisi nel testo letterario.</li>
+                <li>Eccellente nell'evitare allucinazioni su passi d'autore classici e contesti storici.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
                 <li>Limiti di messaggi e token per sessione gratuiti molto stringenti.</li>
-                <li>Promemoria frequente di blocco temporaneo ("Hai raggiunto il limite di messaggi").</li>
+                <li>Frequente blocco temporaneo per superamento della soglia oraria.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERPLEXITY -->
+        <div class="bot-card">
+          <div class="bot-header">
+            <div class="bot-title-group">
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <h3 class="bot-title">Perplexity (Perplexity AI)</h3>
+            </div>
+            <span class="bot-badge">Motore di Ricerca AI & Citazione Fonti</span>
+          </div>
+          <p>Un **motore di risposta e ricerca assistita** che combina la generazione del linguaggio con l'accesso in tempo reale al web. È lo strumento ideale per la ricerca bibliografica e la verifica delle fonti storiche o critiche, poiché correda ogni affermazione con note a piè di pagina e link diretti.</p>
+          
+          <div class="note-box">
+            📌 <strong>Nota didattica:</strong> A Perplexity e agli strumenti di ricerca assistita con verifica delle fonti sarà dedicata una lezione specifica del corso.
+          </div>
+
+          <div class="pro-contra-grid">
+            <div class="pro-box">
+              <h5>PRO</h5>
+              <ul>
+                <li>Citazione sistematica delle fonti web per ogni risposta fornita.</li>
+                <li>Eccellente per la preparazione di schede di attualità e ricerche storiografiche.</li>
+                <li>Riduce al minimo le allucinazioni sui dati fattuali e sulle date.</li>
+              </ul>
+            </div>
+            <div class="contra-box">
+              <h5>CONTRO</h5>
+              <ul>
+                <li>Meno portato per la scrittura creativa o la generazione di saggi complessi da zero.</li>
+                <li>Nella versione gratuita impiega modelli di ricerca con profondità limitata.</li>
               </ul>
             </div>
           </div>
@@ -501,23 +545,23 @@
               <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
               <h3 class="bot-title">Copilot (Microsoft)</h3>
             </div>
-            <span class="bot-badge">Connessione Web e Limite Turni</span>
+            <span class="bot-badge">Integrazione Office & Limite Turni</span>
           </div>
-          <p>Sfrutta i modelli OpenAI integrati nel motore di ricerca Bing. L'interfaccia gestisce le conversazioni per **"turni di chat" limitati** (es. massimo 30 risposte per singola conversazione), costringendo il docente ad azzerare e riaprire la chat per evitare la saturazione della memoria della scheda.</p>
+          <p>Sfrutta la tecnologia OpenAI integrata nel motore di ricerca Bing e nel pacchetto Microsoft. L'interfaccia gestisce le conversazioni per **turni di chat delimitati**, costringendo talvolta ad azzerare la sessione per evitare saturazione della memoria della scheda.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
                 <li>Accesso continuo alla ricerca web in tempo reale con citazione delle fonti.</li>
-                <li>Integrazione nativa nell'ambiente Microsoft Office / Word.</li>
-                <li>Selezione della modalità operativa (Preciso, Bilanciato, Creativo).</li>
+                <li>Integrazione nativa nell'ambiente Microsoft Office (Word, PowerPoint).</li>
+                <li>Possibilità di selezionare lo stile di risposta (Preciso, Bilanciato, Creativo).</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Limite tassativo di turni per singola conversazione prima del reset obbligatorio.</li>
-                <li>Frammentazione delle risposte se il testo da elaborare supera la quota turni.</li>
+                <li>Limite di turni per singola conversazione prima del reset obbligatorio della scheda.</li>
+                <li>Frammentazione delle risposte se il testo da elaborare richiede molti passaggi.</li>
               </ul>
             </div>
           </div>
@@ -532,48 +576,48 @@
             </div>
             <span class="bot-badge">Dati in Tempo Reale & Tono Diretto</span>
           </div>
-          <p>Accessibile tramite la piattaforma X, sfrutta un flusso costante di dati social in tempo reale. I suoi limiti di token sono legati al livello di abbonamento dell'account utente, favorendo l'analisi rapida di dibattiti attuali rispetto alla lavorazione di documenti complessi.</p>
+          <p>Accessibile tramite la piattaforma X, sfrutta un flusso di dati social in tempo reale. I suoi limiti sono legati al livello dell'account utente, favorendo l'analisi rapida di dibattiti attuali e tendenze linguistiche rispetto alla lavorazione di documenti complessi.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Analisi immediata dei trend di attualità, sociolinguistica e dibattiti.</li>
-                <li>Risposte dirette e capacità di sintetizzare opinioni contrastanti.</li>
+                <li>Analisi immediata dei trend di attualità, sociolinguistica e dibattiti di costume.</li>
+                <li>Risposte dirette e capacità di sintetizzare opinioni contrastanti sul web.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Richiede abbonamento/profilo verificato per un uso continuativo.</li>
-                <li>Scarsa attitudine alla filologia e all'analisi del testo classico.</li>
+                <li>Accesso completo legato all'ambiente della piattaforma X.</li>
+                <li>Scarsa attitudine alla filologia e all'analisi approfondita del testo classico.</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- KIMI K3 -->
+        <!-- KIMI -->
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
               <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.2l8.5 4.8v9.6L12 21.4 3.5 16.6V7L12 2.2z"/></svg>
-              <h3 class="bot-title">Kimi k3 (Moonshot AI)</h3>
+              <h3 class="bot-title">Kimi (Moonshot AI)</h3>
             </div>
             <span class="bot-badge">Maxi-Contesto & Chain-of-Thought</span>
           </div>
-          <p>Modello emergente progettato per il **ragionamento profondo a catena di pensiero (CoT)** e la gestione di contesti fino a **2 milioni di token in modo del tutto gratuito**. Permette di analizzare intere antologie di testi in lingua latina o italiana senza perdita di memoria.</p>
+          <p>Piattaforma specializzata nella gestione di contesti estremamente ampi (fino a **2 milioni di token**) e nel ragionamento a catena di pensiero (Chain-of-Thought). Permette di analizzare grandi file PDF, come intere antologie o documenti ministeriali, senza perdita di memoria.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Finestra di token enorme e gratuita per l'upload di grandi file PDF.</li>
-                <li>Modalità di ragionamento passo-passo ideale per la spiegazione grammaticale.</li>
+                <li>Finestra di token enorme per l'upload e la sintesi di grandi file PDF.</li>
+                <li>Modalità di ragionamento passo-passo utile per spiegazioni sintattiche rigide.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>I tempi di generazione del testo con ragionamento attivo sono più lunghi.</li>
-                <li>Meno affinato sullo stile espressivo della letteratura italiana d'autore.</li>
+                <li>I tempi di risposta nei processi di ragionamento profondo possono risultare più lunghi.</li>
+                <li>Meno affinato nello stile e nel registro della letteratura italiana d'autore.</li>
               </ul>
             </div>
           </div>
@@ -605,7 +649,7 @@
                   </div>
                 </td>
                 <td>Progettazione di verifiche, griglie a rubrica, PDP e Custom GPTs.</td>
-                <td>Inizia col modello top, poi fa switch/declassamento al base.</td>
+                <td>Avvio con modello top, poi switch al modello base a quota esaurita.</td>
                 <td>
                   <span class="mini-pro">PRO: Versatile e completo nelle strutture.</span>
                   <span class="mini-contra">CONTRO: Switch di modello sotto carico.</span>
@@ -619,7 +663,7 @@
                   </div>
                 </td>
                 <td>Analisi di intere opere o raccolte di saggi (Drive e Docs).</td>
-                <td>Finestra fino a 2M token; quota Pro giornaliera poi passa a Flash.</td>
+                <td>Finestra fino a 2M token; quota Pro temporanea poi passa a Flash.</td>
                 <td>
                   <span class="mini-pro">PRO: Maxi-contesto integrato in Google.</span>
                   <span class="mini-contra">CONTRO: Formattazione tabelle talvolta imprecisa.</span>
@@ -642,12 +686,26 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    Perplexity
+                  </div>
+                </td>
+                <td>Ricerca assistita, verifica delle fonti e note bibliografiche.</td>
+                <td>Motore di ricerca sincrono con citazione automatica dei link.</td>
+                <td>
+                  <span class="mini-pro">PRO: Citazione diretta delle fonti web.</span>
+                  <span class="mini-contra">CONTRO: Meno idoneo alla scrittura creativa.</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-bot-cell">
                     <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                     Copilot
                   </div>
                 </td>
                 <td>Ricerche bibliografiche con fonti e integrazione Microsoft Word.</td>
-                <td>Conteggio per "turni di chat" limitati prima del reset necessario.</td>
+                <td>Conteggio per turni di chat delimitati prima del reset necessario.</td>
                 <td>
                   <span class="mini-pro">PRO: Fonti web citate e uso in Word.</span>
                   <span class="mini-contra">CONTRO: Turni di conversazione limitati.</span>
@@ -671,13 +729,13 @@
                 <td>
                   <div class="table-bot-cell">
                     <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.2l8.5 4.8v9.6L12 21.4 3.5 16.6V7L12 2.2z"/></svg>
-                    Kimi k3
+                    Kimi
                   </div>
                 </td>
                 <td>Lavorazione di grandi archivi di PDF scolastici e spiegazioni passo-passo.</td>
-                <td>Maxi-contesto gratuito con ragionamento Chain-of-Thought (CoT).</td>
+                <td>Maxi-contesto con ragionamento Chain-of-Thought (CoT).</td>
                 <td>
-                  <span class="mini-pro">PRO: Enorme memoria di lavoro gratuita.</span>
+                  <span class="mini-pro">PRO: Enorme memoria di lavoro per PDF.</span>
                   <span class="mini-contra">CONTRO: Risposte più lente nel ragionamento.</span>
                 </td>
               </tr>
@@ -714,20 +772,20 @@
 
         <!-- ESERCIZIO 3 -->
         <div class="exercise-card">
-          <h4 class="exercise-title">Esercizio 3: Analisi Critica di un Testo Canto del Paradiso</h4>
+          <h4 class="exercise-title">Esercizio 3: Analisi Critica di un Canto del Paradiso</h4>
           <p><strong>Obiettivo:</strong> Verificare la capacità di parafrasi e contestualizzazione critica della poesia dantesca.</p>
           <p><strong>Consegna:</strong> Scegli un canto del Paradiso di Dante (es. Canto XXXIII). Chiedi a due piattaforme diverse di generare una parafrasi riga per riga affiancata da note esegetiche per una classe di liceo.</p>
           <blockquote class="prompt-box">
             <strong>Prompt di prova:</strong><br>
-            "Fornisci la parafrasi dei primi 36 versi del Canto XXXIII del Paradiso di Dante ('Vergine Madre, figlia del tuo figlio'). Affianca a ciascuna terzina una nota esegetica incentrata sul lessico teologico. Mantiensi rigoroso nel commento."
+            "Fornisci la parafrasi dei primi 36 versi del Canto XXXIII del Paradiso di Dante ('Vergine Madre, figlia del tuo figlio'). Affianca a ciascuna terzina una nota esegetica incentrata sul lessico teologico. Mantieni un registro rigoroso nel commento."
           </blockquote>
         </div>
 
         <!-- ESERCIZIO 4 -->
         <div class="exercise-card">
-          <h4 class="exercise-title">Esercizio 4: Gestione dei Maxidocumenti (Gemini vs Kimi k3)</h4>
+          <h4 class="exercise-title">Esercizio 4: Gestione dei Maxidocumenti (Gemini vs Kimi)</h4>
           <p><strong>Obiettivo:</strong> Testare la capacità di elaborazione dei grandi contesti su file di programmazione o libri di testo.</p>
-          <p><strong>Consegna:</strong> Carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi k3. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
+          <p><strong>Consegna:</strong> Carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
         </div>
       </section>
 

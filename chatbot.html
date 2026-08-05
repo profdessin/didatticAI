@@ -415,32 +415,33 @@
       <section class="section-block">
         <span class="section-tag-header">Parte 1 — Panoramica e Gestione dei Modelli</span>
         <h2 class="section-title">Architetture, Token e Limiti di Utilizzo</h2>
-        <p>Nella pratica docente, scegliere un chatbot non significa solo valutare la qualità delle risposte, ma comprendere come ciascuna piattaforma gestisce i **modelli di intelligenza artificiale**, le **finestre di contesto (token)** e le **quote di utilizzo**. Di seguito esaminiamo le principali piattaforme con i rispettivi loghi e logiche operative.</p>
+        <p>Nella pratica docente, scegliere un chatbot non significa solo valutare la qualità delle risposte, ma comprendere come ciascuna piattaforma gestisce i <strong>modelli di intelligenza artificiale</strong>, le <strong>finestre di contesto (token)</strong> e le <strong>quote di utilizzo</strong>. Questi parametri cambiano molto spesso: i numeri riportati qui sotto vanno quindi presi come un ordine di grandezza aggiornato a metà 2026, non come un valore fisso e garantito nel tempo.</p>
 
         <!-- CHATGPT -->
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9 6.0651 6.0651 0 0 0-4.981-2.01 6.03 6.03 0 0 0-5.7188 4.088A6.01 6.01 0 0 0 1.258 7.3a6.0462 6.0462 0 0 0 .5157 4.9108 6.05 6.05 0 0 0 1.084 1.488 6.0462 6.0462 0 0 0-.5157 4.9108 6.0462 6.0462 0 0 0 6.5098 2.9 6.05 6.05 0 0 0 4.981 2.01 6.03 6.03 0 0 0 5.7188-4.088 6.01 6.01 0 0 0 3.3005-3.212 6.05 6.05 0 0 0-.5703-6.3866zm-8.8315 12.339a4.29 4.29 0 0 1-2.4571-.7671l.1627-.0943 3.6552-2.1109a.88.88 0 0 0 .4412-.7625v-5.1581l1.5432.891a.08.08 0 0 1 .0441.062v4.3013a4.28 4.28 0 0 1-3.3893 3.6386zm-8.816-3.8344a4.2838 4.2838 0 0 1-.5024-2.5222l.1627.0984 3.6552 2.1108a.88.88 0 0 0 .8824 0l4.4682-2.5802v1.782a.08.08 0 0 1-.032.068l-3.7252 2.15a4.29 4.29 0 0 1-4.9089-.1068zm-1.8021-9.3364a4.28 4.28 0 0 1 1.9547-1.7551l-.002.1884v4.2217a.88.88 0 0 0 .4412.7625l4.4682 2.5802-1.5432.891a.08.08 0 0 1-.0761.006l-3.7252-2.15a4.29 4.29 0 0 1-1.5176-4.7447zm13.3862 3.1207l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006l3.7252 2.15a4.28 4.28 0 0 1 .4843 7.2669l-.1627-.0984-3.6552-2.1108a.88.88 0 0 0-.8824 0zm2.2109-3.9213l-.1627-.0943-3.6552-2.1109a.88.88 0 0 0-.4412.7625v5.1581l-1.5432-.891a.08.08 0 0 1-.0441-.062v-4.3013a4.29 4.29 0 0 1 5.8464-1.461zm-10.375-3.61a4.29 4.29 0 0 1 4.9089.1068l-.1627.0943-3.6552 2.1109a.88.88 0 0 0-.8824 0l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006z"/></svg>
+              <svg class="bot-icon" viewBox="0 0 256 260" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z"/></svg>
               <h3 class="bot-title">ChatGPT (OpenAI)</h3>
             </div>
-            <span class="bot-badge">Routing Dinamico dei Modelli</span>
+            <span class="bot-badge">Router automatico dei modelli</span>
           </div>
-          <p>La piattaforma offre l'accesso ai modelli avanzati (serie GPT-4o e modelli di ragionamento). Per gli utenti gratuiti, l'interfaccia **inizia la sessione con il modello più performante** e, una volta esaurita la quota temporanea di token veloci o di ragionamento, effettua automaticamente lo **switch al modello base**, riducendo la profondità analitica.</p>
+          <p>ChatGPT instrada le richieste tra un modello "veloce" (Instant) e uno di "ragionamento" più lento e approfondito (Thinking). Nel piano gratuito il modello di partenza è quello veloce; su alcune richieste complesse può attivare da solo un ragionamento più lungo, ma i modelli di ragionamento più potenti restano in gran parte riservati ai piani a pagamento.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Avvio di sessione con il modello top di gamma anche nel piano gratuito.</li>
+                <li>Molto versatile: verifiche, griglie a rubrica, PDP e materiali didattici.</li>
                 <li>Eccellente rispetto delle strutture rigide di prompt (es. formato R-C-I-F).</li>
-                <li>Piena personalizzazione tramite Custom GPTs dedicati alla didattica.</li>
+                <li>Il modello base può attivare autonomamente un ragionamento più approfondito quando serve.</li>
+                <li>Piena personalizzazione tramite Custom GPT dedicati alla didattica.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Switch automatico al modello base al superamento della quota temporanea.</li>
-                <li>In fase base, riduce la precisione sulla sintassi latina avanzata e la memoria di contesto.</li>
+                <li>I modelli di ragionamento più potenti sono per lo più riservati ai piani a pagamento.</li>
+                <li>Nomi dei modelli e soglie di utilizzo cambiano spesso: conviene ricontrollare le note di rilascio ufficiali di tanto in tanto.</li>
               </ul>
             </div>
           </div>
@@ -450,17 +451,17 @@
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24Z"/></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>
               <h3 class="bot-title">Gemini (Google)</h3>
             </div>
-            <span class="bot-badge">Finestra di Contesto Estesa</span>
+            <span class="bot-badge">Finestra di contesto molto estesa</span>
           </div>
-          <p>Piattaforma caratterizzata da una **finestra di contesto enorme (fino a 1-2 milioni di token)**. Consente al docente di caricare interi libri di testo, grandi PDF o raccolte di saggi critici. Nel piano standard, l'accesso al modello **Gemini Pro** ha un contingentamento temporale primario prima di passare al modello Flash.</p>
+          <p>Piattaforma nota per una <strong>finestra di contesto molto ampia</strong> (fino a circa 1 milione di token su alcuni piani, e oltre nell'uso via API), utile per caricare interi capitoli, PDF corposi o raccolte di saggi critici. Nel piano gratuito l'accesso al modello "Pro" più potente è limitato nel tempo, dopo di che l'assistente prosegue con un modello più leggero ("Flash").</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Capacità di elaborare file giganteschi e libri interi in un unico prompt.</li>
+                <li>Può elaborare file molto grandi e interi libri in un unico prompt.</li>
                 <li>Integrazione immediata con l'ecosistema Google Workspace (Drive, Docs).</li>
                 <li>Buona gestione dell'analisi multimodale (testo, immagini, audio).</li>
               </ul>
@@ -468,7 +469,7 @@
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Esauriti gli utilizzi del modello Pro, passa al modello Flash più sintetico.</li>
+                <li>Esaurito l'uso del modello Pro nel piano gratuito, subentra il modello Flash, più sintetico.</li>
                 <li>Tende ad appiattire la formattazione di tabelle complesse se non guidato con precisione.</li>
               </ul>
             </div>
@@ -479,26 +480,26 @@
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2v-6h2z"/></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>
               <h3 class="bot-title">Claude (Anthropic)</h3>
             </div>
-            <span class="bot-badge">Alta Qualità ma Limiti Stringenti</span>
+            <span class="bot-badge">Alta qualità, limiti non dichiarati con precisione</span>
           </div>
-          <p>Riconosciuto come il modello con la **migliore qualità di scrittura stilistica in italiano** e con la traduzione latina più accurata. Tuttavia, la gestione dei token nella versione gratuita è **fortemente limitata**: il numero di messaggi consentiti per finestra temporale (4 ore) è ridotto e cala rapidamente se si incollano testi lunghi.</p>
+          <p>Riconosciuto per la <strong>qualità della scrittura in italiano</strong> e per una resa accurata e prudente dei testi latini. Il piano gratuito include oggi un modello di fascia intermedia e una finestra di contesto di circa 200.000 token, ma Anthropic non pubblica un numero fisso di messaggi: nella pratica ci si aggira tra 15 e 40 messaggi ogni 5 ore, con soglie più strette nelle ore di punta.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
                 <li>Qualità di analisi critica, prosa italiana e traduzione latina di livello elevato.</li>
-                <li>Modelli di ragionamento (serie Sonnet) estremamente precisi nel testo letterario.</li>
-                <li>Eccellente nell'evitare allucinazioni su passi d'autore classici e contesti storici.</li>
+                <li>Buona affidabilità nell'evitare invenzioni su passi d'autore classici e contesti storici.</li>
+                <li>Finestra di contesto ampia (circa 200.000 token) già nel piano gratuito.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Limiti di messaggi e token per sessione gratuiti molto stringenti.</li>
-                <li>Frequente blocco temporaneo per superamento della soglia oraria.</li>
+                <li>Nessun numero di messaggi dichiarato ufficialmente: il limite reale varia con il carico del servizio.</li>
+                <li>Il modello più potente (Opus) resta escluso dal piano gratuito.</li>
               </ul>
             </div>
           </div>
@@ -508,15 +509,15 @@
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></svg>
               <h3 class="bot-title">Perplexity (Perplexity AI)</h3>
             </div>
-            <span class="bot-badge">Motore di Ricerca AI & Citazione Fonti</span>
+            <span class="bot-badge">Motore di ricerca AI & citazione fonti</span>
           </div>
-          <p>Un **motore di risposta e ricerca assistita** che combina la generazione del linguaggio con l'accesso in tempo reale al web. È lo strumento ideale per la ricerca bibliografica e la verifica delle fonti storiche o critiche, poiché correda ogni affermazione con note a piè di pagina e link diretti.</p>
+          <p>Un <strong>motore di risposta con ricerca web integrata</strong>, pensato per rispondere corredando ogni affermazione con fonti consultabili. È lo strumento ideale per la ricerca bibliografica e la verifica di fonti storiche o critiche.</p>
           
           <div class="note-box">
-            📌 <strong>Nota didattica:</strong> A Perplexity e agli strumenti di ricerca assistita con verifica delle fonti sarà dedicata una lezione specifica del corso.
+            📌 <strong>Nota didattica:</strong> a Perplexity e agli strumenti di ricerca assistita con verifica delle fonti sarà dedicata una lezione specifica del corso.
           </div>
 
           <div class="pro-contra-grid">
@@ -525,14 +526,14 @@
               <ul>
                 <li>Citazione sistematica delle fonti web per ogni risposta fornita.</li>
                 <li>Eccellente per la preparazione di schede di attualità e ricerche storiografiche.</li>
-                <li>Riduce al minimo le allucinazioni sui dati fattuali e sulle date.</li>
+                <li>Riduce il rischio di errori sui dati fattuali e sulle date, grazie al riscontro con le fonti.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Meno portato per la scrittura creativa o la generazione di saggi complessi da zero.</li>
-                <li>Nella versione gratuita impiega modelli di ricerca con profondità limitata.</li>
+                <li>Meno indicato per la scrittura creativa o la generazione di saggi complessi da zero.</li>
+                <li>La profondità della ricerca varia secondo il piano e la configurazione usata.</li>
               </ul>
             </div>
           </div>
@@ -542,26 +543,26 @@
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <svg class="bot-icon" viewBox="2 4 43.998 40" xmlns="http://www.w3.org/2000/svg"><path fill="url(#capA1)" d="M34.142 7.325A4.63 4.63 0 0 0 29.7 4h-1.35a4.63 4.63 0 0 0-4.554 3.794L21.48 20.407l.575-1.965a4.63 4.63 0 0 1 4.444-3.33h7.853l3.294 1.282 3.175-1.283h-.926a4.63 4.63 0 0 1-4.443-3.325l-1.31-4.461z"/><path fill="url(#capB1)" d="M14.33 40.656A4.63 4.63 0 0 0 18.779 44h2.87a4.63 4.63 0 0 0 4.629-4.51l.312-12.163-.654 2.233a4.63 4.63 0 0 1-4.443 3.329h-7.919l-2.823-1.532-3.057 1.532h.912a4.63 4.63 0 0 1 4.447 3.344l1.279 4.423z"/><path fill="url(#capC1)" d="M29.5 4H13.46c-4.583 0-7.332 6.057-9.165 12.113C2.123 23.29-.72 32.885 7.503 32.885h6.925a4.63 4.63 0 0 0 4.456-3.358 2078.617 2078.617 0 0 1 4.971-17.156c.843-2.843 1.544-5.284 2.621-6.805C27.08 4.714 28.086 4 29.5 4z"/><path fill="url(#capD1)" d="M29.5 4H13.46c-4.583 0-7.332 6.057-9.165 12.113C2.123 23.29-.72 32.885 7.503 32.885h6.925a4.63 4.63 0 0 0 4.456-3.358 2078.617 2078.617 0 0 1 4.971-17.156c.843-2.843 1.544-5.284 2.621-6.805C27.08 4.714 28.086 4 29.5 4z"/><path fill="url(#capE1)" d="M18.498 44h16.04c4.582 0 7.332-6.058 9.165-12.115 2.171-7.177 5.013-16.775-3.208-16.775h-6.926a4.63 4.63 0 0 0-4.455 3.358 2084.036 2084.036 0 0 1-4.972 17.16c-.842 2.843-1.544 5.285-2.62 6.806-.604.852-1.61 1.566-3.024 1.566z"/><path fill="url(#capF1)" d="M18.498 44h16.04c4.582 0 7.332-6.058 9.165-12.115 2.171-7.177 5.013-16.775-3.208-16.775h-6.926a4.63 4.63 0 0 0-4.455 3.358 2084.036 2084.036 0 0 1-4.972 17.16c-.842 2.843-1.544 5.285-2.62 6.806-.604.852-1.61 1.566-3.024 1.566z"/><defs><radialGradient id="capA1" cx="0" cy="0" r="1" gradientTransform="matrix(-10.96051 -13.38922 12.59013 -10.30637 38.005 20.514)" gradientUnits="userSpaceOnUse"><stop offset=".096" stop-color="#00AEFF"/><stop offset=".773" stop-color="#2253CE"/><stop offset="1" stop-color="#0736C4"/></radialGradient><radialGradient id="capB1" cx="0" cy="0" r="1" gradientTransform="rotate(51.84 -28.201 27.85) scale(15.9912 15.5119)" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB657"/><stop offset=".634" stop-color="#FF5F3D"/><stop offset=".923" stop-color="#C02B3C"/></radialGradient><radialGradient id="capE1" cx="0" cy="0" r="1" gradientTransform="rotate(109.274 16.301 20.802) scale(38.3873 45.9867)" gradientUnits="userSpaceOnUse"><stop offset=".066" stop-color="#8C48FF"/><stop offset=".5" stop-color="#F2598A"/><stop offset=".896" stop-color="#FFB152"/></radialGradient><linearGradient id="capC1" x1="12.5" x2="14.788" y1="7.5" y2="33.975" gradientUnits="userSpaceOnUse"><stop offset=".156" stop-color="#0D91E1"/><stop offset=".487" stop-color="#52B471"/><stop offset=".652" stop-color="#98BD42"/><stop offset=".937" stop-color="#FFC800"/></linearGradient><linearGradient id="capD1" x1="14.5" x2="15.75" y1="4" y2="32.885" gradientUnits="userSpaceOnUse"><stop stop-color="#3DCBFF"/><stop offset=".247" stop-color="#0588F7" stop-opacity="0"/></linearGradient><linearGradient id="capF1" x1="42.586" x2="42.569" y1="13.346" y2="21.215" gradientUnits="userSpaceOnUse"><stop offset=".058" stop-color="#F8ADFA"/><stop offset=".708" stop-color="#A86EDD" stop-opacity="0"/></linearGradient></defs></svg>
               <h3 class="bot-title">Copilot (Microsoft)</h3>
             </div>
-            <span class="bot-badge">Integrazione Office & Limite Turni</span>
+            <span class="bot-badge">Integrazione Office & limite di turni</span>
           </div>
-          <p>Sfrutta la tecnologia OpenAI integrata nel motore di ricerca Bing e nel pacchetto Microsoft. L'interfaccia gestisce le conversazioni per **turni di chat delimitati**, costringendo talvolta ad azzerare la sessione per evitare saturazione della memoria della scheda.</p>
+          <p>Sfrutta la tecnologia OpenAI integrata nella ricerca Bing e nel pacchetto Microsoft 365. Le conversazioni hanno un numero massimo di turni oltre il quale occorre aprire una nuova chat: storicamente la soglia si è aggirata attorno alla trentina di scambi, ma Microsoft l'ha modificata più volte, quindi conviene non darla per certa.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Accesso continuo alla ricerca web in tempo reale con citazione delle fonti.</li>
-                <li>Integrazione nativa nell'ambiente Microsoft Office (Word, PowerPoint).</li>
-                <li>Possibilità di selezionare lo stile di risposta (Preciso, Bilanciato, Creativo).</li>
+                <li>Accesso alla ricerca web in tempo reale con citazione delle fonti.</li>
+                <li>Integrazione nativa nell'ambiente Microsoft Office (Word, Excel, PowerPoint, Teams).</li>
+                <li>Possibilità di selezionare lo stile di risposta (Preciso, Bilanciato, Creativo) a seconda della versione usata.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Limite di turni per singola conversazione prima del reset obbligatorio della scheda.</li>
-                <li>Frammentazione delle risposte se il testo da elaborare richiede molti passaggi.</li>
+                <li>Limite di turni per singola conversazione, variabile, prima del reset obbligatorio della chat.</li>
+                <li>L'esperienza cambia molto a seconda che si usi Copilot nel browser, in Windows o nelle app Microsoft 365.</li>
               </ul>
             </div>
           </div>
@@ -571,24 +572,24 @@
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <svg class="bot-icon" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M395.479 633.828L735.91 381.105C752.599 368.715 776.454 373.548 784.406 392.792C826.26 494.285 807.561 616.253 724.288 699.996C641.016 783.739 525.151 802.104 419.247 760.277L303.556 814.143C469.49 928.202 670.987 899.995 796.901 773.282C896.776 672.843 927.708 535.937 898.785 412.476L899.047 412.739C857.105 231.37 909.358 158.874 1016.4 10.6326C1018.93 7.11771 1021.47 3.60279 1024 0L883.144 141.651V141.212L395.392 633.916"/><path d="M325.226 695.251C206.128 580.84 226.662 403.776 328.285 301.668C403.431 226.097 526.549 195.254 634.026 240.596L749.454 186.994C728.657 171.88 702.007 155.623 671.424 144.2C533.19 86.9942 367.693 115.465 255.323 228.382C147.234 337.081 113.244 504.215 171.613 646.833C215.216 753.423 143.739 828.818 71.7385 904.916C46.2237 931.893 20.6216 958.87 0 987.429L325.139 695.339"/></svg>
               <h3 class="bot-title">Grok (xAI)</h3>
             </div>
-            <span class="bot-badge">Dati in Tempo Reale & Tono Diretto</span>
+            <span class="bot-badge">Dati in tempo reale & tono diretto</span>
           </div>
-          <p>Accessibile tramite la piattaforma X, sfrutta un flusso di dati social in tempo reale. I suoi limiti sono legati al livello dell'account utente, favorendo l'analisi rapida di dibattiti attuali e tendenze linguistiche rispetto alla lavorazione di documenti complessi.</p>
+          <p>Accessibile tramite la piattaforma X e app dedicate, sfrutta un flusso di dati social in tempo reale. I limiti dipendono dal livello dell'account utente; è più adatto all'analisi rapida di dibattiti attuali e tendenze linguistiche che alla lavorazione di documenti complessi.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Analisi immediata dei trend di attualità, sociolinguistica e dibattiti di costume.</li>
+                <li>Analisi immediata di trend di attualità, sociolinguistica e dibattiti di costume.</li>
                 <li>Risposte dirette e capacità di sintetizzare opinioni contrastanti sul web.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>Accesso completo legato all'ambiente della piattaforma X.</li>
+                <li>Alcune funzioni sono legate all'ecosistema X/xAI e ai piani a pagamento.</li>
                 <li>Scarsa attitudine alla filologia e all'analisi approfondita del testo classico.</li>
               </ul>
             </div>
@@ -599,27 +600,30 @@
         <div class="bot-card">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.2l8.5 4.8v9.6L12 21.4 3.5 16.6V7L12 2.2z"/></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.765.351C22.998.351 24 1.353 24 2.586S22.998 4.82 21.765 4.82h-1.974c-.15 0-.26-.12-.26-.26V2.586A2.237 2.237 0 0 1 21.765.35M9.41 13.388l8.447-8.377c.16-.16.07-.471-.14-.471h-4.55s-.1.02-.14.06l-9.099 9.029c-.14.14-.35.02-.35-.21V4.81c0-.15-.1-.27-.221-.27H.22c-.12 0-.22.12-.22.27v18.57c0 .15.1.27.22.27h3.137c.12 0 .22-.12.22-.27v-3.79c0-.08.03-.16.08-.21l2.826-2.796c.07-.07.16-.08.241-.03l7.546 5.551a8.9 8.9 0 0 0 4.018 1.493c.12.01.23-.11.23-.27V19.76c0-.14-.08-.25-.19-.26a5.8 5.8 0 0 1-2.355-.942l-6.533-4.73c-.14-.09-.15-.32-.03-.441"/></svg>
               <h3 class="bot-title">Kimi (Moonshot AI)</h3>
             </div>
-            <span class="bot-badge">Maxi-Contesto & Chain-of-Thought</span>
+            <span class="bot-badge">Maxi-contesto & ragionamento a catena</span>
           </div>
-          <p>Piattaforma specializzata nella gestione di contesti estremamente ampi (fino a **2 milioni di token**) e nel ragionamento a catena di pensiero (Chain-of-Thought). Permette di analizzare grandi file PDF, come intere antologie o documenti ministeriali, senza perdita di memoria.</p>
+          <p>Piattaforma specializzata nella gestione di contesti molto ampi e nel ragionamento passo-passo (chain-of-thought). Permette di analizzare grandi file PDF, come intere antologie o documenti ministeriali, senza perdere il filo del discorso.</p>
           <div class="pro-contra-grid">
             <div class="pro-box">
               <h5>PRO</h5>
               <ul>
-                <li>Finestra di token enorme per l'upload e la sintesi di grandi file PDF.</li>
+                <li>Finestra di contesto molto ampia per l'upload e la sintesi di grandi file PDF.</li>
                 <li>Modalità di ragionamento passo-passo utile per spiegazioni sintattiche rigide.</li>
               </ul>
             </div>
             <div class="contra-box">
               <h5>CONTRO</h5>
               <ul>
-                <li>I tempi di risposta nei processi di ragionamento profondo possono risultare più lunghi.</li>
+                <li>Meno conosciuto e diffuso nel contesto scolastico italiano ed europeo.</li>
                 <li>Meno affinato nello stile e nel registro della letteratura italiana d'autore.</li>
               </ul>
             </div>
+          </div>
+          <div class="note-box">
+            🔒 <strong>Attenzione privacy:</strong> come per qualunque piattaforma non europea, prima di caricare materiali sensibili (dati di alunni, documenti riservati) verificate sempre le condizioni sul trattamento dei dati.
           </div>
         </div>
       </section>
@@ -644,26 +648,26 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9 6.0651 6.0651 0 0 0-4.981-2.01 6.03 6.03 0 0 0-5.7188 4.088A6.01 6.01 0 0 0 1.258 7.3a6.0462 6.0462 0 0 0 .5157 4.9108 6.05 6.05 0 0 0 1.084 1.488 6.0462 6.0462 0 0 0-.5157 4.9108 6.0462 6.0462 0 0 0 6.5098 2.9 6.05 6.05 0 0 0 4.981 2.01 6.03 6.03 0 0 0 5.7188-4.088 6.01 6.01 0 0 0 3.3005-3.212 6.05 6.05 0 0 0-.5703-6.3866zm-8.8315 12.339a4.29 4.29 0 0 1-2.4571-.7671l.1627-.0943 3.6552-2.1109a.88.88 0 0 0 .4412-.7625v-5.1581l1.5432.891a.08.08 0 0 1 .0441.062v4.3013a4.28 4.28 0 0 1-3.3893 3.6386zm-8.816-3.8344a4.2838 4.2838 0 0 1-.5024-2.5222l.1627.0984 3.6552 2.1108a.88.88 0 0 0 .8824 0l4.4682-2.5802v1.782a.08.08 0 0 1-.032.068l-3.7252 2.15a4.29 4.29 0 0 1-4.9089-.1068zm-1.8021-9.3364a4.28 4.28 0 0 1 1.9547-1.7551l-.002.1884v4.2217a.88.88 0 0 0 .4412.7625l4.4682 2.5802-1.5432.891a.08.08 0 0 1-.0761.006l-3.7252-2.15a4.29 4.29 0 0 1-1.5176-4.7447zm13.3862 3.1207l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006l3.7252 2.15a4.28 4.28 0 0 1 .4843 7.2669l-.1627-.0984-3.6552-2.1108a.88.88 0 0 0-.8824 0zm2.2109-3.9213l-.1627-.0943-3.6552-2.1109a.88.88 0 0 0-.4412.7625v5.1581l-1.5432-.891a.08.08 0 0 1-.0441-.062v-4.3013a4.29 4.29 0 0 1 5.8464-1.461zm-10.375-3.61a4.29 4.29 0 0 1 4.9089.1068l-.1627.0943-3.6552 2.1109a.88.88 0 0 0-.8824 0l-4.4682-2.5802 1.5432-.891a.08.08 0 0 1 .0761-.006z"/></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 256 260" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z"/></svg>
                     ChatGPT
                   </div>
                 </td>
-                <td>Progettazione di verifiche, griglie a rubrica, PDP e Custom GPTs.</td>
-                <td>Avvio con modello top, poi switch al modello base a quota esaurita.</td>
+                <td>Progettazione di verifiche, griglie a rubrica, PDP e Custom GPT.</td>
+                <td>Modello veloce di default, con ragionamento più profondo attivabile o su richiesta o dal sistema per query complesse.</td>
                 <td>
                   <span class="mini-pro">PRO: Versatile e completo nelle strutture.</span>
-                  <span class="mini-contra">CONTRO: Switch di modello sotto carico.</span>
+                  <span class="mini-contra">CONTRO: Ragionamento avanzato per lo più a pagamento.</span>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24Z"/></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>
                     Gemini
                   </div>
                 </td>
                 <td>Analisi di intere opere o raccolte di saggi (Drive e Docs).</td>
-                <td>Finestra fino a 2M token; quota Pro temporanea poi passa a Flash.</td>
+                <td>Finestra di contesto molto ampia; l'uso del modello Pro nel piano gratuito è limitato nel tempo, poi si passa a Flash.</td>
                 <td>
                   <span class="mini-pro">PRO: Maxi-contesto integrato in Google.</span>
                   <span class="mini-contra">CONTRO: Formattazione tabelle talvolta imprecisa.</span>
@@ -672,21 +676,21 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2v-6h2z"/></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>
                     Claude
                   </div>
                 </td>
                 <td>Analisi stilistica raffinata, parafrasi e traduzione dal Latino.</td>
-                <td>Alta qualità di risposta, ma limite stringente sul numero di messaggi.</td>
+                <td>Alta qualità di risposta e finestra di contesto ampia; numero di messaggi non dichiarato ufficialmente.</td>
                 <td>
                   <span class="mini-pro">PRO: Qualità del testo ed eleganza al top.</span>
-                  <span class="mini-contra">CONTRO: Blocchi temporanei per limite token.</span>
+                  <span class="mini-contra">CONTRO: Limiti d'uso variabili e non trasparenti.</span>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></svg>
                     Perplexity
                   </div>
                 </td>
@@ -700,12 +704,12 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg class="table-bot-icon" viewBox="2 4 43.998 40" xmlns="http://www.w3.org/2000/svg"><path fill="url(#capA2)" d="M34.142 7.325A4.63 4.63 0 0 0 29.7 4h-1.35a4.63 4.63 0 0 0-4.554 3.794L21.48 20.407l.575-1.965a4.63 4.63 0 0 1 4.444-3.33h7.853l3.294 1.282 3.175-1.283h-.926a4.63 4.63 0 0 1-4.443-3.325l-1.31-4.461z"/><path fill="url(#capB2)" d="M14.33 40.656A4.63 4.63 0 0 0 18.779 44h2.87a4.63 4.63 0 0 0 4.629-4.51l.312-12.163-.654 2.233a4.63 4.63 0 0 1-4.443 3.329h-7.919l-2.823-1.532-3.057 1.532h.912a4.63 4.63 0 0 1 4.447 3.344l1.279 4.423z"/><path fill="url(#capC2)" d="M29.5 4H13.46c-4.583 0-7.332 6.057-9.165 12.113C2.123 23.29-.72 32.885 7.503 32.885h6.925a4.63 4.63 0 0 0 4.456-3.358 2078.617 2078.617 0 0 1 4.971-17.156c.843-2.843 1.544-5.284 2.621-6.805C27.08 4.714 28.086 4 29.5 4z"/><path fill="url(#capD2)" d="M29.5 4H13.46c-4.583 0-7.332 6.057-9.165 12.113C2.123 23.29-.72 32.885 7.503 32.885h6.925a4.63 4.63 0 0 0 4.456-3.358 2078.617 2078.617 0 0 1 4.971-17.156c.843-2.843 1.544-5.284 2.621-6.805C27.08 4.714 28.086 4 29.5 4z"/><path fill="url(#capE2)" d="M18.498 44h16.04c4.582 0 7.332-6.058 9.165-12.115 2.171-7.177 5.013-16.775-3.208-16.775h-6.926a4.63 4.63 0 0 0-4.455 3.358 2084.036 2084.036 0 0 1-4.972 17.16c-.842 2.843-1.544 5.285-2.62 6.806-.604.852-1.61 1.566-3.024 1.566z"/><path fill="url(#capF2)" d="M18.498 44h16.04c4.582 0 7.332-6.058 9.165-12.115 2.171-7.177 5.013-16.775-3.208-16.775h-6.926a4.63 4.63 0 0 0-4.455 3.358 2084.036 2084.036 0 0 1-4.972 17.16c-.842 2.843-1.544 5.285-2.62 6.806-.604.852-1.61 1.566-3.024 1.566z"/><defs><radialGradient id="capA2" cx="0" cy="0" r="1" gradientTransform="matrix(-10.96051 -13.38922 12.59013 -10.30637 38.005 20.514)" gradientUnits="userSpaceOnUse"><stop offset=".096" stop-color="#00AEFF"/><stop offset=".773" stop-color="#2253CE"/><stop offset="1" stop-color="#0736C4"/></radialGradient><radialGradient id="capB2" cx="0" cy="0" r="1" gradientTransform="rotate(51.84 -28.201 27.85) scale(15.9912 15.5119)" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB657"/><stop offset=".634" stop-color="#FF5F3D"/><stop offset=".923" stop-color="#C02B3C"/></radialGradient><radialGradient id="capE2" cx="0" cy="0" r="1" gradientTransform="rotate(109.274 16.301 20.802) scale(38.3873 45.9867)" gradientUnits="userSpaceOnUse"><stop offset=".066" stop-color="#8C48FF"/><stop offset=".5" stop-color="#F2598A"/><stop offset=".896" stop-color="#FFB152"/></radialGradient><linearGradient id="capC2" x1="12.5" x2="14.788" y1="7.5" y2="33.975" gradientUnits="userSpaceOnUse"><stop offset=".156" stop-color="#0D91E1"/><stop offset=".487" stop-color="#52B471"/><stop offset=".652" stop-color="#98BD42"/><stop offset=".937" stop-color="#FFC800"/></linearGradient><linearGradient id="capD2" x1="14.5" x2="15.75" y1="4" y2="32.885" gradientUnits="userSpaceOnUse"><stop stop-color="#3DCBFF"/><stop offset=".247" stop-color="#0588F7" stop-opacity="0"/></linearGradient><linearGradient id="capF2" x1="42.586" x2="42.569" y1="13.346" y2="21.215" gradientUnits="userSpaceOnUse"><stop offset=".058" stop-color="#F8ADFA"/><stop offset=".708" stop-color="#A86EDD" stop-opacity="0"/></linearGradient></defs></svg>
                     Copilot
                   </div>
                 </td>
                 <td>Ricerche bibliografiche con fonti e integrazione Microsoft Word.</td>
-                <td>Conteggio per turni di chat delimitati prima del reset necessario.</td>
+                <td>Conteggio per turni di chat, con soglia variabile, prima del reset necessario.</td>
                 <td>
                   <span class="mini-pro">PRO: Fonti web citate e uso in Word.</span>
                   <span class="mini-contra">CONTRO: Turni di conversazione limitati.</span>
@@ -714,12 +718,12 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M395.479 633.828L735.91 381.105C752.599 368.715 776.454 373.548 784.406 392.792C826.26 494.285 807.561 616.253 724.288 699.996C641.016 783.739 525.151 802.104 419.247 760.277L303.556 814.143C469.49 928.202 670.987 899.995 796.901 773.282C896.776 672.843 927.708 535.937 898.785 412.476L899.047 412.739C857.105 231.37 909.358 158.874 1016.4 10.6326C1018.93 7.11771 1021.47 3.60279 1024 0L883.144 141.651V141.212L395.392 633.916"/><path d="M325.226 695.251C206.128 580.84 226.662 403.776 328.285 301.668C403.431 226.097 526.549 195.254 634.026 240.596L749.454 186.994C728.657 171.88 702.007 155.623 671.424 144.2C533.19 86.9942 367.693 115.465 255.323 228.382C147.234 337.081 113.244 504.215 171.613 646.833C215.216 753.423 143.739 828.818 71.7385 904.916C46.2237 931.893 20.6216 958.87 0 987.429L325.139 695.339"/></svg>
                     Grok
                   </div>
                 </td>
                 <td>Educazione civica, dibattito contemporaneo e sociolinguistica.</td>
-                <td>Integrazione diretta con i token social della piattaforma X.</td>
+                <td>Integrazione diretta con i dati in tempo reale della piattaforma X.</td>
                 <td>
                   <span class="mini-pro">PRO: Dati in tempo reale e attualità.</span>
                   <span class="mini-contra">CONTRO: Registro poco accademico.</span>
@@ -728,15 +732,15 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.2l8.5 4.8v9.6L12 21.4 3.5 16.6V7L12 2.2z"/></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.765.351C22.998.351 24 1.353 24 2.586S22.998 4.82 21.765 4.82h-1.974c-.15 0-.26-.12-.26-.26V2.586A2.237 2.237 0 0 1 21.765.35M9.41 13.388l8.447-8.377c.16-.16.07-.471-.14-.471h-4.55s-.1.02-.14.06l-9.099 9.029c-.14.14-.35.02-.35-.21V4.81c0-.15-.1-.27-.221-.27H.22c-.12 0-.22.12-.22.27v18.57c0 .15.1.27.22.27h3.137c.12 0 .22-.12.22-.27v-3.79c0-.08.03-.16.08-.21l2.826-2.796c.07-.07.16-.08.241-.03l7.546 5.551a8.9 8.9 0 0 0 4.018 1.493c.12.01.23-.11.23-.27V19.76c0-.14-.08-.25-.19-.26a5.8 5.8 0 0 1-2.355-.942l-6.533-4.73c-.14-.09-.15-.32-.03-.441"/></svg>
                     Kimi
                   </div>
                 </td>
                 <td>Lavorazione di grandi archivi di PDF scolastici e spiegazioni passo-passo.</td>
-                <td>Maxi-contesto con ragionamento Chain-of-Thought (CoT).</td>
+                <td>Maxi-contesto con ragionamento chain-of-thought (CoT).</td>
                 <td>
                   <span class="mini-pro">PRO: Enorme memoria di lavoro per PDF.</span>
-                  <span class="mini-contra">CONTRO: Risposte più lente nel ragionamento.</span>
+                  <span class="mini-contra">CONTRO: Meno affinato nello stile letterario italiano.</span>
                 </td>
               </tr>
             </tbody>
@@ -744,37 +748,92 @@
         </div>
       </section>
 
-      <!-- ==================== PARTE 3: LABORATORIO ED ESERCIZI ==================== -->
+      <!-- ==================== PARTE 3: CONSIGLI PER ATTIVITÀ DIDATTICHE ==================== -->
       <section class="section-block">
-        <span class="section-tag-header lab">Parte 3 — Laboratorio Pratico</span>
+        <span class="section-tag-header summary">Parte 3 — Quale Chatbot per Quale Attività</span>
+        <h2 class="section-title">Consigli d'Uso per le Attività Didattiche Canoniche</h2>
+        <p>Nessun chatbot è il migliore in assoluto: la scelta cambia in base al compito. Ecco un orientamento rapido per alcune attività ricorrenti nella pratica di Italiano e Latino.</p>
+
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Attività</th>
+                <th>Chatbot consigliati</th>
+                <th>Perché</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Creazione di immagini</strong><br>(copertine, schede visive, ausili per la LIM)</td>
+                <td>ChatGPT, Gemini, Copilot, Grok</td>
+                <td>Generano immagini direttamente in chat. Claude, Perplexity e Kimi, invece, non offrono generazione di immagini nativa.</td>
+              </tr>
+              <tr>
+                <td><strong>Mappe concettuali e schemi</strong></td>
+                <td>Claude, ChatGPT, Gemini</td>
+                <td>Producono elenchi gerarchici puliti e, in alcuni casi, schemi o diagrammi interattivi (es. Artifacts di Claude, Canvas di ChatGPT) da rifinire poi con un editor di mappe dedicato (Coggle, MindMeister, Canva).</td>
+              </tr>
+              <tr>
+                <td><strong>Riassunti di testi e articoli</strong></td>
+                <td>Perplexity, Copilot, Claude, Gemini</td>
+                <td>Perplexity e Copilot corredano il riassunto di fonti verificabili; Claude e Gemini gestiscono bene documenti molto lunghi caricati per intero, grazie alla loro ampia finestra di contesto.</td>
+              </tr>
+              <tr>
+                <td><strong>Rielaborazione e revisione di testi</strong><br>(parafrasi, cambio di registro, correzione)</td>
+                <td>Claude, ChatGPT</td>
+                <td>Seguono con precisione le istruzioni di stile e registro; Claude è particolarmente apprezzato per la qualità della prosa italiana prodotta.</td>
+              </tr>
+              <tr>
+                <td><strong>Ricerca bibliografica e verifica delle fonti</strong></td>
+                <td>Perplexity, Copilot</td>
+                <td>Citano sistematicamente le fonti web utilizzate per costruire la risposta, facilitando il controllo dell'attendibilità.</td>
+              </tr>
+              <tr>
+                <td><strong>Analisi di grandi archivi PDF</strong><br>(programmazioni, antologie, dispense)</td>
+                <td>Gemini, Kimi</td>
+                <td>Gestiscono finestre di contesto molto ampie, utili per caricare interi documenti o intere raccolte di file in un solo prompt.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-box">
+          💡 <strong>Un consiglio trasversale:</strong> qualunque sia lo strumento scelto, la qualità dell'output dipende più dalla precisione del prompt che dalla piattaforma. Rivedete i criteri visti nella prima lezione (struttura R-C-I-F) prima di giudicare i risultati.
+        </div>
+      </section>
+
+      <!-- ==================== PARTE 4: LABORATORIO ED ESERCIZI ==================== -->
+      <section class="section-block">
+        <span class="section-tag-header lab">Parte 4 — Laboratorio Pratico</span>
         <h2 class="section-title">Esercitazioni per il Confronto Critico</h2>
         <p>Attività pratiche da svolgere durante i corsi di formazione per sperimentare direttamente sul campo le differenze operative, i limiti dei token e le peculiarità dei diversi chatbot.</p>
 
         <!-- ESERCIZIO 1 -->
         <div class="exercise-card">
           <h4 class="exercise-title">Esercizio 1: La Prova della Traduzione Latina (Claude vs ChatGPT vs Gemini)</h4>
-          <p><strong>Obiettivo:</strong> Confrontare la sensibilità sintattica e la precisione filologica delle tre piattaforme principali.</p>
-          <p><strong>Consegna:</strong> Somministra lo stesso identico prompt contenente un passo complesso d'autore latino (es. Seneca, <em>Epistulae ad Lucilium</em>) a Claude, ChatGPT e Gemini. Richiedi l'analisi dei costrutti e la traduzione italiana.</p>
+          <p><strong>Obiettivo:</strong> confrontare la sensibilità sintattica e la precisione filologica delle tre piattaforme principali.</p>
+          <p><strong>Consegna:</strong> somministra lo stesso identico prompt, contenente un passo complesso d'autore latino (es. Seneca, <em>Epistulae ad Lucilium</em>), a Claude, ChatGPT e Gemini. Richiedi l'analisi dei costrutti e la traduzione italiana.</p>
           <blockquote class="prompt-box">
             <strong>Prompt di prova:</strong><br>
             "Analizza dal punto di vista sintattico il seguente passo di Seneca: [incolla il testo]. Identifica le proposizioni subordinate e fornisci una traduzione in italiano che mantenga il tono filosofico senza risultare arcaica. Infine motiva le tue scelte di traduzione."
           </blockquote>
-          <p><em>Valuta: Quale chatbot ha reso meglio il ritmo del periodo? Chi ha commesso errori nella resa dei casi o dei modi verbali?</em></p>
+          <p><em>Valuta: quale chatbot ha reso meglio il ritmo del periodo? Chi ha commesso errori nella resa dei casi o dei modi verbali?</em></p>
         </div>
 
         <!-- ESERCIZIO 2 -->
         <div class="exercise-card">
-          <h4 class="exercise-title">Esercizio 2: Stress Test dei Limiti e dello Switch di Modello</h4>
-          <p><strong>Obiettivo:</strong> Riconoscere il momento in cui una piattaforma raggiunge il limite di token o declassa il modello.</p>
-          <p><strong>Consegna:</strong> Inserisci in ChatGPT un testo lungo chiedendo una complessa tabella di programmazione didattica per un intero quadrimestre. Continua la sessione chiedendo successive modifiche per osservare la differenza di risposta al momento dello switch dal modello top a quello base.</p>
-          <p><em>Riflessione: In che modo è cambiata la precisione delle tabelle o la profondità dell'analisi dopo lo switch automatico?</em></p>
+          <h4 class="exercise-title">Esercizio 2: Riconoscere i Limiti del Piano Gratuito</h4>
+          <p><strong>Obiettivo:</strong> imparare a riconoscere quando una piattaforma cambia modello, riduce la profondità delle risposte o interrompe la conversazione per limiti di piano.</p>
+          <p><strong>Consegna:</strong> scegli due piattaforme diverse (ad esempio ChatGPT e Copilot) e allunga progressivamente la stessa conversazione, chiedendo via via correzioni e integrazioni a una tabella di programmazione didattica. Osserva se e come compare un avviso di limite, un cambio di modello o la richiesta di aprire una nuova chat.</p>
+          <p><em>Riflessione: la piattaforma avvisa esplicitamente del limite raggiunto, oppure il cambiamento avviene in modo silenzioso? In che modo cambia la qualità delle risposte?</em></p>
         </div>
 
         <!-- ESERCIZIO 3 -->
         <div class="exercise-card">
           <h4 class="exercise-title">Esercizio 3: Analisi Critica di un Canto del Paradiso</h4>
-          <p><strong>Obiettivo:</strong> Verificare la capacità di parafrasi e contestualizzazione critica della poesia dantesca.</p>
-          <p><strong>Consegna:</strong> Scegli un canto del Paradiso di Dante (es. Canto XXXIII). Chiedi a due piattaforme diverse di generare una parafrasi riga per riga affiancata da note esegetiche per una classe di liceo.</p>
+          <p><strong>Obiettivo:</strong> verificare la capacità di parafrasi e contestualizzazione critica della poesia dantesca.</p>
+          <p><strong>Consegna:</strong> scegli un canto del Paradiso di Dante (es. Canto XXXIII). Chiedi a due piattaforme diverse di generare una parafrasi riga per riga affiancata da note esegetiche per una classe di liceo.</p>
           <blockquote class="prompt-box">
             <strong>Prompt di prova:</strong><br>
             "Fornisci la parafrasi dei primi 36 versi del Canto XXXIII del Paradiso di Dante ('Vergine Madre, figlia del tuo figlio'). Affianca a ciascuna terzina una nota esegetica incentrata sul lessico teologico. Mantieni un registro rigoroso nel commento."
@@ -784,8 +843,8 @@
         <!-- ESERCIZIO 4 -->
         <div class="exercise-card">
           <h4 class="exercise-title">Esercizio 4: Gestione dei Maxidocumenti (Gemini vs Kimi)</h4>
-          <p><strong>Obiettivo:</strong> Testare la capacità di elaborazione dei grandi contesti su file di programmazione o libri di testo.</p>
-          <p><strong>Consegna:</strong> Carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
+          <p><strong>Obiettivo:</strong> testare la capacità di elaborazione dei grandi contesti su file di programmazione o libri di testo.</p>
+          <p><strong>Consegna:</strong> carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
         </div>
       </section>
 

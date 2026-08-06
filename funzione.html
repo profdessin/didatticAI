@@ -610,24 +610,24 @@
 
       </section>
 
-      <!-- ==================== PARTE ESERCIZI-LABORATORIO ==================== -->
+    <!-- ==================== PARTE ESERCIZI-LABORATORIO ==================== -->
       <section class="section-block">
         <span class="section-tag-header lab">Parte 2 — Esercizi e Laboratorio Pratico</span>
-        <h2 class="section-title">Schede Applicative per Corsisti</h2>
-        <p>Esercizi di analisi e simulazione ideati per guidare i docenti a prendere dimestichezza con la gestione dei token, la finestra di contesto e l'individuazione delle allucinazioni.</p>
+        <h2 class="section-title">Schede Applicative e Laboratorio</h2>
+        <p>Metti alla prova quanto appreso nei moduli teorici. Attraverso questi esercizi di analisi e simulazione potrai prendere dimestichezza con la gestione dei token, la finestra di contesto, la verifica delle allucinazioni e la tutela della privacy.</p>
 
         <!-- ESERCIZIO 1 -->
         <div class="exercise-card">
           <h4 class="sub-phase-title">Esercizio 1: Calcolo e Ottimizzazione dei Token</h4>
-          <p><strong>Obiettivo:</strong> Comprendere la differenza tra input leggeri e input ad alto consumo di token.</p>
-          <p><strong>Consegna per i corsisti:</strong> Analizza i 3 seguenti scenari di utilizzo didattico dell'IA e ordinali dal più economico (minor consumo di token) a quello più gravoso per la finestra di contesto.</p>
+          <p><strong>Obiettivo:</strong> Comprendere la differenza tra input leggeri e input ad alto consumo di token per gestire al meglio la memoria di lavoro dell'IA.</p>
+          <p><strong>La tua consegna:</strong> Analizza i 3 seguenti scenari di utilizzo didattico e ordinali dal più economico (minor consumo di token) a quello più gravoso per la finestra di contesto.</p>
           <ul>
             <li><strong>Scenario A:</strong> Richiedere la spiegazione in 3 punti della legge di Snell o di una regola di sintassi latina.</li>
             <li><strong>Scenario B:</strong> Caricare la scansione in formato immagine di una verifica scritta a mano da uno studente per chiederne la trascrizione completa.</li>
             <li><strong>Scenario C:</strong> Caricare un PDF del PTOF d'Istituto di 45 pagine per chiedere quali siano le righe dedicate ai progetti di inclusione.</li>
           </ul>
           <blockquote class="prompt-box">
-            <strong>Soluzione per la discussione:</strong><br>
+            <strong>Esito dell'analisi:</strong><br>
             Il consumo cresce da A (solo testo breve) a B (analisi immagine ad alta intensità) fino a C (il PDF carica l'intero testo nel contesto, rischiando anche l'effetto <em>Lost in the Middle</em>).
           </blockquote>
         </div>
@@ -635,17 +635,17 @@
         <!-- ESERCIZIO 2 -->
         <div class="exercise-card">
           <h4 class="sub-phase-title">Esercizio 2: Caccia all'Allucinazione (Fact-Checking Didattico)</h4>
-          <p><strong>Obiettivo:</strong> Sviluppare lo spirito critico e individuare i passi in cui l'IA inventa riferimenti per completamento probabilistico.</p>
-          <p><strong>Consegna per i corsisti:</strong> Sottoponi a un modello di IA privo di navigazione web un prompt per la ricerca di citazioni o norme (es. <em>«Forniscimi 3 citazioni esatte di Seneca con il testo latino a fronte e la collocazione precisa nei Dialoghi»</em> oppure <em>«Elenca le sentenze della Cassazione del 2024 sul diritto allo studio»</em>). Verifica poi manualmente su un dizionario/normativa l'esattezza dei risultati generati.</p>
+          <p><strong>Obiettivo:</strong> Sviluppare spirito critico e imparare a individuare i passi in cui l'IA inventa riferimenti per completamento probabilistico.</p>
+          <p><strong>La tua consegna:</strong> Sottoponi a un modello di IA (preferibilmente senza navigazione web attiva) un prompt per la ricerca di citazioni o norme precise (es. <em>«Forniscimi 3 citazioni esatte di Seneca con il testo latino a fronte e la collocazione precisa nei Dialoghi»</em> oppure <em>«Elenca le sentenze della Cassazione del 2024 sul diritto allo studio»</em>). Verifica poi manualmente su un dizionario, un testo classico o una banca dati normativa l'esattezza dei risultati generati.</p>
         </div>
 
         <!-- ESERCIZIO 3 -->
         <div class="exercise-card">
           <h4 class="sub-phase-title">Esercizio 3: Gestione dell'Effetto "Lost in the Middle"</h4>
-          <p><strong>Obiettivo:</strong> Sperimentare come l'attenzione dell'IA diminuisce nelle parti centrali dei testi lunghi.</p>
-          <p><strong>Consegna per i corsisti:</strong> Prendi un documento lungo (es. un capitolo di un manuale o un regolamento scolastico). Fai due interrogazioni differenti:</p>
+          <p><strong>Obiettivo:</strong> Sperimentare come l'attenzione dell'IA diminuisce nelle parti centrali dei testi molto lunghi.</p>
+          <p><strong>La tua consegna:</strong> Prendi un documento esteso (es. un capitolo di un manuale o un regolamento scolastico). Effettua due interrogazioni differenti:</p>
           <ol>
-            <li>Poni prima una domanda generica su tutto il documento (es. <em>«Riassumi i punti principali del testo»</em>). Verifica se l'informazione contenuta a pagina 15 viene menzionata.</li>
+            <li>Poni prima una domanda generica su tutto il documento (es. <em>«Riassumi i punti principali del testo»</em>). Osserva se le informazioni contenute a metà documento (es. a pagina 15) vengono menzionate o trascurate.</li>
             <li>Riformula il prompt chiedendo specificamente: <em>«Fai riferimento esclusivamente al paragrafo relativo al tema X (posizionato a metà documento) ed estrai i concetti chiave»</em>. Confronta la precisione delle due risposte.</li>
           </ol>
         </div>
@@ -653,8 +653,22 @@
         <!-- ESERCIZIO 4 -->
         <div class="exercise-card">
           <h4 class="sub-phase-title">Esercizio 4: Anonimizzazione di Documenti Didattici (Privacy & GDPR)</h4>
-          <p><strong>Obiettivo:</strong> Riconoscere e rimuovere i dati sensibili prima dell'invio dei file ai chatbot.</p>
-          <p><strong>Consegna per i corsisti:</strong> Prendi una griglia di valutazione compilata o una bozza di piano di recupero contenente nomi, cognomi, classe e riferimenti alla diagnosi DSA. Riscrivi il prompt in modo che il testo risulti completamente anonimizzato, conservando solo gli elementi di rilevanza pedagogica.</p>
+          <p><strong>Obiettivo:</strong> Riconoscere e rimuovere i dati sensibili prima dell'invio dei testi ai chatbot per garantire la tutela dei dati a scuola.</p>
+          <p><strong>La tua consegna:</strong> Prendi un testo reale della tua attività didattica (una griglia di valutazione compilata, una nota d'osservazione o una bozza di piano di recupero) contenente nomi, cognomi, classe e riferimenti alla diagnosi o al PDP/PEI di uno studente. Riscrivi la richiesta in modo che il testo risulti completamente anonimizzato, conservando solo gli elementi di rilevanza pedagogica.</p>
+        </div>
+
+        <!-- ESERCIZIO 5 -->
+        <div class="exercise-card">
+          <h4 class="sub-phase-title">Esercizio 5: L'Effetto "Snowball" e l'Interruzione dell'Errore</h4>
+          <p><strong>Obiettivo:</strong> Comprendere come l'IA trascini gli errori all'interno della stessa conversazione e imparare a resettare il contesto.</p>
+          <p><strong>La tua consegna:</strong> Induci l'IA a un piccolo errore concettuale o accetta una sua imprecisione. Prosegui la conversazione chiedendo ulteriori dettagli sul medesimo argomento e nota come il modello tenda ad amplificare l'errore iniziale anziché correggerlo.<br>Successivamente, apri una <strong>Nuova Chat</strong>, riformula il prompt iniziale correggendo le premesse e confronta la qualità della risposta.</p>
+        </div>
+
+        <!-- ESERCIZIO 6 -->
+        <div class="exercise-card">
+          <h4 class="sub-phase-title">Esercizio 6: Confronto tra Modelli (Flash vs Reasoning)</h4>
+          <p><strong>Obiettivo:</strong> Saper scegliere l'architettura di IA più adatta al tipo di compito didattico.</p>
+          <p><strong>La tua consegna:</strong> Prendi un problema logico, un'analisi del periodo complessa o un quesito di programmazione didattica per obiettivi differenti. Sottoponi lo stesso identico prompt a due modelli diversi (es. un modello rapido/standard come <em>Flash / GPT-4o-mini</em> e un modello di ragionamento come <em>Thinking / o3-mini</em>). Confronta i passaggi intermedi della risposta e la profondità della soluzione.</p>
         </div>
       </section>
 

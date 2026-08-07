@@ -107,6 +107,7 @@
     background: var(--color-header); 
     text-align: center; 
     border-bottom: 1px solid var(--color-border); 
+    scroll-margin-top: 90px;
   }
   .page-header h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 12px; }
   .page-header p { font-size: 1.15rem; color: var(--color-secondary); font-weight: 500; max-width: 700px; margin: 0 auto; }
@@ -121,6 +122,7 @@
     margin-bottom: 50px;
     box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
+    scroll-margin-top: 90px;
   }
 
   .section-tag-header {
@@ -149,6 +151,50 @@
     margin-bottom: 25px;
     padding-bottom: 12px;
     border-bottom: 2px solid var(--color-bg);
+  }
+
+  /* ---------- NAV RAPIDA TRA LE PARTI ---------- */
+  .part-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .part-nav a {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 14px rgba(14, 58, 82, 0.15);
+    transition: all 0.25s ease;
+  }
+  .part-nav a:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  .back-to-top-wrap {
+    text-align: right;
+    margin-top: 35px;
+  }
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+  }
+  .back-to-top:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border-color: var(--color-secondary);
   }
 
   /* ---------- MINI NAV INTERNA & BANNER AGGIORNAMENTO ---------- */
@@ -459,6 +505,7 @@
     .pro-contra-grid { grid-template-columns: 1fr; }
     .navigation-buttons { flex-direction: column; }
     .btn { width: 100%; }
+    .back-to-top-wrap { text-align: left; }
   }
 </style>
 </head>
@@ -523,7 +570,7 @@
     </div>
   </header>
 
-  <div class="page-header">
+  <div class="page-header" id="page-top">
     <div class="container">
       <h1>I principali Chatbot</h1>
       <p>Un'analisi comparativa delle piattaforme di intelligenza artificiale per i docenti di Italiano e Latino.</p>
@@ -533,11 +580,22 @@
   <div class="main-wrapper">
     <div class="container">
 
+      <!-- ==================== NAV RAPIDA TRA LE PARTI ==================== -->
+      <div class="part-nav">
+        <a href="#parte1">Panoramica dei chatbot</a>
+        <a href="#parte2">Tabella comparativa</a>
+        <a href="#parte3">Consigli d'uso</a>
+        <a href="#parte4">Laboratorio pratico</a>
+      </div>
+
       <!-- ==================== PARTE 1: ANALISI DEI CHATBOT ==================== -->
-      <section class="section-block">
+      <section class="section-block" id="parte1">
         <span class="section-tag-header">Parte 1 — Panoramica e Gestione dei Modelli</span>
         <h2 class="section-title">Caratteristiche, Punti di forza e Limiti</h2>
         <p>Nella pratica scegliere un chatbot non significa solo valutare la qualità delle risposte, ma comprendere come ciascuna piattaforma gestisce i <strong>modelli di intelligenza artificiale</strong>, le <strong>finestre di contesto (token)</strong> e le <strong>quote di utilizzo</strong>. Questi parametri cambiano molto spesso: i numeri riportati qui sotto vanno quindi presi come un ordine di grandezza, non come un valore fisso e garantito nel tempo.</p>
+
+        <p>Può essere disorientante districarsi tra la selva dei vari chatbot e per questo proponiamo questa sezione. Va detto però che più che un bot specifico, è sempre la costruzione di un prompt accurato e preciso a garantirvi un prodotto di qualità. Inoltre è preferibile usare il chatbot che riteniamo preferibile e più consono al nostro gusto e alla nostra sensibilità.</p>
+        <p>Se ci si può azzardare un consiglio, generalmente ChatGPT e Gemini offrono la soluzione migliore e più semplice da ottenere; per i compiti più complessi si può usare Claude.</p>
 
         <div class="update-banner">
           🗓️ <span>Dati verificati ad agosto 2026 — prima di una lezione, ricontrollate sempre la pagina ufficiale della piattaforma, perché piani e limiti cambiano con frequenza.</span>
@@ -557,7 +615,7 @@
         <div class="bot-card" id="bot-chatgpt">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-chatgpt"></use></svg>
+              <svg class="bot-icon" viewBox="0 0 256 260" aria-hidden="true"><use href="#icon-chatgpt"></use></svg>
               <h3 class="bot-title">ChatGPT (OpenAI)</h3>
             </div>
             <span class="bot-badge">Molto versatile</span>
@@ -609,7 +667,7 @@
         <div class="bot-card" id="bot-gemini">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-gemini"></use></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-gemini"></use></svg>
               <h3 class="bot-title">Gemini (Google)</h3>
             </div>
             <span class="bot-badge">Multimodalità</span>
@@ -623,7 +681,7 @@
             <li>Ricerca sul web (motore Google) con possibilità di verifica delle informazioni e indicazione delle fonti.</li>
             <li>Integrazione con Google Drive, Documenti, Slides e altri strumenti Workspace (nei piani che lo prevedono).</li>
             <li>Analisi multimodale di testi, immagini, audio e video.</li>
-            <li>Caricamento e analisi di documenti estesi e materiali didattici (file caricati dall’utente).</li>
+            <li>Caricamento e analisi di documenti estesi e materiali didattici (file caricati dall'utente).</li>
             <li>Generazione di immagini e creazione di Gems, chatbot personalizzati per attività ricorrenti.</li>
             <li>Modalità vocale conversazionale (Gemini Live) per interazioni rapide.</li>
           </ul>
@@ -645,7 +703,7 @@
                 <li>Qualità delle risposte testuali meno uniforme rispetto ad altri chatbot, soprattutto nei testi complessi.</li>
                 <li>Minore controllo sullo stile e sul tono rispetto a strumenti più orientati alla scrittura.</li>
                 <li>In conversazioni molto lunghe può dimenticare alcune cose dette o commettere errori.</li>
-                <li>Alcune funzioni avanzate (come l’integrazione col Google Workspace) dipendono dal piano Google utilizzato e non sono gratuite.</li>
+                <li>Alcune funzioni avanzate (come l'integrazione col Google Workspace) dipendono dal piano Google utilizzato e non sono gratuite.</li>
               </ul>
             </div>
           </div>
@@ -660,11 +718,11 @@
           </ul>
         </div>
 
-    <!-- CLAUDE -->
+        <!-- CLAUDE -->
         <div class="bot-card" id="bot-claude">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-claude"></use></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-claude"></use></svg>
               <h3 class="bot-title">Claude (Anthropic)</h3>
             </div>
             <span class="bot-badge">Alta qualità ma limitato nell'uso</span>
@@ -715,11 +773,11 @@
           </ul>
         </div>
 
-   <!-- PERPLEXITY -->
+        <!-- PERPLEXITY -->
         <div class="bot-card" id="bot-perplexity">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-perplexity"></use></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-perplexity"></use></svg>
               <h3 class="bot-title">Perplexity (Perplexity AI)</h3>
             </div>
             <span class="bot-badge">Motore di ricerca che cita le fonti</span>
@@ -770,11 +828,11 @@
           </ul>
         </div>
 
-   <!-- COPILOT -->
+        <!-- COPILOT -->
         <div class="bot-card" id="bot-copilot">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-copilot"></use></svg>
+              <svg class="bot-icon" viewBox="2 4 43.998 40" aria-hidden="true"><use href="#icon-copilot"></use></svg>
               <h3 class="bot-title">Copilot (Microsoft)</h3>
             </div>
             <span class="bot-badge">Utile se usato in Microsoft 365</span>
@@ -817,11 +875,11 @@
           </ul>
         </div>
 
-    <!-- GROK -->
+        <!-- GROK -->
         <div class="bot-card" id="bot-grok">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-grok"></use></svg>
+              <svg class="bot-icon" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#icon-grok"></use></svg>
               <h3 class="bot-title">Grok (xAI)</h3>
             </div>
             <span class="bot-badge">Poco orientato alla didattica</span>
@@ -866,14 +924,14 @@
           </ul>
         </div>
 
-<!-- KIMI -->
+        <!-- KIMI -->
         <div class="bot-card" id="bot-kimi">
           <div class="bot-header">
             <div class="bot-title-group">
-              <svg class="bot-icon" aria-hidden="true"><use href="#icon-kimi"></use></svg>
+              <svg class="bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-kimi"></use></svg>
               <h3 class="bot-title">Kimi (Moonshot AI)</h3>
             </div>
-            <span class="bot-badge">TRattamento di file molto lunghi</span>
+            <span class="bot-badge">Trattamento di file molto lunghi</span>
           </div>
 
           <p class="bot-desc">Assistente conversazionale sviluppato da Moonshot AI, specializzato nella gestione di contesti molto ampi e nell'analisi di grandi quantità di testo. È particolarmente efficace nel lavorare su documenti estesi, come antologie, dispense, programmi ministeriali o raccolte di fonti, mantenendo il filo dell'analisi durante la conversazione.</p>
@@ -914,10 +972,14 @@
             <li>Grandi archivi di PDF</li>
           </ul>
         </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
       </section>
 
       <!-- ==================== PARTE 2: TABELLA RIEPILOGATIVA ==================== -->
-      <section class="section-block">
+      <section class="section-block" id="parte2">
         <span class="section-tag-header summary">Parte 2 — Quadro Comparativo Completo</span>
         <h2 class="section-title">Tabella Sintetica delle Piattaforme</h2>
         <p>Uno schema integrato che sintetizza il valore didattico, le dinamiche di modello/token e i pro e contro di ciascun chatbot per i docenti delle discipline umanistiche.</p>
@@ -936,7 +998,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-chatgpt"></use></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 256 260" aria-hidden="true"><use href="#icon-chatgpt"></use></svg>
                     ChatGPT
                   </div>
                 </td>
@@ -950,7 +1012,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-gemini"></use></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-gemini"></use></svg>
                     Gemini
                   </div>
                 </td>
@@ -964,7 +1026,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-claude"></use></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-claude"></use></svg>
                     Claude
                   </div>
                 </td>
@@ -978,7 +1040,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-perplexity"></use></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-perplexity"></use></svg>
                     Perplexity
                   </div>
                 </td>
@@ -992,7 +1054,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-copilot"></use></svg>
+                    <svg class="table-bot-icon" viewBox="2 4 43.998 40" aria-hidden="true"><use href="#icon-copilot"></use></svg>
                     Copilot
                   </div>
                 </td>
@@ -1006,7 +1068,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-grok"></use></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#icon-grok"></use></svg>
                     Grok
                   </div>
                 </td>
@@ -1020,7 +1082,7 @@
               <tr>
                 <td>
                   <div class="table-bot-cell">
-                    <svg class="table-bot-icon" aria-hidden="true"><use href="#icon-kimi"></use></svg>
+                    <svg class="table-bot-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-kimi"></use></svg>
                     Kimi
                   </div>
                 </td>
@@ -1034,10 +1096,14 @@
             </tbody>
           </table>
         </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
       </section>
 
       <!-- ==================== PARTE 3: CONSIGLI PER ATTIVITÀ DIDATTICHE ==================== -->
-      <section class="section-block">
+      <section class="section-block" id="parte3">
         <span class="section-tag-header summary">Parte 3 — Quale Chatbot per Quale Attività</span>
         <h2 class="section-title">Consigli d'Uso per le Attività Didattiche Canoniche</h2>
         <p>Nessun chatbot è il migliore in assoluto: la scelta cambia in base al compito. Ecco un orientamento rapido per alcune attività ricorrenti nella pratica di Italiano e Latino.</p>
@@ -1089,10 +1155,14 @@
         <div class="note-box">
           💡 <strong>Un consiglio trasversale:</strong> qualunque sia lo strumento scelto, la qualità dell'output dipende più dalla precisione del prompt che dalla piattaforma. Rivedete i criteri visti nella prima lezione (struttura R-C-I-F) prima di giudicare i risultati.
         </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
       </section>
 
       <!-- ==================== PARTE 4: LABORATORIO ED ESERCIZI ==================== -->
-      <section class="section-block">
+      <section class="section-block" id="parte4">
         <span class="section-tag-header lab">Parte 4 — Laboratorio Pratico</span>
         <h2 class="section-title">Esercitazioni per il Confronto Critico</h2>
         <p>Attività pratiche da svolgere durante i corsi di formazione per sperimentare direttamente sul campo le differenze operative, i limiti dei token e le peculiarità dei diversi chatbot.</p>
@@ -1151,6 +1221,10 @@
           <h4 class="exercise-title">Esercizio 4: Gestione dei Maxidocumenti (Gemini vs Kimi)</h4>
           <p><strong>Obiettivo:</strong> testare la capacità di elaborazione dei grandi contesti su file di programmazione o libri di testo.</p>
           <p><strong>Consegna:</strong> carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
+        </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
         </div>
       </section>
 

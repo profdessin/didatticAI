@@ -444,6 +444,77 @@
     color: var(--color-primary);
   }
 
+  /* ---------- MATERIALI SCARICABILI ---------- */
+  .download-intro {
+    margin-bottom: 20px;
+    color: var(--color-text);
+  }
+
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .download-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: all 0.25s ease;
+  }
+  .download-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+
+  .download-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .download-icon svg { width: 20px; height: 20px; }
+  .download-icon.icon-pdf { background: #FBE7E7; color: #B91C1C; }
+  .download-icon.icon-ppt { background: #FDECD8; color: #C2680C; }
+
+  .download-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .download-title {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.93rem;
+    line-height: 1.35;
+  }
+  .download-filename {
+    font-size: 0.78rem;
+    color: var(--color-secondary);
+    font-family: 'Courier New', monospace;
+  }
+
+  .file-badge {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .file-badge.badge-pdf { background: #B91C1C; color: #ffffff; }
+  .file-badge.badge-ppt { background: #C2680C; color: #ffffff; }
+
   /* ---------- PULSANTI FINALI DI NAVIGAZIONE ---------- */
   .navigation-buttons {
     display: flex;
@@ -559,6 +630,9 @@
     <symbol id="icon-kimi" viewBox="0 0 24 24">
       <path d="M21.765.351C22.998.351 24 1.353 24 2.586S22.998 4.82 21.765 4.82h-1.974c-.15 0-.26-.12-.26-.26V2.586A2.237 2.237 0 0 1 21.765.35M9.41 13.388l8.447-8.377c.16-.16.07-.471-.14-.471h-4.55s-.1.02-.14.06l-9.099 9.029c-.14.14-.35.02-.35-.21V4.81c0-.15-.1-.27-.221-.27H.22c-.12 0-.22.12-.22.27v18.57c0 .15.1.27.22.27h3.137c.12 0 .22-.12.22-.27v-3.79c0-.08.03-.16.08-.21l2.826-2.796c.07-.07.16-.08.241-.03l7.546 5.551a8.9 8.9 0 0 0 4.018 1.493c.12.01.23-.11.23-.27V19.76c0-.14-.08-.25-.19-.26a5.8 5.8 0 0 1-2.355-.942l-6.533-4.73c-.14-.09-.15-.32-.03-.441"/>
     </symbol>
+    <symbol id="icon-doc" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h8v1.5H8V13zm0 3.5h8V19H8v-1.5zm0-7h4V11H8V9.5z"/>
+    </symbol>
   </svg>
 
   <header class="navbar" id="navbar">
@@ -597,6 +671,7 @@
         <a href="#parte2">Tabella comparativa</a>
         <a href="#parte3">Consigli d'uso</a>
         <a href="#parte4">Laboratorio pratico</a>
+        <a href="#downloads">Materiali scaricabili</a>
       </div>
 
       <!-- ==================== PARTE 1: ANALISI DEI CHATBOT ==================== -->
@@ -606,7 +681,7 @@
         <p>Nella pratica scegliere un chatbot non significa solo valutare la qualità delle risposte, ma comprendere come ciascuna piattaforma gestisce i <strong>modelli di intelligenza artificiale</strong>, le <strong>finestre di contesto (token)</strong> e le <strong>quote di utilizzo</strong>. Questi parametri cambiano molto spesso: i numeri riportati qui sotto vanno quindi presi come un ordine di grandezza, non come un valore fisso e garantito nel tempo.</p>
 
         <p>Può essere disorientante districarsi tra la selva dei vari chatbot e per questo proponiamo questa sezione. Va detto però che più che un bot specifico, è sempre la costruzione di un prompt accurato e preciso a garantirvi un prodotto di qualità. Inoltre è preferibile usare il chatbot che riteniamo preferibile e più consono al nostro gusto e alla nostra sensibilità.</p>
-        <p>Se si può azzardare un consiglio, generalmente ChatGPT e Gemini offrono la soluzione migliore e più semplice da ottenere; per i compiti più complessi si può usare Claude.</p>
+        <p>Se ci si può azzardare un consiglio, generalmente ChatGPT e Gemini offrono la soluzione migliore e più semplice da ottenere; per i compiti più complessi si può usare Claude.</p>
 
         <div class="update-banner">
           🗓️ <span>Dati verificati ad agosto 2026 — prima di una lezione, ricontrollate sempre la pagina ufficiale della piattaforma, perché piani e limiti cambiano con frequenza.</span>
@@ -1203,6 +1278,53 @@
           <h4 class="exercise-title">Esercizio 4: Gestione dei Maxidocumenti (Gemini vs Kimi)</h4>
           <p><strong>Obiettivo:</strong> testare la capacità di elaborazione dei grandi contesti su file di programmazione o libri di testo.</p>
           <p><strong>Consegna:</strong> carica un intero file PDF (es. le Indicazioni Nazionali per i Licei o una dispensa di storia della letteratura di 50 pagine) su Gemini e su Kimi. Chiedi di estrarre tutti i riferimenti all'insegnamento dell'Italiano nel triennio e di sintetizzarli in uno schema operativo.</p>
+        </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
+      </section>
+
+      <!-- ==================== MATERIALI SCARICABILI ==================== -->
+      <section class="section-block" id="downloads">
+        <span class="section-tag-header">Risorse e Download</span>
+
+        <div class="download-grid">
+          <a href="download/chatbot.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sul confronto tra vari chatbot</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
+          <a href="download/chatbot-tabelle.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sulle tabelle di confronto</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
+          <a href="download/chatbot-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sugli esercizi sui vari chatbot</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
+          <a href="download/chatbot-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Presentazione sul confronto tra vari chatbot</span>
+            </span>
+            <span class="file-badge badge-ppt">PPT</span>
+          </a>
+          <a href="download/chatbot-presentazione-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Presentazione sugli esercizi sui vari chatbot</span>
+            </span>
+            <span class="file-badge badge-ppt">PPT</span>
+          </a>
         </div>
 
         <div class="back-to-top-wrap">

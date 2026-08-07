@@ -108,6 +108,7 @@
     background: var(--color-header); 
     text-align: center; 
     border-bottom: 1px solid var(--color-border); 
+    scroll-margin-top: 90px;
   }
   .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
   .page-header p { font-size: 1.15rem; color: var(--color-secondary); font-weight: 500; max-width: 750px; margin: 0 auto; }
@@ -122,6 +123,7 @@
     margin-bottom: 50px;
     box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
+    scroll-margin-top: 90px;
   }
 
   .section-tag-header {
@@ -209,6 +211,50 @@
     border-radius: 12px;
     padding: 25px;
     margin: 25px 0;
+  }
+
+  /* ---------- NAV RAPIDA TRA LE PARTI ---------- */
+  .part-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .part-nav a {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 14px rgba(14, 58, 82, 0.15);
+    transition: all 0.25s ease;
+  }
+  .part-nav a:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  .back-to-top-wrap {
+    text-align: right;
+    margin-top: 35px;
+  }
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+  }
+  .back-to-top:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border-color: var(--color-secondary);
   }
 
   /* ---------- PULSANTI FINALI DI NAVIGAZIONE ---------- */
@@ -322,90 +368,80 @@
   }
 
   /* ---------- MATERIALI SCARICABILI ---------- */
-.download-intro {
-  margin-bottom: 20px;
-  color: var(--color-text);
-}
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
 
-.download-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-}
+  .download-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: all 0.25s ease;
+  }
+  .download-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
 
-.download-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 16px 18px;
-  transition: all 0.25s ease;
-}
-.download-card:hover {
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-soft);
-  transform: translateY(-2px);
-}
+  .download-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .download-icon svg { 
+    width: 20px; 
+    height: 20px; 
+  }
+  .download-icon.icon-pdf { 
+    background: #FBE7E7; 
+    color: #B91C1C; 
+  }
+  .download-icon.icon-ppt { 
+    background: #FDECD8; 
+    color: #C2680C; 
+  }
 
-.download-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.download-icon svg { 
-  width: 20px; 
-  height: 20px; 
-}
-.download-icon.icon-pdf { 
-  background: #FBE7E7; 
-  color: #B91C1C; 
-}
-.download-icon.icon-ppt { 
-  background: #FDECD8; 
-  color: #C2680C; 
-}
+  .download-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .download-title {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.93rem;
+    line-height: 1.35;
+  }
 
-.download-info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.download-title {
-  font-weight: 600;
-  color: var(--color-primary);
-  font-size: 0.93rem;
-  line-height: 1.35;
-}
-.download-filename {
-  font-size: 0.78rem;
-  color: var(--color-secondary);
-  font-family: 'Courier New', monospace;
-}
-
-.file-badge {
-  flex-shrink: 0;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-.file-badge.badge-pdf { 
-  background: #B91C1C; 
-  color: #ffffff; 
-}
-.file-badge.badge-ppt { 
-  background: #C2680C; 
-  color: #ffffff; 
-}
+  .file-badge {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .file-badge.badge-pdf { 
+    background: #B91C1C; 
+    color: #ffffff; 
+  }
+  .file-badge.badge-ppt { 
+    background: #C2680C; 
+    color: #ffffff; 
+  }
 
   /* ---------- FOOTER ---------- */
   footer { 
@@ -436,10 +472,18 @@
     .comparison-grid { grid-template-columns: 1fr; }
     .navigation-buttons { flex-direction: column; }
     .btn { width: 100%; }
+    .back-to-top-wrap { text-align: left; }
   }
 </style>
 </head>
 <body>
+
+  <!-- ==================== SPRITE ICONE ==================== -->
+  <svg width="0" height="0" style="position:absolute; overflow:hidden" aria-hidden="true">
+    <symbol id="icon-doc" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h8v1.5H8V13zm0 3.5h8V19H8v-1.5zm0-7h4V11H8V9.5z"/>
+    </symbol>
+  </svg>
 
   <header class="navbar" id="navbar">
     <div class="nav-inner">
@@ -461,7 +505,7 @@
     </div>
   </header>
 
-  <div class="page-header">
+  <div class="page-header" id="page-top">
     <div class="container">
       <h1>Il funzionamento dei chatbot</h1>
       <p>Capire come funziona un chatbot, che cos'è un token, quale sforzo comporta la creazione di un'immagine sono tutte conoscenze fondamentali per l'applicazione della IA alla didattica</p>
@@ -471,12 +515,19 @@
   <div class="main-wrapper">
     <div class="container">
 
+      <!-- ==================== NAV RAPIDA TRA LE PARTI ==================== -->
+      <div class="part-nav">
+        <a href="#parte1">Teoria e architettura</a>
+        <a href="#parte2">Esercizi e laboratorio</a>
+        <a href="#downloads">Materiali scaricabili</a>
+      </div>
+
       <!-- ==================== PARTE TEORICA ==================== -->
-      <section class="section-block">
+      <section class="section-block" id="parte1">
         <span class="section-tag-header">Parte 1 — Teoria e Architettura</span>
         
         <h2 class="section-title">Introduzione</h2>
-        <p>L’Intelligenza Artificiale Generativa sta entrando con forza nel mondo della scuola. Per utilizzare i chatbot in modo consapevole, efficace e critico, è fondamentale smontare l'illusione che questi strumenti siano "menti umane" o "oracoli che sanno tutto". Un chatbot non pensa, non comprende e non ha una coscienza: è un raffinato software statistico. Comprenderne la struttura interna permette ai docenti di sfruttarne il potenziale ed evitarne le insidie.</p>
+        <p>L'Intelligenza Artificiale Generativa sta entrando con forza nel mondo della scuola. Per utilizzare i chatbot in modo consapevole, efficace e critico, è fondamentale smontare l'illusione che questi strumenti siano "menti umane" o "oracoli che sanno tutto". Un chatbot non pensa, non comprende e non ha una coscienza: è un raffinato software statistico. Comprenderne la struttura interna permette ai docenti di sfruttarne il potenziale ed evitarne le insidie.</p>
 
         <!-- MODULO 1 -->
         <h3 class="phase-title">Modulo 1: Cos'è e come "pensa" un Chatbot</h3>
@@ -643,10 +694,13 @@
         <p><strong>L'IA come assistente, non come sostituto:</strong> L'IA è un eccellente "copilota" per la stesura di bozze, la creazione di varianti di verifiche o la semplificazione di testi, ma la scelta pedagogica e il controllo della qualità spettano interamente al docente.</p>
         <p><strong>Modellizzazione per gli studenti:</strong> Dichiarare ai colleghi e agli studenti quando e come si è utilizzata l'IA per preparare un materiale didattico è il primo passo per insegnare anche ai ragazzi un uso etico e trasparente della tecnologia.</p>
 
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
       </section>
 
     <!-- ==================== PARTE ESERCIZI-LABORATORIO ==================== -->
-      <section class="section-block">
+      <section class="section-block" id="parte2">
         <span class="section-tag-header lab">Parte 2 — Esercizi e Laboratorio Pratico</span>
         <h2 class="section-title">Schede Applicative e Laboratorio</h2>
         <p>Metti alla prova quanto appreso nei moduli teorici. Attraverso questi esercizi di analisi e simulazione potrai prendere dimestichezza con la gestione dei token, la finestra di contesto, la verifica delle allucinazioni e la tutela della privacy.</p>
@@ -705,52 +759,54 @@
           <p><strong>Obiettivo:</strong> Saper scegliere l'architettura di IA più adatta al tipo di compito didattico.</p>
           <p><strong>La tua consegna:</strong> Prendi un problema logico, un'analisi del periodo complessa o un quesito di programmazione didattica per obiettivi differenti. Sottoponi lo stesso identico prompt a due modelli diversi (es. un modello rapido/standard come <em>Flash / GPT-4o-mini</em> e un modello di ragionamento come <em>Thinking / o3-mini</em>). Confronta i passaggi intermedi della risposta e la profondità della soluzione.</p>
         </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
       </section>
 
-<!-- ==================== MATERIALI SCARICABILI ==================== -->
-<section class="section-block" id="downloads">
-  <span class="section-tag-header">Risorse e Download</span>
-  <h2 class="section-title">Materiali da scaricare</h2>
-  <p>Documenti e risorse di approfondimento utili per lo studio personale o per la conduzione delle attività in aula.</p>
+      <!-- ==================== MATERIALI SCARICABILI ==================== -->
+      <section class="section-block" id="downloads">
+        <span class="section-tag-header">Risorse e Download</span>
 
-  <div class="download-grid">
-    <a href="download/funzione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
-      <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
-      <span class="download-info">
-        <span class="download-title">Foglio di riepilogo stampabile sul funzionamento dei chatbot (Teoria)</span>
-      </span>
-      <span class="file-badge badge-pdf">PDF</span>
-    </a>
+        <div class="download-grid">
+          <a href="download/funzione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sul funzionamento dei chatbot (Teoria)</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
 
-    <a href="download/funzione-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
-      <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
-      <span class="download-info">
-        <span class="download-title">Foglio di riepilogo stampabile sugli esercizi</span>
-      </span>
-      <span class="file-badge badge-pdf">PDF</span>
-    </a>
+          <a href="download/funzione-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sugli esercizi</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
 
-    <a href="download/funzione-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
-      <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
-      <span class="download-info">
-        <span class="download-title">Presentazione sul funzionamento dei chatbot</span>
-      </span>
-      <span class="file-badge badge-ppt">PPT</span>
-    </a>
+          <a href="download/funzione-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Presentazione sul funzionamento dei chatbot</span>
+            </span>
+            <span class="file-badge badge-ppt">PPT</span>
+          </a>
 
-    <a href="download/funzione-presentazione-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
-      <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
-      <span class="download-info">
-        <span class="download-title">Presentazione sugli esercizi sul funzionamento dei chatbot</span>
-      </span>
-      <span class="file-badge badge-ppt">PPT</span>
-    </a>
-  </div>
+          <a href="download/funzione-presentazione-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Presentazione sugli esercizi sul funzionamento dei chatbot</span>
+            </span>
+            <span class="file-badge badge-ppt">PPT</span>
+          </a>
+        </div>
 
-  <div class="back-to-top-wrap">
-    <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
-  </div>
-</section>
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
+      </section>
 
       <!-- ==================== BOTTONI DI NAVIGAZIONE ==================== -->
       <div class="navigation-buttons">

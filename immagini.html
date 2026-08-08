@@ -154,8 +154,6 @@
     font-size: 1.5rem;
     margin: 40px 0 15px;
     color: var(--color-secondary);
-    border-left: 4px solid var(--color-accent);
-    padding-left: 12px;
   }
 
   h4.sub-phase-title {
@@ -249,6 +247,29 @@
 
   .summary-table strong.tool-name {
     color: var(--color-primary);
+  }
+
+  .tool-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 120px;
+  }
+  .tool-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+  }
+  .tool-icon.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #ffffff;
   }
 
   .tag-category {
@@ -451,6 +472,40 @@
     <symbol id="icon-doc" viewBox="0 0 24 24">
       <path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h8v1.5H8V13zm0 3.5h8V19H8v-1.5zm0-7h4V11H8V9.5z"/>
     </symbol>
+    <symbol id="icon-chatgpt" viewBox="0 0 256 260">
+      <path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z"/>
+    </symbol>
+    <symbol id="icon-gemini" viewBox="0 0 24 24">
+      <path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/>
+    </symbol>
+    <symbol id="icon-copilot" viewBox="2 4 43.998 40">
+      <path fill="url(#capA)" d="M34.142 7.325A4.63 4.63 0 0 0 29.7 4h-1.35a4.63 4.63 0 0 0-4.554 3.794L21.48 20.407l.575-1.965a4.63 4.63 0 0 1 4.444-3.33h7.853l3.294 1.282 3.175-1.283h-.926a4.63 4.63 0 0 1-4.443-3.325l-1.31-4.461z"/>
+      <path fill="url(#capB)" d="M14.33 40.656A4.63 4.63 0 0 0 18.779 44h2.87a4.63 4.63 0 0 0 4.629-4.51l.312-12.163-.654 2.233a4.63 4.63 0 0 1-4.443 3.329h-7.919l-2.823-1.532-3.057 1.532h.912a4.63 4.63 0 0 1 4.447 3.344l1.279 4.423z"/>
+      <path fill="url(#capC)" d="M29.5 4H13.46c-4.583 0-7.332 6.057-9.165 12.113C2.123 23.29-.72 32.885 7.503 32.885h6.925a4.63 4.63 0 0 0 4.456-3.358 2078.617 2078.617 0 0 1 4.971-17.156c.843-2.843 1.544-5.284 2.621-6.805C27.08 4.714 28.086 4 29.5 4z"/>
+      <path fill="url(#capD)" d="M29.5 4H13.46c-4.583 0-7.332 6.057-9.165 12.113C2.123 23.29-.72 32.885 7.503 32.885h6.925a4.63 4.63 0 0 0 4.456-3.358 2078.617 2078.617 0 0 1 4.971-17.156c.843-2.843 1.544-5.284 2.621-6.805C27.08 4.714 28.086 4 29.5 4z"/>
+      <path fill="url(#capE)" d="M18.498 44h16.04c4.582 0 7.332-6.058 9.165-12.115 2.171-7.177 5.013-16.775-3.208-16.775h-6.926a4.63 4.63 0 0 0-4.455 3.358 2084.036 2084.036 0 0 1-4.972 17.16c-.842 2.843-1.544 5.285-2.62 6.806-.604.852-1.61 1.566-3.024 1.566z"/>
+      <path fill="url(#capF)" d="M18.498 44h16.04c4.582 0 7.332-6.058 9.165-12.115 2.171-7.177 5.013-16.775-3.208-16.775h-6.926a4.63 4.63 0 0 0-4.455 3.358 2084.036 2084.036 0 0 1-4.972 17.16c-.842 2.843-1.544 5.285-2.62 6.806-.604.852-1.61 1.566-3.024 1.566z"/>
+      <defs>
+        <radialGradient id="capA" cx="0" cy="0" r="1" gradientTransform="matrix(-10.96051 -13.38922 12.59013 -10.30637 38.005 20.514)" gradientUnits="userSpaceOnUse"><stop offset=".096" stop-color="#00AEFF"/><stop offset=".773" stop-color="#2253CE"/><stop offset="1" stop-color="#0736C4"/></radialGradient>
+        <radialGradient id="capB" cx="0" cy="0" r="1" gradientTransform="rotate(51.84 -28.201 27.85) scale(15.9912 15.5119)" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB657"/><stop offset=".634" stop-color="#FF5F3D"/><stop offset=".923" stop-color="#C02B3C"/></radialGradient>
+        <radialGradient id="capE" cx="0" cy="0" r="1" gradientTransform="rotate(109.274 16.301 20.802) scale(38.3873 45.9867)" gradientUnits="userSpaceOnUse"><stop offset=".066" stop-color="#8C48FF"/><stop offset=".5" stop-color="#F2598A"/><stop offset=".896" stop-color="#FFB152"/></radialGradient>
+        <linearGradient id="capC" x1="12.5" x2="14.788" y1="7.5" y2="33.975" gradientUnits="userSpaceOnUse"><stop offset=".156" stop-color="#0D91E1"/><stop offset=".487" stop-color="#52B471"/><stop offset=".652" stop-color="#98BD42"/><stop offset=".937" stop-color="#FFC800"/></linearGradient>
+        <linearGradient id="capD" x1="14.5" x2="15.75" y1="4" y2="32.885" gradientUnits="userSpaceOnUse"><stop stop-color="#3DCBFF"/><stop offset=".247" stop-color="#0588F7" stop-opacity="0"/></linearGradient>
+        <linearGradient id="capF" x1="42.586" x2="42.569" y1="13.346" y2="21.215" gradientUnits="userSpaceOnUse"><stop offset=".058" stop-color="#F8ADFA"/><stop offset=".708" stop-color="#A86EDD" stop-opacity="0"/></linearGradient>
+      </defs>
+    </symbol>
+    <symbol id="icon-ideogram" viewBox="0 0 24 24">
+      <path d="M17.768 1.482a6.4 6.4 0 012.988 3.78c.19.068.377.154.555.257.026.015.05.03.073.047.226.137.436.301.627.49a3.377 3.377 0 01-.105 4.875 3.376 3.376 0 01-.216 5.158l-.037.029.021.032c.39.602.585 1.324.534 2.065l-.009.11a3.377 3.377 0 01-4.658 2.777 3.377 3.377 0 01-5.846.971 4.052 4.052 0 01-1.635.397c-.04.005-.082.008-.125.008h-.897l-.068-.003c-1.116-.067-1.093-1.775.068-1.775h.804l.046-.004.047-.001a2.3 2.3 0 00.079-4.6.735.735 0 01-.08.005H2.808a.889.889 0 010-1.778h7.034l.046-.004.048-.001a2.3 2.3 0 00.509-4.544l-.141-.031a2.188 2.188 0 00-.299-.046.759.759 0 01-.07.003H2.808a.889.889 0 110-1.777h7.035l.046-.004.047-.001a2.3 2.3 0 00.087-4.6.972.972 0 01-.087.004h-.897L8.97 3.32c-1.116-.067-1.093-1.775.068-1.775h.8a.9.9 0 01.097-.005c.402 0 .79.058 1.157.166l.031-.02a6.399 6.399 0 016.645-.203zm-3.737 11.484l-.068.036-.083.051a4.08 4.08 0 01-1.404 2.153 4.07 4.07 0 011.537 3.189 4.06 4.06 0 01-.92 2.579 1.599 1.599 0 002.824-1.322l-.03-.124-.013-.079-.005-.056-.001-.042.001-.058.005-.053.013-.078.018-.072.022-.064.035-.079.005-.01a.869.869 0 01.158-.217l.055-.052.041-.032.05-.035.042-.026.055-.03.073-.03.056-.02.04-.011.078-.016.073-.009.045-.002h.048l.041.002.058.006.056.01.062.015.031.01.049.017.054.023.044.021.053.031.035.023c.06.042.114.09.163.147l.038.046.034.048a1.6 1.6 0 102.4-2.07 3.256 3.256 0 01-.473.007l-.057-.005-.026-.005h-.016a3.376 3.376 0 01-2.985-2.568l-.026-.116a1.6 1.6 0 00-2.285-1.133zm-4.416 4.595a.889.889 0 110 1.777H5.939a.889.889 0 010-1.777h3.676zm9.208-10.503a1.6 1.6 0 00-.797 1.3l-.002.085a.889.889 0 01-.83.887l-.059.002a.889.889 0 01-.887-.83l-.002-.059a1.6 1.6 0 00-2.528-1.301 4.089 4.089 0 01-1.255 1.674 4.083 4.083 0 011.451 2.308 3.374 3.374 0 014.125 2.532l.02.093a1.6 1.6 0 001.395 1.26l.124.01.042.002c.06 0 .12-.003.18-.01l.085-.011.062-.015a1.6 1.6 0 00-.245-3.163l-.079-.002a.887.887 0 01-.683-.32l-.034-.044a.884.884 0 01-.154-.702.889.889 0 01.807-.71l.064-.001a1.6 1.6 0 001.134-2.728 1.6 1.6 0 00-.786-.426l-.102-.019a.856.856 0 01-.076-.016 1.592 1.592 0 00-.97.204zm-9.199 4.08a.889.889 0 010 1.778H.89a.889.889 0 010-1.777h8.735zm-.01-6.432a.889.889 0 110 1.777H5.94a.889.889 0 110-1.777h3.676zm3.297-1.954l-.053.021a4.065 4.065 0 011.126 2.36 3.375 3.375 0 013.151 1.027 3.366 3.366 0 011.695-1 4.621 4.621 0 00-5.919-2.408z"/>
+    </symbol>
+    <symbol id="icon-midjourney" viewBox="0 0 24 24">
+      <path d="M22.369 17.676c-1.387 1.259-3.17 2.378-5.332 3.417.044.03.086.057.13.083l.018.01.019.012c.216.123.42.184.641.184.222 0 .426-.061.642-.184l.018-.011.019-.011c.14-.084.266-.178.492-.366l.178-.148c.279-.232.426-.342.625-.456.304-.174.612-.266.949-.266.337 0 .645.092.949.266l.023.014c.188.109.334.219.602.442l.178.148c.221.184.346.278.483.36l.028.017.018.01c.21.12.407.181.62.185h.022a.31.31 0 110 .618c-.337 0-.645-.092-.95-.266a3.137 3.137 0 01-.09-.054l-.022-.014-.022-.013-.02-.014a5.356 5.356 0 01-.49-.377l-.159-.132a3.836 3.836 0 00-.483-.36l-.027-.017-.019-.01a1.256 1.256 0 00-.641-.185c-.222 0-.426.061-.641.184l-.02.011-.018.011c-.14.084-.266.178-.492.366l-.158.132a5.125 5.125 0 01-.51.39l-.022.014-.022.014-.09.054a1.868 1.868 0 01-.95.266c-.337 0-.644-.092-.949-.266a3.137 3.137 0 01-.09-.054l-.022-.014-.022-.013-.026-.017a4.881 4.881 0 01-.425-.325.308.308 0 01-.12-.1l-.098-.081a3.836 3.836 0 00-.483-.36l-.027-.017-.019-.01a1.256 1.256 0 00-.641-.185c-.222 0-.426.061-.642.184l-.018.011-.019.011c-.14.084-.266.178-.492.366l-.158.132a5.125 5.125 0 01-.51.39l-.023.014-.022.014-.09.054A1.868 1.868 0 0112 22c-.337 0-.645-.092-.949-.266a3.137 3.137 0 01-.09-.054l-.022-.014-.022-.013-.021-.014a5.356 5.356 0 01-.49-.377l-.158-.132a3.836 3.836 0 00-.483-.36l-.028-.017-.018-.01a1.256 1.256 0 00-.642-.185c-.221 0-.425.061-.641.184l-.019.011-.018.011c-.141.084-.266.178-.492.366l-.158.132a5.125 5.125 0 01-.511.39l-.022.014-.022.014-.09.054a1.868 1.868 0 01-.986.264c-.746-.09-1.319-.38-1.89-.866l-.035-.03c-.047-.041-.118-.106-.192-.174l-.196-.181-.107-.1-.011-.01a1.531 1.531 0 00-.336-.253.313.313 0 00-.095-.03h-.005c-.119.022-.238.059-.361.11a.308.308 0 01-.077.061l-.008.005a.309.309 0 01-.126.034 5.66 5.66 0 00-.774.518l-.416.324-.055.043a6.542 6.542 0 01-.324.236c-.305.207-.552.315-.8.315a.31.31 0 01-.01-.618h.01c.09 0 .235-.062.438-.198l.04-.027c.077-.054.163-.117.27-.199l.385-.301.06-.047c.268-.206.506-.373.73-.505l-.633-1.21a.309.309 0 01.254-.451l20.287-1.305a.309.309 0 01.228.537zm-1.118.14L2.369 19.03l.423.809c.128-.045.256-.078.388-.1a.31.31 0 01.052-.005c.132 0 .26.032.386.093.153.073.294.179.483.35l.016.015.092.086.144.134.097.089c.065.06.125.114.16.144.485.418.948.658 1.554.736h.011a1.25 1.25 0 00.6-.172l.021-.011.019-.011.018-.011c.141-.084.266-.178.492-.366l.178-.148c.279-.232.426-.342.625-.456.305-.174.612-.266.95-.266.336 0 .644.092.948.266l.023.014c.188.109.335.219.603.442l.177.148c.222.184.346.278.484.36l.027.017.019.01c.215.124.42.185.641.185.222 0 .426-.061.641-.184l.019-.011.018-.011c.141-.084.267-.178.493-.366l.177-.148c.28-.232.427-.342.626-.456.304-.174.612-.266.949-.266.337 0 .644.092.949.266l.025.015c.187.109.334.22.603.443 1.867-.878 3.448-1.811 4.73-2.832l.02-.016zM3.653 2.026C6.073 3.06 8.69 4.941 10.8 7.258c2.46 2.7 4.109 5.828 4.637 9.149a.31.31 0 01-.421.335c-2.348-.945-4.54-1.258-6.59-1.02-1.739.2-3.337.792-4.816 1.703-.294.182-.62-.182-.405-.454 1.856-2.355 2.581-4.99 2.343-7.794-.195-2.292-1.031-4.61-2.284-6.709a.31.31 0 01.388-.442zM10.04 4.45c1.778.543 3.892 2.102 5.782 4.243 1.984 2.248 3.552 4.934 4.347 7.582a.31.31 0 01-.401.38l-.022-.01-.386-.154a10.594 10.594 0 00-.291-.112l-.016-.006c-.68-.247-1.199-.291-1.944-.101a.31.31 0 01-.375-.218C15.378 11.123 13.073 7.276 9.775 5c-.291-.201-.072-.653.266-.55zM4.273 2.996l.008.015c1.028 1.94 1.708 4.031 1.885 6.113.213 2.513-.31 4.906-1.673 7.092l-.02.031.003-.001c1.198-.581 2.47-.969 3.825-1.132l.055-.006c1.981-.23 4.083.029 6.309.837l.066.025-.007-.039c-.593-2.95-2.108-5.737-4.31-8.179l-.07-.078c-1.785-1.96-3.944-3.6-6.014-4.65l-.057-.028zm7.92 3.238l.048.048c2.237 2.295 3.885 5.431 4.974 9.191l.038.132.022-.004c.71-.133 1.284-.063 1.963.18l.027.01.066.024.046.018-.025-.073c-.811-2.307-2.208-4.62-3.936-6.594l-.058-.065c-1.02-1.155-2.103-2.132-3.15-2.856l-.015-.011z"/>
+    </symbol>
+    <symbol id="icon-msdesigner" viewBox="0 0 24 24">
+      <path d="M11.49 2H2v9.492h9.492V2h-.002z" fill="#F25022"/>
+      <path d="M22 2h-9.492v9.492H22V2z" fill="#7FBA00"/>
+      <path d="M11.49 12.508H2V22h9.492v-9.492h-.002z" fill="#00A4EF"/>
+      <path d="M22 12.508h-9.492V22H22v-9.492z" fill="#FFB900"/>
+    </symbol>
   </svg>
 
   <header class="navbar" id="navbar">
@@ -490,6 +545,7 @@
         <a href="#parte3">L'IA visiva nella didattica</a>
         <a href="#parte4">Uso consapevole</a>
         <a href="#parte5">Prompt Cookbook</a>
+        <a href="#parte6">Esercizi e laboratorio</a>
         <a href="#downloads">Materiali scaricabili</a>
       </div>
 
@@ -577,7 +633,6 @@
             <thead>
               <tr>
                 <th>Strumento</th>
-                <th>Categoria</th>
                 <th>PRO</th>
                 <th>CONTRO</th>
                 <th>Piano Gratuito</th>
@@ -586,56 +641,91 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong class="tool-name">ChatGPT (DALL·E 3)</strong></td>
-                <td><span class="tag-category">Integrato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <svg class="tool-icon" viewBox="0 0 256 260" aria-hidden="true"><use href="#icon-chatgpt"></use></svg>
+                    <strong class="tool-name">ChatGPT (DALL·E 3)</strong>
+                    <span class="tag-category">Integrato</span>
+                  </div>
+                </td>
                 <td><ul><li>Utilizzo conversazionale facilissimo</li><li>Ottima comprensione di prompt complessi e in italiano</li><li>Integrato nella chat testo</li></ul></td>
                 <td><ul><li>Stile spesso un po' "illustrativo/cartoonesco"</li><li>Meno opzioni di controllo tecnico visivo</li></ul></td>
                 <td>Disponibile con limiti giornalieri nei piani gratuiti</td>
                 <td><ul><li>Modifica conversazionale delle immagini</li><li>Filtri etici molto restrittivi</li></ul></td>
               </tr>
               <tr>
-                <td><strong class="tool-name">Gemini (Imagen)</strong></td>
-                <td><span class="tag-category">Integrato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-gemini"></use></svg>
+                    <strong class="tool-name">Gemini (Nano Banana)</strong>
+                    <span class="tag-category">Integrato</span>
+                  </div>
+                </td>
                 <td><ul><li>Eccellente fotorealismo</li><li>Integrazione nativa con l'ecosistema Google (Docs, Slides)</li><li>Molto veloce</li></ul></td>
                 <td><ul><li>Molto severo nei filtri di sicurezza</li><li>Minore resa sugli stili artistici complessi</li></ul></td>
                 <td>Buona quota di generazioni gratuite</td>
                 <td><ul><li>Modifica in chat</li><li>Filtri antidisinformazione molto rigidi (marcatura SynthID)</li></ul></td>
               </tr>
               <tr>
-                <td><strong class="tool-name">Copilot Designer</strong></td>
-                <td><span class="tag-category">Integrato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-msdesigner"></use></svg>
+                    <strong class="tool-name">Microsoft Designer</strong>
+                    <span class="tag-category">Integrato</span>
+                  </div>
+                </td>
                 <td><ul><li>Accesso immediato tramite account Microsoft</li><li>Ottimo per creare copertine o schede veloci</li><li>Basato su tecnologia DALL·E</li></ul></td>
                 <td><ul><li>Meno flessibile per modifiche di dettaglio</li><li>Interfaccia essenziale con pochi controlli stilistici</li></ul></td>
                 <td>Gratuito con crediti di generazione rapida giornalieri</td>
                 <td><ul><li>Strumenti base di ritaglio e stile</li><li>Filtri di sicurezza Microsoft standard</li></ul></td>
               </tr>
               <tr>
-                <td><strong class="tool-name">Canva AI</strong></td>
-                <td><span class="tag-category">Integrato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <span class="tool-icon letter" style="background:#8B3DFF;">C</span>
+                    <strong class="tool-name">Canva AI</strong>
+                    <span class="tag-category">Integrato</span>
+                  </div>
+                </td>
                 <td><ul><li>Perfetto per la didattica: genera l'immagine e la inserisce subito in una presentazione o scheda</li><li>Molti stili preimpostati</li></ul></td>
                 <td><ul><li>La qualità grezza è leggermente inferiore ai modelli dedicati</li><li>Meno adatto al fotorealismo spinto</li></ul></td>
                 <td>Gratuito con crediti mensili (esteso per account Canva for Education)</td>
                 <td><ul><li>Suite di editing completa (rimozione sfondo, ritocco, elementi grafici)</li><li>Filtri scolastici sicuri</li></ul></td>
               </tr>
               <tr>
-                <td><strong class="tool-name">Leonardo AI</strong></td>
-                <td><span class="tag-category">Specializzato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <span class="tool-icon letter" style="background:#1F2937;">L</span>
+                    <strong class="tool-name">Leonardo AI</strong>
+                    <span class="tag-category">Specializzato</span>
+                  </div>
+                </td>
                 <td><ul><li>Controllo totale su stili, modelli e dimensioni</li><li>Genera immagini di altissima qualità grafica e artistica</li><li>Funzione Canvas per modificare parti di immagini</li></ul></td>
                 <td><ul><li>Interfaccia più complessa per un principiante (in inglese)</li><li>Molte opzioni possono disorientare inizialmente</li></ul></td>
                 <td>Crediti quotidiani gratuiti che si ricaricano ogni giorno</td>
                 <td><ul><li>Editor visivo avanzato (inpainting/outpainting)</li><li>Filtri personalizzabili</li></ul></td>
               </tr>
               <tr>
-                <td><strong class="tool-name">Ideogram</strong></td>
-                <td><span class="tag-category">Specializzato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-ideogram"></use></svg>
+                    <strong class="tool-name">Ideogram</strong>
+                    <span class="tag-category">Specializzato</span>
+                  </div>
+                </td>
                 <td><ul><li>Insuperabile nella resa del testo scritto dentro l'immagine (insegne, titoli, poster)</li><li>Ottima grafica tipografica e vettoriale</li></ul></td>
                 <td><ul><li>Meno portato per il fotorealismo puro di paesaggi o volti rispetto ad altri</li></ul></td>
                 <td>Crediti gratuiti giornalieri</td>
                 <td><ul><li>Strumenti per sostituire lo sfondo e modificare sezioni di testo</li><li>Filtri standard</li></ul></td>
               </tr>
               <tr>
-                <td><strong class="tool-name">Midjourney</strong></td>
-                <td><span class="tag-category">Specializzato</span></td>
+                <td>
+                  <div class="tool-cell">
+                    <svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-midjourney"></use></svg>
+                    <strong class="tool-name">Midjourney</strong>
+                    <span class="tag-category">Specializzato</span>
+                  </div>
+                </td>
                 <td><ul><li>La miglior qualità artistica e fotorealistica in assoluto</li><li>Coerenza stilistica straordinaria tra più immagini</li></ul></td>
                 <td><ul><li>A pagamento (nessun piano gratuito)</li><li>Curva di apprendimento più ripida, richiede l'uso di comandi specifici</li></ul></td>
                 <td>Nessuno (solo abbonamento)</td>
@@ -894,7 +984,7 @@
         <h4 class="sub-phase-title">2. L'importanza della trasparenza: citare la fonte visiva</h4>
         <p>In ambito scolastico ed educativo è fondamentale insegnare agli studenti (e applicare noi stessi) il principio di trasparenza. Ogni volta che si inserisce un'immagine generata da un'IA in un materiale didattico, in una presentazione o in un compito, è buona norma esplicitarlo chiaramente nella didascalia.</p>
         <p><strong>Formato consigliato per la didascalia:</strong></p>
-        <blockquote class="prompt-box">Didascalia: Immagine generata con [Nome dello Strumento] / Prompt di [Nome del Docente o dello Studente]<br><br><em>Esempio pratico:</em> "Ricostruzione dell'atrio di una domus romana. Immagine generata con Copilot Designer / Prompt del Prof. Daniele Virgili"</blockquote>
+        <blockquote class="prompt-box">Didascalia: Immagine generata con [Nome dello Strumento] / Prompt di [Nome del Docente o dello Studente]<br><br><em>Esempio pratico:</em> "Ricostruzione dell'atrio di una domus romana. Immagine generata con Microsoft Designer / Prompt del Prof. Daniele Virgili"</blockquote>
 
         <h4 class="sub-phase-title">3. Tutela della privacy e diritto all'immagine</h4>
         <div class="rcif-list">
@@ -1015,15 +1105,146 @@
         </div>
       </section>
 
+      <!-- ==================== PARTE 6 ==================== -->
+      <section class="section-block" id="parte6">
+        <span class="section-tag-header lab">Parte 6 — Esercizi e Laboratorio Pratico</span>
+        <h2 class="section-title">Schede Applicative e Laboratorio</h2>
+        <p>In questa pagina potrai mettere subito alla prova ciò che hai imparato nei moduli precedenti. Non si tratta di semplici verifiche teoriche, ma di esercizi operativi pensati per sviluppare il tuo "occhio critico" e aiutarti a costruire fin da subito materiali utili per le tue prossime lezioni.</p>
+
+        <div class="exercise-card">
+          <h4 class="exercise-title">🧪 Esercizio 1: La Sfida del Prompting</h4>
+          <p><em>Impara ad affinare la tua richiesta passo dopo passo</em></p>
+          <p><strong>Obiettivo:</strong> Sperimentare in prima persona come la precisione del linguaggio e la struttura del prompt modifichino radicalmente la qualità del risultato visivo.</p>
+          <p><strong>Strumento consigliato:</strong> Un generatore d'immagini a tua scelta (Microsoft Designer, ChatGPT, Gemini, Canva AI, Leonardo AI).</p>
+          <p><strong>📝 Cosa devi fare:</strong> Apri il tuo generatore d'immagini ed esegui i 3 passaggi in sequenza, senza sovrascriverli, per confrontare i risultati:</p>
+          <p><strong>Passaggio 1 – Il Prompt Generico</strong><br>Copia e incolla questa richiesta semplice:</p>
+          <blockquote class="prompt-box">"Una lezione di storia"</blockquote>
+          <p>👉 <em>Cosa osservare:</em> L'IA ha dovuto "tirare a indovinare". Quale epoca ha scelto? Che stile grafico ha usato? L'immagine è utile per una tua lezione?</p>
+          <p><strong>Passaggio 2 – Aggiunta di Soggetto e Contesto</strong><br>Ora arricchisci il prompt specificando epoca e personaggi:</p>
+          <blockquote class="prompt-box">"Una lezione di storia nel Rinascimento italiano, con un maestro che spiega una mappa su pergamena a tre studenti"</blockquote>
+          <p>👉 <em>Cosa osservare:</em> Come sono cambiati gli abiti, l'architettura e l'atmosfera generale?</p>
+          <p><strong>Passaggio 3 – Il Prompt Professionale (Strutturato)</strong><br>Infine, applica la regola completa aggiungendo stile visivo, inquadratura e luce:</p>
+          <blockquote class="prompt-box">"Illustrazione ad acquerello di una lezione di storia nel Rinascimento italiano. Un maestro in abiti trecenteschi mostra una mappa su pergamena a tre giovani studenti all'interno di uno studio con finestre ad arco. Inquadratura a mezza figura, luce naturale morbida, colori caldi dell'ocra e del terracotta, formato orizzontale 16:9."</blockquote>
+          <p>👉 <em>Cosa osservare:</em> Confronta quest'ultima immagine con la prima. Qual è l'elemento che ha fatto la differenza maggiore nel risultato finale?</p>
+        </div>
+
+        <div class="exercise-card">
+          <h4 class="exercise-title">🎨 Esercizio 2: Editing e Modifica Conversazionale</h4>
+          <p><em>Affinare e correggere un'immagine senza ripartire da zero</em></p>
+          <p><strong>Obiettivo:</strong> Imparare a dialogare con l'IA per modificare un'immagine già generata, cambiando stile o sostituendo singoli dettagli.</p>
+          <p><strong>📝 Cosa devi fare:</strong></p>
+          <p><strong>1. Genera l'immagine di partenza:</strong></p>
+          <blockquote class="prompt-box">"Un banchetto romano nel I secolo d.C. con commensali e cibo sul tavolo, pittura ad olio."</blockquote>
+          <p><strong>2. Cambia lo stile grafico via chat:</strong> Senza aprire un nuovo modulo o nuova chat, chiedi all'IA:</p>
+          <blockquote class="prompt-box">"Mantieni la stessa scena e la stessa composizione, ma trasformala in un disegno a china in bianco e nero, adatto per essere stampato su una scheda di verifica."</blockquote>
+          <p><strong>3. Effettua una modifica puntuale:</strong> Chiedi una modifica specifica su un elemento della scena:</p>
+          <blockquote class="prompt-box">"Aggiungi al centro della tavola un'anfora in terracotta decorata ben visibile."</blockquote>
+          <p><em>Se stai usando strumenti come Canva AI o Leonardo AI, prova a fare la stessa operazione usando lo strumento Gomma / Inpainting.</em></p>
+        </div>
+
+        <div class="exercise-card">
+          <h4 class="exercise-title">🕵️ Esercizio 3: Caccia all'Errore e Validazione Critica</h4>
+          <p><em>Allenare lo sguardo pedagogico e identificare le "allucinazioni visive"</em></p>
+          <p><strong>Obiettivo:</strong> Riconoscere i limiti dell'IA generativa (errori anatomici, anacronismi e fisica errata) prima di utilizzare un'immagine in classe.</p>
+          <p><strong>📝 Cosa devi fare:</strong></p>
+          <p><strong>1.</strong> Inserisci questo prompt pensato per generare una ricostruzione complessa:</p>
+          <blockquote class="prompt-box">"Un senatore romano che parla davanti al Senato a Roma, fotorealistico, folla di senatori attorno, dettagli accurati."</blockquote>
+          <p><strong>2. Esegui l'ispezione (checklist di controllo):</strong> Ingrandisci l'immagine generata ed esamina tre aspetti critici:</p>
+          <div class="rcif-list">
+            <ul>
+              <li><strong>Anatomia:</strong> Guarda le mani del senatore e i volti delle persone in secondo piano. Noti dita in più, mani fuse o volti deformati?</li>
+              <li><strong>Rigore storico:</strong> Gli abiti (toghe, tuniche) e le architetture sono coerenti con l'antica Roma o ci sono elementi fuori epoca?</li>
+              <li><strong>Luci e ombre:</strong> La fonte di luce è coerente su tutti gli elementi della scena?</li>
+            </ul>
+          </div>
+          <p><strong>3. Annotazione:</strong> Segna almeno un errore o "artefatto" emerso. Come spiegheresti questo errore ai tuoi studenti per trasformarlo in un momento di apprendimento critico?</p>
+        </div>
+
+        <div class="exercise-card">
+          <h4 class="exercise-title">📋 Esercizio 4: Progetta il tuo Materiale Didattico</h4>
+          <p><em>Project Work finale del modulo</em></p>
+          <p><strong>Obiettivo:</strong> Creare un set di 3 risorse visive coordinate pronte da utilizzare per una tua vera lezione.</p>
+          <p><strong>🎯 Il tuo compito:</strong> Scegli un argomento che dovrai spiegare prossimamente nelle tue classi e crea i seguenti 3 contenuti sfruttando i Template della Parte 5:</p>
+          <div class="rcif-list">
+            <ul>
+              <li>☐ <strong>1. La Copertina:</strong> Genera un'immagine d'impatto da usare come prima diapositiva della presentazione o come copertina della dispensa PDF.</li>
+              <li>☐ <strong>2. L'Ancoraggio Visivo:</strong> Genera un'illustrazione, un'infografica o una ricostruzione che aiuti a spiegare un concetto complesso o astratto.</li>
+              <li>☐ <strong>3. L'Esercizio Visivo:</strong> Genera un'immagine che contenga un dettaglio da far analizzare, descrivere o commentare direttamente agli studenti (es. ricerca di anacronismi, analisi dei dettagli storici).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exercise-card">
+          <h4 class="exercise-title">🖼️ Esercizio 5: Creazione di Asset e Sfondi Didattici</h4>
+          <p><em>Generare texture, sfondi e soggetti isolati per le tue schede</em></p>
+          <p><strong>Obiettivo:</strong> Creare elementi grafici funzionali (sfondi puliti, dettagli isolati su fondo bianco) pronti da scaricare e incollare all'interno di slide PowerPoint, documenti Word o presentazioni Canva.</p>
+          <p><strong>📝 Cosa devi fare:</strong> Prova a generare due tipologie di risorse utilissime per l'impaginazione:</p>
+          <p><strong>1. Uno Sfondo Neutro a Tema (Texture/Background)</strong><br>Crea uno sfondo che non interferisca con il testo che sovrapporrai:</p>
+          <blockquote class="prompt-box">"Texture di una pergamena antica ingiallita con bordi leggermente bruciati, stile minimalista, spazio centrale molto chiaro e pulito privo di scritte o immagini, formato A4 verticale, alta risoluzione."</blockquote>
+          <p>👉 <em>Utilizzo:</em> Ottima come sfondo per inserire un testo poetico o una fonte storica.</p>
+          <p><strong>2. Un Elemento Singolo Isolato (Clipart/Asset)</strong><br>Usa la parola chiave "isolato su sfondo bianco" (isolated on white background) per ottenere elementi facili da ritagliare o scontornare:</p>
+          <blockquote class="prompt-box">"Un'anfora greca a figure rosse raffigurante un guerriero, vista frontale, stile archeologico, isolata su sfondo bianco puro, illuminazione uniforme, senza ombre complesse sul fondo."</blockquote>
+          <p>👉 <em>Utilizzo:</em> Perfetta da inserire al fianco di una spiegazione o all'interno di una scheda di verifica.</p>
+        </div>
+
+        <h4 class="sub-phase-title">✅ Griglia di Autovalutazione per il Docente</h4>
+        <p>Prima di considerare conclusa la tua esercitazione, verifica la qualità delle immagini che hai prodotto rispondendo a queste domande:</p>
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Criterio</th>
+                <th>Quesito di controllo</th>
+                <th>Esito</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong class="tool-name">Pertinenza</strong></td>
+                <td>L'immagine chiarisce o arricchisce il concetto, oppure è solo un elemento decorativo?</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td><strong class="tool-name">Leggibilità</strong></td>
+                <td>Il soggetto principale è chiaro e ben distinto rispetto allo sfondo?</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td><strong class="tool-name">Inclusività (BES/DSA)</strong></td>
+                <td>La composizione è pulita, con un buon contrasto visivo e priva di caos visivo che potrebbe distrarre?</td>
+                <td>☐</td>
+              </tr>
+              <tr>
+                <td><strong class="tool-name">Trasparenza</strong></td>
+                <td>Ho annotato il nome del tool utilizzato e il prompt con cui ho generato l'immagine?</td>
+                <td>☐</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="back-to-top-wrap">
+          <a href="#page-top" class="back-to-top">↑ Torna all'inizio</a>
+        </div>
+      </section>
+
       <!-- ==================== MATERIALI SCARICABILI ==================== -->
       <section class="section-block" id="downloads">
         <span class="section-tag-header">Risorse e Download</span>
 
         <div class="download-grid">
-          <a href="download/immagini.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+          <a href="download/immagini-tool.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
             <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
             <span class="download-info">
-              <span class="download-title">Foglio di riepilogo stampabile sulla generazione di immagini (Teoria)</span>
+              <span class="download-title">Foglio di riepilogo sugli strumenti per il text-to-image</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
+
+          <a href="download/immagini-didattica.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sul prompting e l'applicazione didattica</span>
             </span>
             <span class="file-badge badge-pdf">PDF</span>
           </a>
@@ -1031,23 +1252,39 @@
           <a href="download/immagini-cookbook.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
             <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
             <span class="download-info">
-              <span class="download-title">Foglio di riepilogo stampabile su didattica e Prompt Cookbook</span>
+              <span class="download-title">Foglio di riepilogo stampabile sui Prompt pronti all'uso</span>
             </span>
             <span class="file-badge badge-pdf">PDF</span>
           </a>
 
-          <a href="download/immagini-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+          <a href="download/immagini-esercizi.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-pdf" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Foglio di riepilogo stampabile sugli esercizi</span>
+            </span>
+            <span class="file-badge badge-pdf">PDF</span>
+          </a>
+
+          <a href="download/immagini-tool-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
             <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
             <span class="download-info">
-              <span class="download-title">Presentazione sulla generazione di immagini</span>
+              <span class="download-title">Presentazione sugli strumenti per il text-to-image</span>
             </span>
             <span class="file-badge badge-ppt">PPT</span>
           </a>
 
-          <a href="download/immagini-presentazione-cookbook.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+          <a href="download/immagini-didattica-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
             <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
             <span class="download-info">
-              <span class="download-title">Presentazione su didattica e Prompt Cookbook</span>
+              <span class="download-title">Presentazione sul prompting e l'applicazione didattica</span>
+            </span>
+            <span class="file-badge badge-ppt">PPT</span>
+          </a>
+
+          <a href="download/immagini-esercizi-presentazione.pdf" class="download-card" target="_blank" rel="noopener noreferrer">
+            <span class="download-icon icon-ppt" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-doc"></use></svg></span>
+            <span class="download-info">
+              <span class="download-title">Presentazione sugli esercizi</span>
             </span>
             <span class="file-badge badge-ppt">PPT</span>
           </a>

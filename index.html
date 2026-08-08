@@ -86,7 +86,7 @@
     display: block;
   }
 
-  .nav-links { display: flex; gap: 2.2rem; }
+  .nav-links { display: flex; align-items: center; gap: 2.2rem; }
 
   .nav-links a {
     font-size: 0.95rem;
@@ -199,18 +199,6 @@
     background: var(--color-bg);
     color: var(--color-accent);
   }
-
-  .dropdown-group {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--color-secondary);
-    padding: 12px 12px 4px;
-  }
-
-  .dropdown-group:first-child { padding-top: 4px; }
 
   /* ---------- HERO / HEADER ---------- */
   .hero {
@@ -396,6 +384,11 @@
     margin-bottom: 20px;
   }
 
+  .tile-head .lesson-tags {
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+
   .lesson-tags span {
     background: var(--color-bg);
     border: 1px solid var(--color-border);
@@ -495,7 +488,6 @@
       padding: 4px 0 10px;
     }
     .dropdown-menu a.nav-link-item { padding: 8px 10px; }
-    .dropdown-group { padding: 10px 10px 2px; }
 
     .hero { padding: 110px 20px 60px; min-height: auto; }
     .section { padding: 65px 0; }
@@ -524,21 +516,17 @@
               <button type="button" class="dropdown-toggle" aria-label="Mostra elenco lezioni">▾</button>
             </span>
             <div class="dropdown-menu">
-              <span class="dropdown-group">Capire l'IA</span>
               <a href="prompting.html" class="nav-link-item">1. L'arte del Prompting</a>
               <a href="funzione.html" class="nav-link-item">2. Il funzionamento dei chatbot</a>
               <a href="chatbot.html" class="nav-link-item">3. I principali Chatbot</a>
-              <span class="dropdown-group">Creare con l'IA</span>
               <a href="immagini.html" class="nav-link-item">4. La creazione di Immagini</a>
               <a href="mappe.html" class="nav-link-item">5. La creazione di Mappe Concettuali</a>
               <a href="contenuti-visivi.html" class="nav-link-item">6. Dai contenuti alla rappresentazione visiva</a>
               <a href="audio.html" class="nav-link-item">7. La creazione di Audio e Podcast</a>
               <a href="video.html" class="nav-link-item">8. La creazione di Video</a>
-              <span class="dropdown-group">Insegnare con l'IA</span>
               <a href="verifiche.html" class="nav-link-item">9. La creazione di Verifiche</a>
               <a href="griglie.html" class="nav-link-item">10. Griglie e Rubriche di Valutazione</a>
               <a href="personalizza.html" class="nav-link-item">11. Personalizzare la Didattica</a>
-              <span class="dropdown-group">Progettare con l'IA</span>
               <a href="siti.html" class="nav-link-item">12. La creazione di Siti Web</a>
             </div>
           </li>
@@ -878,17 +866,17 @@
           <div class="tile-head">
             <span class="tile-icon">📝</span>
             <h3>Napkin</h3>
+            <div class="lesson-tags">
+              <span>Schemi visivi</span>
+              <span>Sintesi</span>
+              <span>Produttività</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
               Trasforma testi e appunti in schemi visivi chiari e accattivanti in
               pochi secondi, ideale per sintetizzare contenuti complessi.
             </p>
-            <div class="lesson-tags">
-              <span>Schemi visivi</span>
-              <span>Sintesi</span>
-              <span>Produttività</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -897,17 +885,17 @@
           <div class="tile-head">
             <span class="tile-icon">🎨</span>
             <h3>Canva</h3>
+            <div class="lesson-tags">
+              <span>Design</span>
+              <span>Presentazioni</span>
+              <span>Grafica</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
               Piattaforma di design semplice e intuitiva per creare presentazioni,
               poster e materiali grafici professionali in pochi click.
             </p>
-            <div class="lesson-tags">
-              <span>Design</span>
-              <span>Presentazioni</span>
-              <span>Grafica</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -916,17 +904,17 @@
           <div class="tile-head">
             <span class="tile-icon">🎵</span>
             <h3>Suno</h3>
+            <div class="lesson-tags">
+              <span>Musica</span>
+              <span>Creatività</span>
+              <span>Multimedia</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
               Genera brani musicali originali a partire da un semplice testo,
               perfetto per creare colonne sonore e contenuti audio didattici.
             </p>
-            <div class="lesson-tags">
-              <span>Musica</span>
-              <span>Creatività</span>
-              <span>Multimedia</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -935,17 +923,17 @@
           <div class="tile-head">
             <span class="tile-icon">📚</span>
             <h3>NotebookLM</h3>
+            <div class="lesson-tags">
+              <span>Analisi testuale</span>
+              <span>Metodo di studio</span>
+              <span>Organizzazione</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
               Assistente IA per l'analisi di testi e documenti: organizza fonti,
               appunti e produce riassunti per uno studio più efficace.
             </p>
-            <div class="lesson-tags">
-              <span>Analisi testuale</span>
-              <span>Metodo di studio</span>
-              <span>Organizzazione</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -954,6 +942,11 @@
           <div class="tile-head">
             <span class="tile-icon">🔍</span>
             <h3>Voyant Tools</h3>
+            <div class="lesson-tags">
+              <span>Analisi testuale</span>
+              <span>Linguistica</span>
+              <span>Ricerca</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
@@ -961,11 +954,6 @@
               utile per esplorare pattern linguistici e stilistici nei testi
               letterari.
             </p>
-            <div class="lesson-tags">
-              <span>Analisi testuale</span>
-              <span>Linguistica</span>
-              <span>Ricerca</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -974,6 +962,11 @@
           <div class="tile-head">
             <span class="tile-icon">🪄</span>
             <h3>MagicSchool</h3>
+            <div class="lesson-tags">
+              <span>Didattica</span>
+              <span>Pianificazione</span>
+              <span>Valutazione</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
@@ -981,11 +974,6 @@
               generare piani di lezione, verifiche, rubriche e materiali
               didattici.
             </p>
-            <div class="lesson-tags">
-              <span>Didattica</span>
-              <span>Pianificazione</span>
-              <span>Valutazione</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -994,6 +982,11 @@
           <div class="tile-head">
             <span class="tile-icon">🦙</span>
             <h3>Llama Coder</h3>
+            <div class="lesson-tags">
+              <span>Programmazione</span>
+              <span>Sviluppo Web</span>
+              <span>Automazione</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
@@ -1001,11 +994,6 @@
               web a partire da descrizioni testuali, anche senza esperienza di
               programmazione.
             </p>
-            <div class="lesson-tags">
-              <span>Programmazione</span>
-              <span>Sviluppo Web</span>
-              <span>Automazione</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
@@ -1014,17 +1002,17 @@
           <div class="tile-head">
             <span class="tile-icon">🗣️</span>
             <h3>HeyGen</h3>
+            <div class="lesson-tags">
+              <span>Video</span>
+              <span>Avatar IA</span>
+              <span>Multimedia</span>
+            </div>
           </div>
           <div class="tile-details">
             <p>
               Crea video con avatar digitali parlanti a partire da un testo,
               ideale per lezioni video e contenuti multimediali personalizzati.
             </p>
-            <div class="lesson-tags">
-              <span>Video</span>
-              <span>Avatar IA</span>
-              <span>Multimedia</span>
-            </div>
             <span class="card-link">Approfondisci →</span>
           </div>
         </a>
